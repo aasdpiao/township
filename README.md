@@ -89,6 +89,3 @@ ps. sproto 和 lsocket 均可在 mingw 下编译。
 3. 如果 signin 成功，将向服务器请求 login ；在 login 之前，会向服务器发起 ping 请求，但一定会失败。
 
 4. login 成功后，向服务器发起 ping 。
-
-
-
