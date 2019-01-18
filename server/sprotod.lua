@@ -35,7 +35,7 @@ local s2c_sproto_file = {
 	"17_daily",
 }
 
-local attr_file = "proto"
+local attr_file = "proto.attr"
 
 local function read_file(name)
 	local filename = string.format("proto/%s.sproto", name)
