@@ -304,6 +304,7 @@ function PlantRuler:watering(account_id,build_id,timestamp)
     local harvest_time = plant_object:get_harvest_time()
     harvest_time = harvest_time - WATERTIME
     plant_object:set_harvest_time(harvest_time)
+    plant_object:set_role_id(account_id)
     self.__role_object:add_friendly(FRIENDLY,SOURCE_CODE.behelped)
     return 0,FRIENDLY
 end

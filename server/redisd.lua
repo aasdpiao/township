@@ -230,7 +230,7 @@ end
 
 function CMD.dump_all()
 	local db = getconn()
-	local all_data = db:hgetall("player_dirty")
+	local all_data = db:hgetall("player_dirty") or {}
 	local players = {}
 	for i=1,#all_data,2 do
 		local key = all_data[i]
