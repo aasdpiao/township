@@ -1,0 +1,12 @@
+finish_flight_help 901{
+	request {
+        row 1 : integer
+		column 2 : integer
+        gold 3 : integer
+        exp 4 : integer
+        role_id 5 : integer
+	}
+	response {
+		result 0 : integer
+	}
+}

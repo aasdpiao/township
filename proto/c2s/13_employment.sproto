@@ -1,0 +1,63 @@
+employment_worker 1301{
+	request {
+		employ_index 0 : integer
+	}
+	response {
+		result 0 : integer
+		worker_object 1 : worker_object
+	}
+}
+
+employment_ten_worker 1302{
+	request {
+		employ_index 0 : integer
+	}
+	response {
+		result 0 : integer
+		worker_objects 1 : *worker_object
+	}
+}
+
+worker_level_up 1303{
+	request {
+		worker_id 0 : integer
+		worker_objects 1: *worker_object 
+	}
+	response {
+		result 0 : integer
+	}
+}
+
+worker_upgrade 1304{
+	request {
+		worker_id 0 : integer
+		topaz 1 : integer
+		emerald 2 : integer
+		ruby 3 : integer
+		amethyst 4 : integer
+	}
+	response {
+		result 0 : integer
+	}
+}
+
+free_employment 1305{
+	request {
+		timestamp 0 : integer
+		employ_index 1 : integer
+	}
+	response {
+		result 0 : integer
+		worker_object 1 : worker_object
+	}
+}
+
+add_upper_count 1306{
+	request {
+		slot_index 0 : integer
+		cash_count 1 : integer
+	}
+	response {
+		result 0 : integer
+	}
+}

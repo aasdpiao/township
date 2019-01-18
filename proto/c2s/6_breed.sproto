@@ -1,0 +1,41 @@
+
+start_breed 601{
+	request {
+		build_id 0 : integer
+		animal_objects 1 : *animal_object
+	}
+	response {
+		result 0 : integer
+	}
+}
+
+harvest_breed 602{
+	request {
+		build_id 0 : integer
+		animal_objects 1 : *animal_object
+	}
+	response {
+		result 0 : integer
+	}
+}
+
+promote_breed 603{
+	request {
+		build_id 0 : integer
+		animal_object 1 : animal_object
+	}
+	response {
+		result 0 : integer
+	}
+}
+
+add_breed_slot 604{
+	request {
+		build_id 0 : integer
+		gold_count 1 : integer
+		slot_index 2 : integer
+	}
+	response {
+		result 0 : integer
+	}
+}

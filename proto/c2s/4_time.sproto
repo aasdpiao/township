@@ -1,0 +1,6 @@
+synctime 401{
+	response {
+		result 0 : integer
+		timestamp 1 : integer
+	}
+}

@@ -1,0 +1,41 @@
+#阅读邮件
+read_mail 1401{
+	request {
+		mail_id 0 : integer
+	}
+	response {
+		result 0 : integer
+	}
+}
+#删除指定邮件
+delete_mail 1402{
+	request {
+		mail_id 0 : integer
+	}
+	response {
+		result 0 : integer
+	}
+}
+#删除所有已读邮件
+delete_all_read 1403{
+	response {
+		result 0 : integer
+	}
+}
+#接收邮件附件
+receive_mail 1404{
+	request {
+		mail_id 0 : integer
+		item_objects 1 : *item_object
+	}
+	response {
+		result 0 : integer
+	}
+}
+#请求邮件列表
+request_mail 1405{
+	response {
+		result 0 : integer
+		mail_objects 1 : *mail_object
+	}
+}

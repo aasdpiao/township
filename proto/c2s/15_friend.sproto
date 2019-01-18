@@ -1,0 +1,95 @@
+#删除好友
+del_friend 1501{
+	request {
+		account_id 0 : integer
+	}
+	response {
+		result 0 : integer
+	}
+}
+
+#邀请好友
+invite_friend 1502{
+	request {
+		account_id 0 : integer
+	}
+	response {
+		result 0 : integer
+		friend_object 1 : friend_object
+	}
+}
+
+#请求推荐好友
+request_recommend 1503{
+	request {
+		timestamp 0 : integer
+	}
+	response {
+		result 0 : integer
+		recommend_objects 1 : *friend_object
+	}
+}
+
+#删除自己的邀请
+del_invite 1504{
+	request {
+		account_id 0 : integer
+	}
+	response {
+		result 0 : integer
+	}
+}
+
+#删除别人的邀请
+del_verify 1505{
+	request {
+		account_id 0 : integer
+	}
+	response {
+		result 0 : integer
+	}
+}
+
+#接受请求
+accept_invite 1506{
+	request {
+		account_id 0 : integer
+	}
+	response {
+		result 0 : integer
+	}
+}
+
+#请求访问
+access_manor 1507{
+	request {
+		account_id 0 : integer
+	}
+	response {
+		account_id 0 : integer
+		town_name 1 : string
+		level 2 : integer
+		exp 3 : integer
+		avatar_index 4 : integer
+		grid_data 5 : build_data
+		plant_data 6 : plant_data
+		factory_data 7 : factory_data
+		feed_data 8 : feed_data
+		trains_data 9 : trains_data
+		seaport_data 10 : seaport_data
+		flight_data 11 : flight_data
+		helicopter_data 12 : helicopter_data
+		employment_data 13 : employment_data
+		thumb_up 14 : integer
+	}
+}
+
+thumb_up_friend 1508{
+	request {
+		account_id 0 : integer
+	}
+	response {
+		result 0 : integer
+		thumb_up 1 : integer
+	}
+}
