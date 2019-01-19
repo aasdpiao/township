@@ -1,3 +1,3 @@
 #!/bin/bash
 
-kill $(cat ../skynet.pid)
+kill $(cat skynet.pid)
