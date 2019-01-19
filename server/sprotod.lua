@@ -4,6 +4,8 @@ local sprotoloader = require "sprotoloader"
 local service = require "skynet.service"
 local syslog = require "syslog"
 
+local root = skynet.getenv("root")
+
 local c2s_sproto_file = {
 	"1_role",
 	"2_plant",
@@ -38,7 +40,7 @@ local s2c_sproto_file = {
 local attr_file = "proto.attr"
 
 local function read_file(name)
-	local filename = string.format("proto/%s.sproto", name)
+	local filename = string.format(root.."proto/%s.sproto", name)
 	local f = assert(io.open(filename), "Can't open " .. name)
 	local t = f:read "a"
 	f:close()

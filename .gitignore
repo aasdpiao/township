@@ -1,4 +1,4 @@
 township.log
-skynet.pid
+tools/skynet.pid
 log/*
 .vscode

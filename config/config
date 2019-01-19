@@ -1,8 +1,8 @@
 include "config.path"
 
-preload = "./preload/preload.lua"
+preload = root.."preload/preload.lua"
 thread = 8
-logger = "township.log"
+logger = root.."township.log"
 logpath = "."
 harbor = 1
 address = "127.0.0.1:2526"
@@ -13,7 +13,7 @@ standalone = "0.0.0.0:2013"
 -- snax_interface_g = "snax_g"
 daemon = "./skynet.pid"
 --日志配置
-log_dirname = "log"
+log_dirname = root.."log"
 log_basename = "game"
 --游戏端口
 debug_console_port = 8000
