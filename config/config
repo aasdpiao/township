@@ -5,21 +5,21 @@ thread = 8
 logger = "township.log"
 logpath = "."
 harbor = 1
-address = "127.0.0.1:6526"
-master = "127.0.0.1:6013"
+address = "127.0.0.1:2526"
+master = "127.0.0.1:2013"
 start = "main"
 bootstrap = "snlua bootstrap"
-standalone = "0.0.0.0:6013"
+standalone = "0.0.0.0:2013"
 -- snax_interface_g = "snax_g"
 daemon = "./skynet.pid"
 --日志配置
 log_dirname = "log"
 log_basename = "game"
 --游戏端口
-debug_console_port = 6000
-game_port = 6666
-login_port = 6001
-http_port = 6002
+debug_console_port = 8000
+game_port = 8888
+login_port = 8001
+http_port = 8002
 --数据库
 mysqlhost = "127.0.0.1"
 mysqlport = 3306
