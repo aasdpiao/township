@@ -1,0 +1,9 @@
+finish_achievement 1101{
+	request {
+		achievement_type 0 : integer
+		status 1 : integer
+	}
+	response {
+		result 0 : integer
+	}
+}

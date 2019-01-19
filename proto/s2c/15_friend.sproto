@@ -1,0 +1,48 @@
+#别人接受了我的好友请求
+accept_invite 1501{
+	request {
+		account_id 0 : integer
+	}
+	response {
+		result 0 : integer
+	}
+}
+
+#别人删除了我的好友
+del_friend 1502{
+	request {
+		account_id 0 : integer
+	}
+	response {
+		result 0 : integer
+	}
+}
+
+#别人删除了给我的邀请
+del_invite 1503{
+	request {
+		account_id 0 : integer
+	}
+	response {
+		result 0 : integer
+	}
+}
+
+#别人删除了我的邀请
+del_verify 1504{
+	request {
+		account_id 0 : integer
+	}
+	response {
+		result 0 : integer
+	}
+}
+
+invite_friend 1505{
+	request {
+		friend_object 0 : friend_object
+	}
+	response {
+		result 0 : integer
+	}
+}

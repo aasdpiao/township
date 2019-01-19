@@ -1,0 +1,91 @@
+unlock_market 1201{
+	request {
+		timestamp 0 : integer
+	}
+	response {
+		result 0 : integer
+		sale_objects 1 : *sale_object
+		timestamp 2 : integer
+	}
+}
+# 请求
+request_market 1202{
+	request {
+		timestamp 0 : integer
+	}
+	response {
+		result 0 : integer
+		sale_objects 1 : *sale_object
+		timestamp 2 : integer
+	}
+}
+# 刷新
+refresh_market 1203{
+	request {
+		timestamp 0 : integer
+		cash_count 1 : integer
+	}
+	response {
+		result 0 : integer
+		sale_objects 1 : *sale_object
+		timestamp 2 : integer
+	}
+}
+#购买物品
+buy_sale 1204{
+	request {
+		sale_index 0 : integer
+		gold_count 1 : integer
+	}
+	response {
+		result 0 : integer
+	}
+}
+#雇佣员工
+employ_businessman 1205{
+	request {
+		timestamp 0 : integer
+		businessman_index 1 : integer
+		cash_count 2 : integer
+	}
+	response {
+		result 0 : integer
+	}
+}
+#搜搜
+search_commodity 1206{
+	request {
+		timestamp 0 : integer
+		sale_index 1 : integer
+	}
+	response {
+		result 0 : integer
+		commodity_objects 1 : *commodity_object
+	}
+}
+#购买雇佣商品
+buy_commodity 1207{
+	request {
+		timestamp 0 : integer
+		commodity_index 1 : integer
+		sale_index 2 : integer
+		item_count 3 : integer
+		sale_price 4 : integer
+	}
+	response {
+		result 0 : integer
+	}
+}
+
+add_market_slot 1208{
+	request {
+		slot_index 0 : integer
+		cash_count 1 : integer
+	}
+	response {
+		result 0 : integer
+		sale_objects 1 : *sale_object
+		timestamp 2 : integer
+	}
+}
+

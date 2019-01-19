@@ -1,0 +1,24 @@
+local task_const = {}
+task_const.finish_trains = 1
+task_const.help_trains = 2
+task_const.finish_flight = 3
+task_const.help_flight = 4
+task_const.help_plant = 5
+task_const.thumb_up = 6
+task_const.access_manor = 7
+task_const.factory_storage = 8
+task_const.factory_product = 9
+task_const.market_buy = 10
+task_const.sale_item = 11
+task_const.feed_harvest = 12
+task_const.feed_animal = 13
+task_const.plant_harvest = 14
+task_const.plant_crop = 15
+task_const.build_decorations= 16
+task_const.finish_helicopter = 17
+task_const.refresh_helicopter = 18
+task_const.set_sail = 19
+task_const.harvest_ship = 20
+task_const.use_cash = 21
+task_const.help_pedestrian = 22
+return task_const

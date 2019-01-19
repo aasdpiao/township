@@ -1,0 +1,13 @@
+send_mail 1401{
+	request {
+		mail_id 0 : integer
+		title 1 : string
+		content 2 : string
+		timestamp 3 : integer
+		status 4 : integer
+		item_objects 5 : *item_object
+	}
+	response {
+		result 0 : integer
+	}
+}

@@ -1,0 +1,118 @@
+unlock_flight 901{
+	request {
+		timestamp 0 : integer
+		gold_count 1 : integer
+	}
+	response { 
+		result 0 : integer
+	}
+}
+
+promote_flight 902{
+	request {
+		timestamp 0 : integer
+		cash_count 1 : integer
+	}
+	response {
+		result 0 : integer
+	}
+}
+
+finish_flight 903{
+	request {
+		timestamp 0 : integer
+		item_objects 1 : *item_object
+	}
+	response {
+		result 0 : integer
+		flight_orders 1 : *flight_order
+		flight_rewards 2 : *flight_reward
+		timestamp 3 : integer
+		station_status 4 : integer
+	}
+}
+
+request_flight 904{
+	request {
+		timestamp 0 : integer
+	}
+	response {
+		result 0 : integer
+		flight_orders 1 : *flight_order
+		flight_rewards 2 : *flight_reward
+		timestamp 3 : integer
+		station_status 4 : integer
+	}
+}
+
+finish_flight_order 905{
+	request {
+		timestamp 0 : integer
+		row 1 : integer
+		column 2 : integer
+		item_object 3 : item_object
+	}
+	response {
+		result 0 : integer
+	}
+}
+
+promote_back 906 {
+	request {
+		timestamp 0 : integer
+		cash_count 1 : integer
+	}
+	response {
+		result 0 : integer
+		flight_orders 1 : *flight_order
+		flight_rewards 2 : *flight_reward
+		timestamp 3 : integer
+		station_status 4 : integer
+	}
+}
+
+take_off 907 {
+	request {
+		timestamp 0 : integer
+	}
+	response {
+		result 0 : integer
+		timestamp 1 : integer
+		station_status 2 : integer
+	}
+}
+#请求帮助
+request_flight_help 908{
+	request {
+		timestamp 0 : integer
+		row 1 : integer
+		column 2 : integer
+	}
+	response {
+		result 0 : integer
+	}
+}
+#完成帮助
+finish_flight_help 909{
+	request {
+		timestamp 0 : integer
+		row 1 : integer
+		column 2 : integer
+		item_object 3 : item_object
+		account_id 4 : integer
+	}
+	response {
+		result 0 : integer
+	}
+}
+#确认帮助
+confirm_flight_help 910{
+	request {
+		timestamp 0 : integer
+		row 1 : integer
+		column 2 : integer
+	}
+	response {
+		result 0 : integer
+	}
+}

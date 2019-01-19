@@ -1,0 +1,63 @@
+planting_cropper 201 {
+	request {
+		plant_objects 0 : *plant_object
+	}
+	response {
+		result 0 : integer
+	}
+}
+
+
+harvest_cropper 202 {
+	request {
+		plant_objects 0 : *plant_object
+	}
+	response {
+		result 0 : integer
+	}
+}
+
+promote_plant 203{
+	request {
+		timestamp 0 : integer
+		cash_count 1 : integer
+		build_id 2 : integer
+	}
+	response {
+		result 0 : integer
+	}
+}
+
+create_cloud 204{
+	request {
+		timestamp 0 : integer    #请求时间
+	}
+	response {
+		result 0 : integer       #结果 
+		cloud_count 1 : integer  #当前云朵数量
+		timestamp 2 : integer    #下一朵云生成时间
+	}
+}
+
+use_cloud 205{
+	request {
+		timestamp 0 : integer     #时间
+		build_id 1 : integer      #田的build_id
+	}
+	response {
+		result 0 : integer       #结果
+		cloud_count 1 : integer  #云的数量
+		timestamp 2 : integer    #下一朵云生成时间
+	}
+}
+
+watering 206{
+	request {
+		timestamp 0 : integer     #时间
+		build_id 1 : integer      #田的build_id
+		account_id 2 : integer
+	}
+	response {
+		result 0 : integer       #结果
+	}
+}

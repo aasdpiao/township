@@ -1,0 +1,52 @@
+
+start_product 501{
+	request {
+		build_id 0 : integer
+		product_objects 1 : *product_object
+	}
+	response {
+		result 0 : integer
+	}
+}
+
+harvest_product 502{
+	request {
+		build_id 0 : integer
+		storage_objects 1 : *storage_object
+	}
+	response {
+		result 0 : integer
+	}
+}
+
+promote_product 503{
+	request {
+		build_id 0 : integer
+		product_object 1 : product_object
+	}
+	response {
+		result 0 : integer
+	}
+}
+
+add_product_slot 504{
+	request {
+		build_id 0 : integer
+		cash_count 1 : integer
+		slot_index 2 : integer
+	}
+	response {
+		result 0 : integer
+	}
+}
+
+add_storage_slot 505{
+	request {
+		build_id 0 : integer
+		cash_count 1 : integer
+		slot_count 2 : integer
+	}
+	response {
+		result 0 : integer
+	}
+}

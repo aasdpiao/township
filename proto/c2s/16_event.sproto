@@ -1,0 +1,32 @@
+request_event 1601{
+	request {
+		timestamp 0 : integer
+	}
+	response {
+		result 0 : integer
+	    event_objects 1 : *event_object
+	    timestamp 2 : integer
+	}
+}
+
+finish_event 1602{
+    request {
+        timestamp 0 : integer
+		event_id 1 : integer
+	}
+	response {
+		result 0 : integer
+	    timestamp 1 : integer
+	}
+}
+
+cancel_event 1603{
+    request {
+		timestamp 0 : integer
+		event_id 1 : integer
+	}
+	response {
+		result 0 : integer
+	    timestamp 1 : integer
+	}
+}

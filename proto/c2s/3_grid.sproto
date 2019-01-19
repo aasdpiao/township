@@ -1,0 +1,164 @@
+
+create_build 301 {
+	request {
+		build_objects 0 : *build_object
+	}
+	response {
+		result 0 : integer
+	}
+}
+
+move_build 302{
+	request {
+		source_grid_id 0 : integer
+		build_object 1 : build_object
+	}
+	response {
+		result 0 : integer
+	}
+}
+
+promote_build 303{
+	request {
+		cash_count 0 : integer
+		build_object 1 : build_object
+	}
+	response {
+		result 0 : integer
+	}
+}
+
+finish_build 304{
+	request {
+		build_object 0 : build_object
+		item_objects 1 : *item_object
+	}
+	response {
+		result 0 : integer
+	}
+}
+
+remove_road 305{
+	request {
+		road_objects 0 : *grid_object
+	}
+	response {
+		result 0 : integer
+	}
+}
+
+create_road 306{
+	request {
+		road_objects 0 : *grid_object
+	}
+	response {
+		result 0 : integer
+	}
+}
+
+remove_green 307{
+	request {
+		green_objects 0 : *grid_object
+	}
+	response {
+		result 0 : integer
+	}
+}
+
+create_green 308{
+	request {
+		green_objects 0 : *grid_object
+	}
+	response {
+		result 0 : integer
+	}
+}
+
+create_floor 309{
+	request {
+		floor_objects  0  : *grid_object
+	}
+	response {
+		result 0 : integer
+	}
+}
+
+remove_floor 310{
+	request {
+		floor_objects 0 : *grid_object
+	}
+	response {
+		result 0 : integer
+	}
+}
+
+open_undevelop 311{
+	request {
+		timestamp 0 : integer
+		grid_id 1 : integer
+	}
+	response {
+		result 0 : integer
+	} 
+}
+
+promote_undevelop 312{
+	request {
+		timestamp 0 : integer
+		grid_id 1 : integer
+		cash_count 2 : integer
+	}
+	response {
+		result 0 : integer
+	}
+}
+
+finish_undevelop 313{
+	request {
+		timestamp 0 : integer
+		grid_id 1 : integer
+	}
+	response {
+		result 0 : integer
+	}
+}
+
+add_worker 314{
+	request {
+		timestamp 0 : integer
+		build_id 1 : integer
+		worker_id 2 : integer
+	}
+	response {
+		result 0 : integer
+	}
+}
+
+get_off_work 315{
+	request {
+		timestamp 0 : integer
+		build_id 1 : integer
+	}
+	response {
+		result 0 : integer
+	}
+}
+#出售
+sell_build 316{
+	request {
+		gold_count 0 :integer
+		grid_id 1 : integer 
+	}
+	response {
+		result 0 : integer
+	}
+}
+
+storage_build 317{
+	request {
+		grid_id 0 : integer 
+	}
+	response {
+		result 0 : integer
+	}
+}

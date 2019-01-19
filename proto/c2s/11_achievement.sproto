@@ -1,0 +1,23 @@
+request_achievement 1101{
+	response {
+		result 0 : integer
+		achievement_objects 1 : *achievement_object
+		finish_helicopter 2 : integer
+		finish_trains 3 : integer
+		finish_flight 4 : integer
+		finish_ship 5 : integer
+		finish_product 6 : integer
+	}
+}
+
+receive_achievement 1102{
+	request {
+		achievement_type 0 : integer
+		status 1 : integer
+	}
+	response {
+		result 0 : integer
+		exp 1 : integer
+		cash 2 : integer
+	}
+}
