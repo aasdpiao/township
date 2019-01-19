@@ -23,9 +23,9 @@ http_port = 8002
 --数据库
 mysqlhost = "127.0.0.1"
 mysqlport = 3306
-township_accountdb = "zdq_township_accountdb"
-township_gamedb = "zdq_township_gamedb"
-township_globaldb = "zdq_township_globaldb"
+township_accountdb = "township_accountdb"
+township_gamedb = "township_gamedb"
+township_globaldb = "township_globaldb"
 --redis
 
 redis_maxinst = 1			-- redis最大实例数
