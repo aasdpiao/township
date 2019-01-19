@@ -1,8 +1,0 @@
-send_ReInited 101{
-	request {
-		ver_id 0 : integer
-	}
-	response {
-		result 0 : integer
-	}
-}

@@ -1,9 +1,0 @@
-#通知客户端 事件更新需要发送request_event消息
-event_update 1601{
-	request {
-		timestamp 0 : integer
-	}
-	response {
-		result 0 : integer
-	}
-}
