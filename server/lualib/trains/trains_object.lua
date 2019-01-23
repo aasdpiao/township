@@ -35,7 +35,7 @@ function TrainsObject:load_trains_object(trains_object)
         local item_index = order_data.item_index
         local item_count = order_data.item_count
         local order_entry = self.__role_object:get_trains_ruler():get_order_entry(order_index)
-        local order_object = OrderObject.new(order_entry,item_index,item_count)
+        local order_object = OrderObject.new(self.__role_object,order_entry,item_index,item_count)
         order_object:load_order_object(order_data)
         self.__trains_orders[i] = order_object
     end
@@ -179,7 +179,7 @@ function TrainsObject:generate_trains_object()
         local item_index = order_entry:get_item_index()
         local item_exp = order_entry:get_order_exp()
         local item_count = math.ceil(order_exp/item_exp)
-        local order_object = OrderObject.new(order_entry,item_index,item_count)
+        local order_object = OrderObject.new(self.__role_object,order_entry,item_index,item_count)
         self.__trains_orders[i] = order_object
     end
     local trains_rewards = self.__role_object:get_trains_ruler():get_trains_rewards(count)
@@ -199,7 +199,7 @@ function TrainsObject:first_trains_object()
     for order_index,item_count in pairs(trains_orders) do
         local order_entry = self.__role_object:get_trains_ruler():get_order_entry(order_index)
         local item_index = order_entry:get_item_index()
-        local order_object = OrderObject.new(order_entry,item_index,item_count)
+        local order_object = OrderObject.new(self.__role_object,order_entry,item_index,item_count)
         table.insert(self.__trains_orders,order_object) 
     end
     local trains_rewards = self.__role_object:get_trains_ruler():get_trains_rewards(2)
@@ -343,6 +343,7 @@ function TrainsObject:finish_trains_help(account_id,order_object)
     order_object:finish_order_help()
     local exp = order_object:get_order_exp()
     local friendly = order_object:get_friendly()
+    order_object:set_role_id(account_id)
     self.__role_object:add_friendly(friendly,SOURCE_CODE.behelped)
     self.__role_object:send_request("finish_trains_help",{role_id=account_id,trains_index=self.__trains_index,order_object={order_index=order_index}})
     return 0,exp,friendly

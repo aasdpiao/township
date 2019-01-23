@@ -55,7 +55,6 @@ function FlightDispatcher.dispatcher_finish_flight_help(role_object,msg_data)
         role_object:add_exp(exp,SOURCE_CODE.help)
         role_object:add_friendly(friendly,SOURCE_CODE.help)
         role_object:get_daily_ruler():help_flight()
-        result = flight_ruler:order_help(item_object,gold,exp)
     end
     return {result = result}
 end

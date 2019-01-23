@@ -44,6 +44,7 @@ function utils.get_random_list_in_weight(total_weight,value_weight_list,count)
 		end
 		return result
 	end
+	value_weight_list = copy(value_weight_list)
 	for i=1,count do
 		local value,index = utils.get_random_value_in_weight(total_weight,value_weight_list)
 		table.insert( result,value)

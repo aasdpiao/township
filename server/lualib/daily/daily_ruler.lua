@@ -142,7 +142,10 @@ end
 
 function DailyRuler:finish_daily_task(task_index,count)
     local task_object = self.__task_map[task_index]
-    if not task_object then return end
+    if not task_object then
+        LOG_ERROR("task_index:%d err:%s",task_index,errmsg(GAME_ERROR.event_not_exist))
+        return 
+    end
     count = count or 1
     task_object:add_times(count)
     if task_object:check_can_finish() then

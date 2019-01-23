@@ -4,27 +4,27 @@
 
 local data = {}
 
-data[1] = { task_index = 1,  task_content = "发送火车",  unlock_level = 5,  times = 2,  gold = 85,  exp = 65,  icon = "rw_tb_1",  desc = "满载的火车，包括好友帮助你完成"}
-data[2] = { task_index = 2,  task_content = "帮助好友火车订单",  unlock_level = 5,  times = 1,  gold = 85,  exp = 65,  icon = "rw_tb_2",  desc = "帮好友火车装东西"}
-data[3] = { task_index = 3,  task_content = "发送飞机",  unlock_level = 17,  times = 1,  gold = 200,  exp = 100,  icon = "rw_tb_3",  desc = "满载的飞机，包括好友帮助你完成"}
-data[4] = { task_index = 4,  task_content = "帮助好友飞机订单",  unlock_level = 17,  times = 1,  gold = 200,  exp = 100,  icon = "rw_tb_4",  desc = "帮好友飞机装东西"}
-data[5] = { task_index = 5,  task_content = "帮助好友浇水",  unlock_level = 1,  times = 5,  gold = 30,  exp = 20,  icon = "rw_tb_5",  desc = "帮助好友农作物浇水"}
-data[6] = { task_index = 6,  task_content = "给好友点赞",  unlock_level = 1,  times = 1,  gold = 40,  exp = 20,  icon = "rw_tb_6",  desc = ""}
-data[7] = { task_index = 7,  task_content = "拜访好友的小镇",  unlock_level = 1,  times = 2,  gold = 20,  exp = 10,  icon = "rw_tb_7",  desc = ""}
-data[8] = { task_index = 8,  task_content = "收集物品",  unlock_level = 1,  times = 10,  gold = 100,  exp = 50,  icon = "rw_tb_8",  desc = "工厂里收获的物品，不包括饲养"}
-data[9] = { task_index = 9,  task_content = "制造物品",  unlock_level = 1,  times = 10,  gold = 100,  exp = 50,  icon = "rw_tb_9",  desc = "工厂里生产物品，不用成产完成"}
-data[10] = { task_index = 10,  task_content = "市场上购买物品",  unlock_level = 13,  times = 2,  gold = 100,  exp = 50,  icon = "rw_tb_10",  desc = "包括牛奶、鸡蛋、羊毛、蜂窝、培根"}
-data[11] = { task_index = 11,  task_content = "出售物品",  unlock_level = 1,  times = 5,  gold = 10,  exp = 10,  icon = "rw_tb_11",  desc = "在仓库里出售物品"}
-data[12] = { task_index = 12,  task_content = "收获饲养产物",  unlock_level = 1,  times = 15,  gold = 80,  exp = 50,  icon = "rw_tb_12",  desc = "饲养牛、鸡、羊、蜜蜂、猪"}
-data[13] = { task_index = 13,  task_content = "喂养动物",  unlock_level = 1,  times = 15,  gold = 80,  exp = 50,  icon = "rw_tb_13",  desc = "农田里的物品"}
-data[14] = { task_index = 14,  task_content = "收获农作物",  unlock_level = 1,  times = 30,  gold = 100,  exp = 50,  icon = "rw_tb_14",  desc = ""}
-data[15] = { task_index = 15,  task_content = "播种农作物",  unlock_level = 1,  times = 30,  gold = 100,  exp = 50,  icon = "rw_tb_15",  desc = ""}
-data[16] = { task_index = 16,  task_content = "建造装饰物",  unlock_level = 5,  times = 1,  gold = 100,  exp = 60,  icon = "rw_tb_16",  desc = ""}
-data[17] = { task_index = 17,  task_content = "完成直升机订单",  unlock_level = 1,  times = 3,  gold = 50,  exp = 30,  icon = "rw_tb_17",  desc = ""}
-data[18] = { task_index = 18,  task_content = "刷新直升机订单",  unlock_level = 1,  times = 1,  gold = 10,  exp = 10,  icon = "rw_tb_18",  desc = ""}
-data[19] = { task_index = 19,  task_content = "发送船只",  unlock_level = 29,  times = 1,  gold = 400,  exp = 200,  icon = "rw_tb_19",  desc = ""}
-data[20] = { task_index = 20,  task_content = "收获船只物品",  unlock_level = 29,  times = 3,  gold = 300,  exp = 200,  icon = "rw_tb_20",  desc = "只要数量达到即可"}
-data[21] = { task_index = 21,  task_content = "使用钞票",  unlock_level = 1,  times = 5,  gold = 100,  exp = 20,  icon = "rw_tb_21",  desc = ""}
-data[22] = { task_index = 22,  task_content = "帮助路上行人",  unlock_level = 5,  times = 3,  gold = 50,  exp = 30,  icon = "rw_tb_22",  desc = "完成三次气泡任务"}
+data[1] = { task_index = 1,  task_content = "发送火车",  unlock_level = 5,  times = 2,  gold = 85,  exp = 65,  panel = "Trains",  args = "",  icon = "rw_tb_1",  desc = "满载的火车，包括好友帮助你完成"}
+data[2] = { task_index = 2,  task_content = "帮助好友火车订单",  unlock_level = 5,  times = 1,  gold = 85,  exp = 65,  panel = "Friend",  args = "",  icon = "rw_tb_2",  desc = "帮好友火车装东西"}
+data[3] = { task_index = 3,  task_content = "发送飞机",  unlock_level = 17,  times = 1,  gold = 200,  exp = 100,  panel = "Airport",  args = "",  icon = "rw_tb_3",  desc = "满载的飞机，包括好友帮助你完成"}
+data[4] = { task_index = 4,  task_content = "帮助好友飞机订单",  unlock_level = 17,  times = 1,  gold = 200,  exp = 100,  panel = "Friend",  args = "",  icon = "rw_tb_4",  desc = "帮好友飞机装东西"}
+data[5] = { task_index = 5,  task_content = "帮助好友浇水",  unlock_level = 1,  times = 5,  gold = 30,  exp = 20,  panel = "Friend",  args = "",  icon = "rw_tb_5",  desc = "帮助好友农作物浇水"}
+data[6] = { task_index = 6,  task_content = "给好友点赞",  unlock_level = 1,  times = 1,  gold = 40,  exp = 20,  panel = "Friend",  args = "",  icon = "rw_tb_6",  desc = ""}
+data[7] = { task_index = 7,  task_content = "拜访好友的小镇",  unlock_level = 1,  times = 2,  gold = 20,  exp = 10,  panel = "Friend",  args = "",  icon = "rw_tb_7",  desc = ""}
+data[8] = { task_index = 8,  task_content = "收集物品",  unlock_level = 1,  times = 10,  gold = 100,  exp = 50,  panel = "",  args = "",  icon = "rw_tb_8",  desc = "工厂里收获的物品，不包括饲养"}
+data[9] = { task_index = 9,  task_content = "制造物品",  unlock_level = 1,  times = 10,  gold = 100,  exp = 50,  panel = "",  args = "",  icon = "rw_tb_9",  desc = "工厂里生产物品，不用成产完成"}
+data[10] = { task_index = 10,  task_content = "市场上购买物品",  unlock_level = 13,  times = 2,  gold = 100,  exp = 50,  panel = "Market",  args = "",  icon = "rw_tb_10",  desc = "包括牛奶、鸡蛋、羊毛、蜂窝、培根"}
+data[11] = { task_index = 11,  task_content = "出售物品",  unlock_level = 1,  times = 5,  gold = 10,  exp = 10,  panel = "Barn",  args = "",  icon = "rw_tb_11",  desc = "在仓库里出售物品"}
+data[12] = { task_index = 12,  task_content = "收获饲养产物",  unlock_level = 1,  times = 15,  gold = 80,  exp = 50,  panel = "",  args = "",  icon = "rw_tb_12",  desc = "饲养牛、鸡、羊、蜜蜂、猪"}
+data[13] = { task_index = 13,  task_content = "喂养动物",  unlock_level = 1,  times = 15,  gold = 80,  exp = 50,  panel = "",  args = "",  icon = "rw_tb_13",  desc = "农田里的物品"}
+data[14] = { task_index = 14,  task_content = "收获农作物",  unlock_level = 1,  times = 30,  gold = 100,  exp = 50,  panel = "",  args = "",  icon = "rw_tb_14",  desc = ""}
+data[15] = { task_index = 15,  task_content = "播种农作物",  unlock_level = 1,  times = 30,  gold = 100,  exp = 50,  panel = "",  args = "",  icon = "rw_tb_15",  desc = ""}
+data[16] = { task_index = 16,  task_content = "建造装饰物",  unlock_level = 5,  times = 1,  gold = 100,  exp = 60,  panel = "BuildShop",  args = "",  icon = "rw_tb_16",  desc = ""}
+data[17] = { task_index = 17,  task_content = "完成直升机订单",  unlock_level = 1,  times = 3,  gold = 50,  exp = 30,  panel = "Helicopter",  args = "",  icon = "rw_tb_17",  desc = ""}
+data[18] = { task_index = 18,  task_content = "刷新直升机订单",  unlock_level = 1,  times = 1,  gold = 10,  exp = 10,  panel = "Helicopter",  args = "",  icon = "rw_tb_18",  desc = ""}
+data[19] = { task_index = 19,  task_content = "发送船只",  unlock_level = 29,  times = 1,  gold = 400,  exp = 200,  panel = "Seaport",  args = "",  icon = "rw_tb_19",  desc = ""}
+data[20] = { task_index = 20,  task_content = "收获船只物品",  unlock_level = 29,  times = 3,  gold = 300,  exp = 200,  panel = "Seaport",  args = "",  icon = "rw_tb_20",  desc = "只要数量达到即可"}
+data[21] = { task_index = 21,  task_content = "使用钞票",  unlock_level = 1,  times = 5,  gold = 100,  exp = 20,  panel = "",  args = "",  icon = "rw_tb_21",  desc = ""}
+data[22] = { task_index = 22,  task_content = "帮助路上行人",  unlock_level = 5,  times = 3,  gold = 50,  exp = 30,  panel = "",  args = "",  icon = "rw_tb_22",  desc = "完成三次气泡任务"}
 
 return data

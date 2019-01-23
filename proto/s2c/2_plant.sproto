@@ -1,0 +1,10 @@
+update_watering 201{
+	request {
+		build_id 1 : integer      #田的build_id
+		account_id 2 : integer
+	}
+	response {
+		result 0 : integer       #结果
+	}
+}
+

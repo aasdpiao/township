@@ -9,7 +9,8 @@ order_status.help = 3
 order_status.help_full = 4
 order_status.confirm_help = 5
 
-function OrderObject:ctor(order_entry,item_index,item_count)
+function OrderObject:ctor(role_object,order_entry,item_index,item_count)
+    self.__role_object = role_object
     self.__order_entry = order_entry
     self.__order_index = order_entry:get_order_index()
     self.__item_index = item_index

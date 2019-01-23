@@ -114,10 +114,10 @@ function TrainDispatcher.dispatcher_finish_order_help(role_object,msg_data)
     end
     local result,exp,friendly = role_object:get_cache_ruler():finish_trains_help(account_id,trains_index,order_object)
     if result == 0 then
-        self.__role_object:consume_item(item_index,item_count,CONSUME_CODE.help)
-        self.__role_object:add_exp(exp,SOURCE_CODE.help)
-        self.__role_object:add_friendly(friendly,SOURCE_CODE.help)
-        self.__role_object:get_daily_ruler():help_trains()
+        role_object:consume_item(item_index,item_count,CONSUME_CODE.help)
+        role_object:add_exp(exp,SOURCE_CODE.help)
+        role_object:add_friendly(friendly,SOURCE_CODE.help)
+        role_object:get_daily_ruler():help_trains()
     end
     return {result = result}
 end

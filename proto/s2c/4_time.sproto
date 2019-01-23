@@ -1,0 +1,8 @@
+update_time 401{
+	request {
+		timestamp 0 : integer
+	}
+	response {
+		result 0 : integer
+	}
+}

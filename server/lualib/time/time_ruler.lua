@@ -14,14 +14,17 @@ function TimeRuler:init()
 end
 
 function TimeRuler:get_current_time()
-    local timed = skynet.queryservice("timed")
-    local timestamp = skynet.call(timed,"lua","query_current_time")
+    local timestamp = skynet.call("timed","lua","query_current_time")
     return timestamp
 end
 
 function TimeRuler:check_time(timestamp)
     local current_time = self:get_current_time()
     return current_time >= timestamp
+end
+
+function TimeRuler:set_current_time(timestamp)
+    skynet.call("timed","lua","set_current_time",timestamp)
 end
 
 return TimeRuler

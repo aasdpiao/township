@@ -58,6 +58,7 @@ function CacheDispatcher:dispatcher_access_manor()
     local flight_data = self.__role_object:get_flight_ruler():dump_flight_data()
     local helicopter_data = self.__role_object:get_helicopter_ruler():dump_helicopter_data()
     local employment_data = self.__role_object:get_employment_ruler():dump_employment_data()
+    local friend_data = self.__role_object:get_friend_ruler():dump_friend_data()
 
     local player = {}
     player.account_id = account_id
@@ -75,6 +76,7 @@ function CacheDispatcher:dispatcher_access_manor()
     player.flight_data = flight_data
     player.helicopter_data = helicopter_data
     player.employment_data = employment_data
+    player.friend_data = friend_data
     return player
 end
 

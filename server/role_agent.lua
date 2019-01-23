@@ -6,6 +6,8 @@ local sprotoloader = require "sprotoloader"
 local print_r = require "print_r"
 local cjson = require "cjson"
 local Timer = require "timer"
+local multicast = require "skynet.multicast"
+local datacenter = require "skynet.datacenter"
 local admin_power = require "role.admin_power"
 
 local gate
@@ -23,6 +25,8 @@ local timer_id
 
 local save_timer = Timer.new()
 save_timer:init()
+
+local time_
 
 -- 处理客户端来的请求消息
 -- 这里的local REQUEST在后面的几个register里merge了很多方法进来
@@ -192,6 +196,15 @@ skynet.start(function()
 		local f = assert(CMD[command])
 		skynet.ret(skynet.pack(f(...)))
 	end)
+    local channel = datacenter.get "TIMESYNC"
+    local mc = multicast.new {
+		channel = channel,
+		dispatch = function (channel, source, timestamp)
+			if not user then return end
+			user:send_request("update_time",{timestamp=timestamp})
+		end
+	}
+	mc:subscribe()
 end)
 
 skynet.register_protocol {

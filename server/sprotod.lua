@@ -28,6 +28,8 @@ local c2s_sproto_file = {
 
 local s2c_sproto_file = {
 	"1_role",
+	"2_plant",
+	"4_time",
 	"7_trains",
 	"9_flight",
 	"11_achievement",
@@ -37,7 +39,7 @@ local s2c_sproto_file = {
 	"17_daily",
 }
 
-local attr_file = "proto.attr"
+local attr_file = "proto"
 
 local function read_file(name)
 	local filename = string.format(root.."proto/%s.sproto", name)

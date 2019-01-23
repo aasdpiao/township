@@ -28,14 +28,16 @@ local RoleBase = require "role.role_base"
 local sprotoloader = require "sprotoloader"
 local role_const = require "role.role_const"
 local packer = require "db.packer"
+local multicast = require "skynet.multicast"
 
 local RoleObject = class(RoleBase)
 
 
-function RoleObject:ctor(account_id,username,send_request)
+function RoleObject:ctor(account_id,username,send_request,publisher)
     self.__account_id = tonumber(account_id)
     self.__username = username
     self.__send_request = send_request
+    self.__publisher = publisher
 
     self.__town_name = "township"
     self.__gold = 0
@@ -584,6 +586,43 @@ end
 function RoleObject:send_request(name,args)
     if self.__offline == 1 then return end
     self.__send_request(name,args)
+end
+
+function RoleObject:publich(...)
+    self.__publisher(...)
+end
+
+function RoleObject:subscribe(account_id,channel)
+    if self.__publish_id == account_id then return end
+    if self.__account_id > 0 and self.__feed then
+	    self.__feed:unsubscribe()
+	    self.__feed:delete()
+    end
+    self.__feed = multicast.new {
+		channel = channel ,
+        dispatch = function(channel, source, help_type, ...)
+            if help_type == "water" then
+                self:subscribe_water(...)
+            elseif help_type == "trains" then
+                self:subscribe_trains(...)
+            elseif help_type == "flight" then
+                self:subscribe_flight(...)
+            end
+        end,
+    }
+    self.__feed:subscribe()
+end
+
+function RoleObject:subscribe_water()
+
+end
+
+function RoleObject:subscribe_trains()
+
+end
+
+function RoleObject:subscribe_flight()
+    
 end
 
 function RoleObject:debug_info()

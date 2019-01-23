@@ -145,6 +145,7 @@ end
 --获取存档数据
 function RoleDispatcher.dispatcher_pull(role_object,msg_data)
     local timestamp = role_object:get_time_ruler():get_current_time()
+    role_object:get_event_ruler():request_event(timestamp)
     role_object:get_daily_ruler():refresh_daily(timestamp)
     role_object:refresh_kattle(timestamp)
 

@@ -79,4 +79,31 @@ function CMD.add_amethyst(role_object,cmd_args)
     return 0
 end
 
+function CMD.set_time(role_object,cmd_args)
+    local args = string_split(cmd_args[1]," ")
+    local args_count = #args
+    local timetable = os.date("*t", os.time())
+    if args_count == 1 then
+        timetable.day = tonumber(args[1])
+    elseif args_count == 2 then
+        timetable.day = tonumber(args[1])
+        timetable.hour = tonumber(args[2])
+    elseif args_count == 3 then
+        timetable.day = tonumber(args[1])
+        timetable.hour = tonumber(args[2])
+        timetable.min = tonumber(args[3])
+    end
+    local timestamp = os.time(timetable)
+    role_object:get_time_ruler():set_current_time(timestamp)
+    return 0
+end
+
+function CMD.time(role_object,cmd_args)
+    local acceleration = tonumber(cmd_args[1])
+    local current_time = role_object:get_time_ruler():get_current_time()
+    if not acceleration then return end
+    role_object:get_time_ruler():set_current_time(current_time + acceleration)
+    return 0
+end
+
 return CMD

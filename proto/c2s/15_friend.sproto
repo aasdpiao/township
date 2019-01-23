@@ -80,7 +80,8 @@ access_manor 1507{
 		flight_data 11 : flight_data
 		helicopter_data 12 : helicopter_data
 		employment_data 13 : employment_data
-		thumb_up 14 : integer
+		friend_data 14 : friend_data
+		thumb_up 15 : integer
 	}
 }
 
