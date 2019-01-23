@@ -306,6 +306,7 @@ function PlantRuler:watering(account_id,build_id,timestamp)
     plant_object:set_harvest_time(harvest_time)
     plant_object:set_role_id(account_id)
     self.__role_object:send_request("update_watering",{build_id=build_id,account_id=account_id})
+    self.__role_object:publish("watering",self.__role_object:get_account_id(),account_id,build_id)
     self.__role_object:add_friendly(FRIENDLY,SOURCE_CODE.behelped)
     return 0,FRIENDLY
 end

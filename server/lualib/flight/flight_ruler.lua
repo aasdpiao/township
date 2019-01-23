@@ -542,6 +542,7 @@ function FlightRuler:finish_flight_help(account_id,timestamp,row,column)
     local friendly = order_box:get_friendly()
     self.__role_object:add_friendly(friendly,SOURCE_CODE.behelped)
     self.__role_object:send_request("finish_flight_help",{row=row,column=column,exp=exp,gold=gold,role_id=account_id})
+    self.__role_object:publish("flight",self.__role_object:get_account_id(),account_id,row,column)
     return 0,gold,exp,friendly
 end
 

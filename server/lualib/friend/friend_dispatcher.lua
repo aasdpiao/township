@@ -23,6 +23,12 @@ function FriendDispatcher:init()
     self:register_c2s_callback("accept_invite",self.dispatcher_accept_invite)
     self:register_c2s_callback("access_manor",self.dispatcher_access_manor)
     self:register_c2s_callback("thumb_up_friend",self.dispatcher_thumb_up_friend)
+    self:register_c2s_callback("exit_manor",self.dispatcher_exit_manor)
+end
+
+function FriendDispatcher.dispatcher_exit_manor(role_object,msg_data)
+    role_object:unsubscribe()
+    return {result = 0}
 end
 
 function FriendDispatcher.dispatcher_thumb_up_friend(role_object,msg_data)
@@ -113,7 +119,9 @@ function FriendDispatcher.dispatcher_access_manor(role_object,msg_data)
         LOG_ERROR("err:%s",errmsg(GAME_ERROR.parameter_invalid))
         return {result = GAME_ERROR.parameter_invalid}
     end
-    return role_object:get_cache_ruler():access_manor(account_id)
+    local player,subscribe_channel = role_object:get_cache_ruler():access_manor(account_id)
+    role_object:subscribe(account_id,subscribe_channel)
+    return player
 end
 
 return FriendDispatcher

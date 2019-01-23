@@ -77,7 +77,7 @@ function CacheDispatcher:dispatcher_access_manor()
     player.helicopter_data = helicopter_data
     player.employment_data = employment_data
     player.friend_data = friend_data
-    return player
+    return player,self.__role_object:get_subscribe_channel()
 end
 
 function CacheDispatcher:dispatcher_finish_trains_help(account_id,trains_index,order_object)

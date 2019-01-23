@@ -10,3 +10,15 @@ finish_flight_help 901{
 		result 0 : integer
 	}
 }
+
+subscribe_flight_help 902{
+	request {
+        subscribe_role_id 0 : integer
+		help_role_id 1 : integer
+        row 2 : integer
+        column 3 : integer
+	}
+	response {
+		result 0 : integer
+	}
+}

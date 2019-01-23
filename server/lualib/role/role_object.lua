@@ -74,6 +74,9 @@ end
 
 function RoleObject:set_offline(status)
     self.__offline = status
+    if status == 1 then
+        self:unsubscribe()
+    end
 end
 
 function RoleObject:init(offline)
@@ -588,21 +591,25 @@ function RoleObject:send_request(name,args)
     self.__send_request(name,args)
 end
 
-function RoleObject:publich(...)
-    self.__publisher(...)
+function RoleObject:publish(...)
+    self.__publisher:publish(...)
+end
+
+function RoleObject:get_subscribe_channel()
+    return self.__publisher.channel
 end
 
 function RoleObject:subscribe(account_id,channel)
     if self.__publish_id == account_id then return end
-    if self.__account_id > 0 and self.__feed then
-	    self.__feed:unsubscribe()
-	    self.__feed:delete()
+    if self.__subscribe then
+	    self.__subscribe:unsubscribe()
+	    self.__subscribe:delete()
     end
-    self.__feed = multicast.new {
+    self.__subscribe = multicast.new {
 		channel = channel ,
         dispatch = function(channel, source, help_type, ...)
-            if help_type == "water" then
-                self:subscribe_water(...)
+            if help_type == "watering" then
+                self:subscribe_watering(...)
             elseif help_type == "trains" then
                 self:subscribe_trains(...)
             elseif help_type == "flight" then
@@ -610,19 +617,42 @@ function RoleObject:subscribe(account_id,channel)
             end
         end,
     }
-    self.__feed:subscribe()
+    self.__publish_id = account_id
+    self.__subscribe:subscribe()
 end
 
-function RoleObject:subscribe_water()
-
+function RoleObject:unsubscribe()
+    if not self.__subscribe then return end
+    self.__subscribe:unsubscribe()
+    self.__subscribe:delete()
+    self.__subscribe = nil
+    self.__publish_id = nil
 end
 
-function RoleObject:subscribe_trains()
-
+function RoleObject:subscribe_watering(subscribe_role_id,help_role_id,build_id)
+    self:send_request("subscribe_watering",{
+        subscribe_role_id = subscribe_role_id,
+        help_role_id = help_role_id,
+        build_id = build_id,
+    })
 end
 
-function RoleObject:subscribe_flight()
-    
+function RoleObject:subscribe_trains(subscribe_role_id,help_role_id,trains_index,order_index)
+    self:send_request("subscribe_trains_help",{
+        subscribe_role_id = subscribe_role_id,
+        help_role_id = help_role_id,
+        trains_index = trains_index,
+        order_index = order_index,
+    })
+end
+
+function RoleObject:subscribe_flight(subscribe_role_id,help_role_id,row,column)
+    self:send_request("subscribe_flight_help",{
+        subscribe_role_id = subscribe_role_id,
+        help_role_id = help_role_id,
+        row = row,
+        column = column,
+    })
 end
 
 function RoleObject:debug_info()

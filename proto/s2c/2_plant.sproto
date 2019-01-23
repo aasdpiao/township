@@ -8,3 +8,13 @@ update_watering 201{
 	}
 }
 
+subscribe_watering 202{
+	request {
+		subscribe_role_id 0 : integer
+		help_role_id 1 : integer
+		build_id 2 : integer      #田的build_id
+	}
+	response {
+		result 0 : integer       #结果
+	}
+}

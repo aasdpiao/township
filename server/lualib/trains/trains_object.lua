@@ -346,6 +346,7 @@ function TrainsObject:finish_trains_help(account_id,order_object)
     order_object:set_role_id(account_id)
     self.__role_object:add_friendly(friendly,SOURCE_CODE.behelped)
     self.__role_object:send_request("finish_trains_help",{role_id=account_id,trains_index=self.__trains_index,order_object={order_index=order_index}})
+    self.__role_object:publish("trains",self.__role_object:get_account_id(),account_id,self.__trains_index,order_index)
     return 0,exp,friendly
 end
 

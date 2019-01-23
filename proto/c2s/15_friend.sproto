@@ -94,3 +94,10 @@ thumb_up_friend 1508{
 		thumb_up 1 : integer
 	}
 }
+
+exit_manor 1509
+{
+	response {
+		result 0 : integer
+	}
+}
