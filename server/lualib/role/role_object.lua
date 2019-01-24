@@ -641,6 +641,7 @@ function RoleObject:subscribe_plant(plant_type,...)
             subscribe_role_id = subscribe_role_id,
             build_id = build_id,
             plant_index = plant_index,
+            harvest_time = harvest_time,
         })
     elseif plant_type == "promote" then
         local subscribe_role_id,build_id = table.unpack({...})
