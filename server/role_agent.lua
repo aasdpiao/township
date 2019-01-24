@@ -26,7 +26,7 @@ local timer_id
 local save_timer = Timer.new()
 save_timer:init()
 
-local time_
+local help_mc
 
 -- 处理客户端来的请求消息
 -- 这里的local REQUEST在后面的几个register里merge了很多方法进来
@@ -100,7 +100,7 @@ function CMD.login(source, account_id, username)
 		user:set_offline(0)
 	else
 		gate = source
-		user = RoleObject.new( account_id, username, send_request)
+		user = RoleObject.new( account_id, username, send_request, help_mc)
 		user:init(0)
 		user:add_user_record("login")
 	end
@@ -108,7 +108,7 @@ end
 
 function CMD.offline_load(source, account_id, username)
 	gate = source
-	user = RoleObject.new( account_id, username, send_request)
+	user = RoleObject.new( account_id, username, send_request, help_mc)
 	user:init(1)
 	user:add_user_record("offline_load")
 end
@@ -178,6 +178,7 @@ function CMD.disconnect()
 	user:add_user_record("disconnect")
 	user:save_player()
 	skynet.call(gate,"lua", "logout",user:get_account_id())
+	user:set_offline(1)
 end
 
 function CMD.active_auto_save()
@@ -205,6 +206,8 @@ skynet.start(function()
 		end
 	}
 	mc:subscribe()
+
+	help_mc = multicast.new()
 end)
 
 skynet.register_protocol {

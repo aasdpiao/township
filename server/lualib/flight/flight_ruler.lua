@@ -380,6 +380,8 @@ function FlightRuler:finish_flight_order(timestamp,row,column,item_object)
     self.__role_object:consume_item(item_index,item_count,CONSUME_CODE.finish_order)
     self.__role_object:add_exp(exp,SOURCE_CODE.finish)
     self.__role_object:add_gold(gold,SOURCE_CODE.finish)
+    local account_id = self.__role_object:get_account_id()
+    self.__role_object:publish("flight",account_id,account_id,row,column)
     self.__role_object:get_achievement_ruler():flight_money(gold)
     order_box:finish_order()
     local order_object = self.__order_objects[row]

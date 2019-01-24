@@ -603,17 +603,16 @@ function RoleObject:subscribe(account_id,channel)
     if self.__publish_id == account_id then return end
     if self.__subscribe then
 	    self.__subscribe:unsubscribe()
-	    self.__subscribe:delete()
     end
     self.__subscribe = multicast.new {
 		channel = channel ,
         dispatch = function(channel, source, help_type, ...)
-            if help_type == "watering" then
-                self:subscribe_watering(...)
-            elseif help_type == "trains" then
+            if help_type == "trains" then
                 self:subscribe_trains(...)
             elseif help_type == "flight" then
                 self:subscribe_flight(...)
+            elseif help_type == "plant" then
+                self:subscribe_plant(...)
             end
         end,
     }
@@ -624,17 +623,38 @@ end
 function RoleObject:unsubscribe()
     if not self.__subscribe then return end
     self.__subscribe:unsubscribe()
-    self.__subscribe:delete()
     self.__subscribe = nil
     self.__publish_id = nil
 end
 
-function RoleObject:subscribe_watering(subscribe_role_id,help_role_id,build_id)
-    self:send_request("subscribe_watering",{
-        subscribe_role_id = subscribe_role_id,
-        help_role_id = help_role_id,
-        build_id = build_id,
-    })
+function RoleObject:subscribe_plant(plant_type,...)
+    if plant_type == "watering" then
+        local subscribe_role_id,help_role_id,build_id = table.unpack({...})
+        self:send_request("subscribe_watering",{
+            subscribe_role_id = subscribe_role_id,
+            help_role_id = help_role_id,
+            build_id = build_id,
+        })
+    elseif plant_type == "plant" then
+        local subscribe_role_id,build_id,plant_index,harvest_time = table.unpack({...})
+        self:send_request("subscribe_plant",{
+            subscribe_role_id = subscribe_role_id,
+            build_id = build_id,
+            plant_index = plant_index,
+        })
+    elseif plant_type == "promote" then
+        local subscribe_role_id,build_id = table.unpack({...})
+        self:send_request("subscribe_promote",{
+            subscribe_role_id = subscribe_role_id,
+            build_id = build_id,
+        })
+    elseif plant_type == "harvest" then
+        local subscribe_role_id,build_id = table.unpack({...})
+        self:send_request("subscribe_harvest",{
+            subscribe_role_id = subscribe_role_id,
+            build_id = build_id,
+        })
+    end
 end
 
 function RoleObject:subscribe_trains(subscribe_role_id,help_role_id,trains_index,order_index)

@@ -18,3 +18,35 @@ subscribe_watering 202{
 		result 0 : integer       #结果
 	}
 }
+
+subscribe_plant 203{
+	request {
+		subscribe_role_id 0 : integer
+		build_id 1 : integer      #田的build_id
+		plant_index 2 : integer
+		harvest_time 3 : integer
+	}
+	response {
+		result 0 : integer       #结果
+	}
+}
+
+subscribe_promote 204{
+	request {
+		subscribe_role_id 0 : integer
+		build_id 1 : integer      #田的build_id
+	}
+	response {
+		result 0 : integer       #结果
+	} 
+}
+
+subscribe_harvest 205{
+	request {
+		subscribe_role_id 0 : integer
+		build_id 1 : integer      #田的build_id
+	}
+	response {
+		result 0 : integer       #结果
+	} 
+}

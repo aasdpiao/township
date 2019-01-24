@@ -198,6 +198,7 @@ function PlantRuler:planting_products(build_id,plant_index,timestamp)
 	local finish_time = plant_object:get_finish_time()
 	local harvest_time = timestamp + math.floor(finish_time / accelerate)
     plant_object:set_harvest_time(harvest_time)
+    self.__role_object:publish("plant","plant",self.__role_object:get_account_id(),build_id,plant_index,harvest_time)
     self.__role_object:get_daily_ruler():plant_crop()
     return 0
 end
@@ -225,6 +226,7 @@ function PlantRuler:harvest_products(build_id,timestamp)
     self.__role_object:get_achievement_ruler():harvest_farmland(item_count)
     self.__role_object:get_achievement_ruler():limit_harvest_farmland(timestamp,1)
     self.__role_object:get_daily_ruler():plant_harvest()
+    self.__role_object:publish("plant","harvest",self.__role_object:get_account_id(),build_id)
     return 0
 end
 
@@ -250,6 +252,7 @@ function PlantRuler:promote_plant(build_id,cash_count,timestamp)
     end
     self.__role_object:consume_cash(cost_cash,CONSUME_CODE.promote)
     plant_object:set_status(plant_const.promote)
+    self.__role_object:publish("plant","promote",self.__role_object:get_account_id(),build_id)
     return 0
 end
 
@@ -284,6 +287,7 @@ function PlantRuler:promote_plant_by_cloud(build_id,timestamp)
         return 0
     end
     plant_object:set_status(plant_const.promote)
+    self.__role_object:publish("plant","promote",self.__role_object:get_account_id(),build_id)
     return 0
 end
 
@@ -306,7 +310,7 @@ function PlantRuler:watering(account_id,build_id,timestamp)
     plant_object:set_harvest_time(harvest_time)
     plant_object:set_role_id(account_id)
     self.__role_object:send_request("update_watering",{build_id=build_id,account_id=account_id})
-    self.__role_object:publish("watering",self.__role_object:get_account_id(),account_id,build_id)
+    self.__role_object:publish("plant","watering",self.__role_object:get_account_id(),account_id,build_id)
     self.__role_object:add_friendly(FRIENDLY,SOURCE_CODE.behelped)
     return 0,FRIENDLY
 end

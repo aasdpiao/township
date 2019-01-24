@@ -248,6 +248,8 @@ function TrainsObject:finish_trains_order(order_object)
     local order_exp = order_object:get_order_exp()
     self.__role_object:add_exp(order_exp,SOURCE_CODE.finish)
     self.__role_object:consume_item(item_index,item_count,CONSUME_CODE.finish_order) 
+    local account_id = self.__role_object:get_account_id()
+    self.__role_object:publish("trains",account_id,account_id,self.__trains_index,order_index)
     order_object:finish_order_object()
     return 0
 end
