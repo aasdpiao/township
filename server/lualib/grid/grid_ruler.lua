@@ -351,7 +351,7 @@ function GridRuler:finish_build(build_id,timestamp,item_objects)
         end
     end
     for k,v in pairs(requires) do
-        self.__role_object:consume_item(k,v)
+        self.__role_object:consume_item(k,v,CONSUME_CODE.build)
     end
     grid_object:finish_build()
     local grid_type = grid_object:get_build_entry():get_build_type()
