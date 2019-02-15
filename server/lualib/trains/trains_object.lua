@@ -202,7 +202,7 @@ function TrainsObject:first_trains_object()
         local order_object = OrderObject.new(self.__role_object,order_entry,item_index,item_count)
         table.insert(self.__trains_orders,order_object) 
     end
-    local trains_rewards = self.__role_object:get_trains_ruler():get_trains_rewards(2)
+    local trains_rewards = {1001,1002}
     for i,reward_index in ipairs(trains_rewards) do
         local reward_entry = self.__role_object:get_trains_ruler():get_reward_entry(reward_index)
         local reward_object = RewardObject.new(reward_entry)

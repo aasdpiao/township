@@ -211,10 +211,10 @@ function RoleBase:pay_levelup_reward()
     end
 end
 --[[
-3001	黄宝石
-3002	蓝宝石
-3003	红宝石
-3004	紫宝石
+3001	黄宝石  topaz
+3002	蓝宝石 emerald
+3003	红宝石 ruby
+3004	紫宝石 amethyst
 7001	金币
 7002	钞票
 ]]
@@ -224,11 +224,11 @@ function RoleBase:add_item(item_index,item_count,source)
     elseif item_index == 7002 then
         self:add_cash(item_count,source)
     elseif item_index == 3001 then
-        self:add_ruby(item_count,source)
+        self:add_topaz(item_count,source)
     elseif item_index == 3002 then
         self:add_emerald(item_count,source)
     elseif item_index == 3003 then
-        self:add_topaz(item_count,source)
+        self:add_ruby(item_count,source)
     elseif item_index == 3004 then
         self:add_amethyst(item_count,source)
     else
@@ -245,7 +245,14 @@ function RoleBase:check_enough_item(item_index,item_count)
     item_count = item_count or 1
     return self.__item_ruler:check_enough_item_count(item_index,item_count)
 end
-
+--[[
+3001	黄宝石  topaz
+3002	蓝宝石 emerald
+3003	红宝石 ruby
+3004	紫宝石 amethyst
+7001	金币
+7002	钞票
+]]
 function RoleBase:consume_item(item_index,item_count,consume)
     item_count = item_count or 1
     if item_index == 7001 then
@@ -253,11 +260,11 @@ function RoleBase:consume_item(item_index,item_count,consume)
     elseif item_index == 7002 then
         self:consume_cash(item_count,consume)
     elseif item_index == 3001 then
-        self:consume_ruby(item_count,consume)
+        self:consume_topaz(item_count,consume)
     elseif item_index == 3002 then
         self:consume_emerald(item_count,consume)
     elseif item_index == 3003 then
-        self:consume_topaz(item_count,consume)
+        self:consume_ruby(item_count,consume)
     elseif item_index == 3004 then
         self:consume_amethyst(item_count,consume)
     else 

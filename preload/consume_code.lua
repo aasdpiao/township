@@ -36,6 +36,7 @@ CONSUME_CODE = {
 	product                 = add{code = 0x0013, desc = "生产"},
 	feed                    = add{code = 0x0014, desc = "喂养"},
 	help                    = add{code = 0x0015, desc = "帮助"},
+	event                   = add{code = 0x0016, desc = "事件"},
 }
 
 return consume

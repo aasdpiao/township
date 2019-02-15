@@ -117,7 +117,7 @@ data[4021006] = { build_id = 4021006,  build_index = 4021,  build_name = "普通
 data[4021007] = { build_id = 4021007,  build_index = 4021,  build_name = "普通高层",  unlock = {"gold","level"},  unlock_count = {4800,54},  finish_time = 100800,  product_exp = 120}
 data[4021008] = { build_id = 4021008,  build_index = 4021,  build_name = "普通高层",  unlock = {"gold","level"},  unlock_count = {4800,56},  finish_time = 100800,  product_exp = 120}
 data[4021009] = { build_id = 4021009,  build_index = 4021,  build_name = "普通高层",  unlock = {"gold","level"},  unlock_count = {4800,59},  finish_time = 100800,  product_exp = 120}
-data[8031001] = { build_id = 8031001,  build_index = 8031,  build_name = "稻草人",  unlock = {"gold","level","friendly"},  unlock_count = {100,1,20},  finish_time = 0,  product_exp = 10}
+data[8031001] = { build_id = 8031001,  build_index = 8031,  build_name = "稻草人",  unlock = {"gold","level"},  unlock_count = {100,1},  finish_time = 0,  product_exp = 10}
 data[2014001] = { build_id = 2014001,  build_index = 2014,  build_name = "塑胶厂",  unlock = {"gold","level","people"},  unlock_count = {21000,34,2375},  finish_time = 129600,  product_exp = 2375}
 data[3038001] = { build_id = 3038001,  build_index = 3038,  build_name = "漫画书店",  unlock = {"gold","level"},  unlock_count = {10000,41},  finish_time = 97200,  product_exp = 400}
 data[4028002] = { build_id = 4028002,  build_index = 4028,  build_name = "木屋",  unlock = {"gold","level"},  unlock_count = {19000,64},  finish_time = 129600,  product_exp = 380}
@@ -225,7 +225,7 @@ data[8003001] = { build_id = 8003001,  build_index = 8003,  build_name = "儿童
 data[2008001] = { build_id = 2008001,  build_index = 2008,  build_name = "快餐店",  unlock = {"gold","level","people"},  unlock_count = {2400,16,425},  finish_time = 57600,  product_exp = 425}
 data[3053001] = { build_id = 3053001,  build_index = 3053,  build_name = "甜甜圈店",  unlock = {"gold","level"},  unlock_count = {25000,56},  finish_time = 151200,  product_exp = 780}
 data[3010001] = { build_id = 3010001,  build_index = 3010,  build_name = "美发沙龙",  unlock = {"gold","level"},  unlock_count = {200,13},  finish_time = 12600,  product_exp = 120}
-data[8001001] = { build_id = 8001001,  build_index = 8001,  build_name = "草丛1",  unlock = {"gold","level","friendly"},  unlock_count = {100,1,20},  finish_time = 0,  product_exp = 10}
+data[8001001] = { build_id = 8001001,  build_index = 8001,  build_name = "草丛1",  unlock = {"gold","level"},  unlock_count = {100,1},  finish_time = 0,  product_exp = 10}
 data[3033001] = { build_id = 3033001,  build_index = 3033,  build_name = "过山车",  unlock = {"gold","level"},  unlock_count = {6500,36},  finish_time = 79200,  product_exp = 350}
 data[3051001] = { build_id = 3051001,  build_index = 3051,  build_name = "高尔夫球场",  unlock = {"gold","level"},  unlock_count = {22500,54},  finish_time = 144000,  product_exp = 700}
 data[3008001] = { build_id = 3008001,  build_index = 3008,  build_name = "电影院",  unlock = {"gold","level"},  unlock_count = {150,10},  finish_time = 9000,  product_exp = 100}
@@ -394,8 +394,8 @@ data[4016001] = { build_id = 4016001,  build_index = 4016,  build_name = "花园
 data[4016002] = { build_id = 4016002,  build_index = 4016,  build_name = "花园式公寓",  unlock = {"gold","level"},  unlock_count = {1440,35},  finish_time = 57600,  product_exp = 80}
 data[4016003] = { build_id = 4016003,  build_index = 4016,  build_name = "花园式公寓",  unlock = {"gold","level"},  unlock_count = {1440,37},  finish_time = 57600,  product_exp = 80}
 data[4016004] = { build_id = 4016004,  build_index = 4016,  build_name = "花园式公寓",  unlock = {"gold","level"},  unlock_count = {1440,39},  finish_time = 57600,  product_exp = 80}
+data[8026001] = { build_id = 8026001,  build_index = 8026,  build_name = "蓝花堆",  unlock = {"gold","level"},  unlock_count = {100,1},  finish_time = 0,  product_exp = 10}
 data[5007001] = { build_id = 5007001,  build_index = 5007,  build_name = "港口",  unlock = {"gold","level"},  unlock_count = {8000,29},  finish_time = 172800,  product_exp = 335}
-data[8026011] = { build_id = 8026011,  build_index = 8026,  build_name = "蓝花堆",  unlock = {"gold","level"},  unlock_count = {100,1},  finish_time = 0,  product_exp = 10}
 data[2006001] = { build_id = 2006001,  build_index = 2006,  build_name = "裁缝厂",  unlock = {"gold","level","people"},  unlock_count = {950,12,195},  finish_time = 36000,  product_exp = 195}
 data[2009001] = { build_id = 2009001,  build_index = 2009,  build_name = "造纸厂",  unlock = {"gold","level","people"},  unlock_count = {3400,18,570},  finish_time = 57600,  product_exp = 570}
 data[4014001] = { build_id = 4014001,  build_index = 4014,  build_name = "联排别墅",  unlock = {"gold","level"},  unlock_count = {910,28},  finish_time = 36000,  product_exp = 70}

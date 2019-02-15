@@ -49,7 +49,7 @@ function TaskObject:finish_task()
     local gold = self.__task_entry:get_gold()
     local exp = self.__task_entry:get_exp()
     self.__role_object:add_gold(gold,SOURCE_CODE.task)
-    self.__role_object:add_exp(exp,SOURCE_CODE.exp)
+    self.__role_object:add_exp(exp,SOURCE_CODE.task)
 end
 
 function TaskObject:add_times(count)

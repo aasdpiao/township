@@ -167,7 +167,7 @@ function EventRuler:finish_event(timestamp,event_id)
         LOG_ERROR("item_index:%d,item_count:%d err:%s",item_index,item_count,errmsg(GAME_ERROR.item_not_enough))
         return GAME_ERROR.item_not_enough
     end
-    self.__role_object:consume_item(item_index,item_count)
+    self.__role_object:consume_item(item_index,item_count,CONSUME_CODE.event)
     self.__role_object:add_gold(order_gold,SOURCE_CODE.finish)
     self.__role_object:add_exp(order_exp,SOURCE_CODE.finish)
     self.__role_object:get_daily_ruler():help_pedestrian()
