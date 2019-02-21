@@ -339,11 +339,11 @@ function GridRuler:finish_build(build_id,timestamp,item_objects)
         require_items[v.item_index] = v.item_count
     end
     local requires = build_require:get_require_formula()
+    local cash = build_require:get_reward_cash()
     for k,v in pairs(requires) do
         if v ~= require_items[k] then
             LOG_ERROR("item_index:%d,item_count:%d,require_count:%d error:%s",k,require_items[k] or 0,v,errmsg(GAME_ERROR.number_not_match))
-        LOG_ERROR("error:%s", errmsg(GAME_ERROR.number_not_match))
-        return GAME_ERROR.number_not_match
+            return GAME_ERROR.number_not_match
         end
         if not self.__role_object:check_enough_item(k,v) then
             LOG_ERROR("item_index:%d,item_count:%d, error:%s",k,v,errmsg(GAME_ERROR.number_not_match))
@@ -368,14 +368,10 @@ function GridRuler:finish_build(build_id,timestamp,item_objects)
     assert(unlock_entry,"unlock_entry is nil "..build_id)
     local build_exp = unlock_entry:get_product_exp()
     self.__role_object:add_exp(build_exp,SOURCE_CODE.finish)
+    self.__role_object:add_cash(cash,SOURCE_CODE.finish)
     return 0
 end
 
---[[
-    101 当前不能加速
-    102 消耗钞票不一致
-    103 钞票不足
-]]
 function GridRuler:promote_build(build_id,timestamp,cash_count)
     local grid_object = self:get_build_object(build_id)
     assert(grid_object,"grid_object is nil")

@@ -5,6 +5,8 @@ local skynet = require "skynet"
 
 local EmploymentDispatcher = class()
 
+local UNLOCK_LEVEL = 10
+
 function EmploymentDispatcher:ctor(role_object)
     self.__role_object = role_object
 end
@@ -24,7 +26,7 @@ end
 
 function EmploymentDispatcher.dispatcher_employment_worker(role_object,msg_data)
     local level = role_object:get_level()
-    if level < 18 then
+    if level < UNLOCK_LEVEL then
         LOG_ERROR("level:%d err:%s",level,errmsg(GAME_ERROR.level_not_enough))
         return {result = GAME_ERROR.level_not_enough} 
     end
@@ -42,7 +44,7 @@ end
 
 function EmploymentDispatcher.dispatcher_employment_ten_worker(role_object,msg_data)
     local level = role_object:get_level()
-    if level < 18 then
+    if level < UNLOCK_LEVEL then
         LOG_ERROR("level:%d err:%s",level,errmsg(GAME_ERROR.level_not_enough))
         return {result = GAME_ERROR.level_not_enough} 
     end
@@ -139,7 +141,7 @@ end
 
 function EmploymentDispatcher.dispatcher_free_employment(role_object,msg_data)
     local level = role_object:get_level()
-    if level < 18 then 
+    if level < UNLOCK_LEVEL then 
         LOG_ERROR("level:%d err:%s",level,errmsg(GAME_ERROR.level_not_enough))
         return {result = GAME_ERROR.level_not_enough}
     end

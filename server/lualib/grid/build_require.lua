@@ -9,9 +9,16 @@ function BuildRequire:ctor(require_config)
     self.__unlock_level = require_config.unlock_level
     local formula = require_config.formula
     local formula_count = require_config.formula_count
+
+    local rewards = require_config.rewards
+    local rewards_count = require_config.rewards_count
     self.__formula = {}
     for i,v in ipairs(formula) do
         self.__formula[v] = formula_count[i]
+    end
+    self.__rewards = {}
+    for i,v in ipairs(rewards) do
+        self.__rewards[v] = formula_count[i]
     end
 end
 
@@ -33,6 +40,10 @@ end
 
 function BuildRequire:get_require_formula()
     return self.__formula
+end
+
+function BuildRequire:get_reward_cash()
+    return self.__rewards.cash or 0
 end
 
 return BuildRequire

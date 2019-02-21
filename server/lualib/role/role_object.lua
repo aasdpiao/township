@@ -303,7 +303,6 @@ function RoleObject:set_sign_timestamp(timestamp)
     self.__role_attrs.sign_timestamp = timestamp
 end
 
-
 function RoleObject:get_friendly()
     return self.__role_attrs.friendly or 0
 end
