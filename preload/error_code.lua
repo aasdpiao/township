@@ -94,6 +94,7 @@ GAME_ERROR = {
 	cant_create_event           = add{code = 0x2019, desc = "不能生成事件"},
 	cant_receive_daily          = add{code = 0x201a, desc = "不能接收日常奖励"},
 	cant_watering               = add{code = 0x201b, desc = "不能浇水"},
+	cant_return_consume         = add{code = 0x201c, desc = "不能返还"},
 
 	build_id_exist              = add{code = 0x3001, desc = "build_id重复"},
 	grid_id_exist               = add{code = 0x3002, desc = "grid_id重复"},

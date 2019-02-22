@@ -31,6 +31,7 @@ SOURCE_CODE = {
 	daily                = add{code = 0x000e, desc = "日常任务"},
 	task                 = add{code = 0x000f, desc = "任务"},
 	behelped             = add{code = 0x0010, desc = "被帮助"},
+	return_consume       = add{code = 0x0011, desc = "消耗返还"},
 }
 
 return source

@@ -29,12 +29,29 @@ function RoleDispatcher:init()
     self:register_c2s_callback("add_item_capacity",self.dispatcher_add_item_capacity)
     self:register_c2s_callback("set_town_name",self.dispatcher_set_town_name)
     self:register_c2s_callback("set_avatar_index",self.dispatcher_set_avatar_index)
+    self:register_c2s_callback("return_consume_cash",self.dispatcher_return_consume_cash)
 
     self:register_s2c_callback("send_mail",self.dispatcher_send_mail)
 end
 
 function RoleDispatcher.dispatcher_send_mail(role_object,args,msg_data)
     syslog.debug("dispatcher_send_mail",msg_data.result)
+end
+
+function RoleDispatcher.dispatcher_return_consume_cash(role_object,msg_data)
+    local cash_count = msg_data.cash_count
+    local consume_cash = role_object:get_consume_cash()
+    if not role_object:check_can_return_consume() then
+        LOG_ERROR("err:%s",errmsg(GAME_ERROR.cant_return_consume))
+        return {result = GAME_ERROR.cant_return_consume}
+    end
+    if consume_cash ~= cash_count then
+        LOG_ERROR("cash_count:%d consume_cash = %d err:%s",cash_count,consume_cash,errmsg(GAME_ERROR.number_not_match))
+        return {result = GAME_ERROR.number_not_match}
+    end
+    role_object:add_cash(cash_count,SOURCE_CODE.return_consume)
+    role_object:set_return_consume_finish()
+    return {result = 0}
 end
 
 function RoleDispatcher.dispatcher_set_town_name(role_object,msg_data)
@@ -148,6 +165,7 @@ function RoleDispatcher.dispatcher_pull(role_object,msg_data)
     role_object:get_event_ruler():request_event(timestamp)
     role_object:get_daily_ruler():refresh_daily(timestamp)
     role_object:refresh_kattle(timestamp)
+    role_object:refresh_sign_in(timestamp)
 
     local account_id = role_object:get_account_id()
     local town_name = role_object:get_town_name()

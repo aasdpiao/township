@@ -32,6 +32,8 @@ local multicast = require "skynet.multicast"
 
 local RoleObject = class(RoleBase)
 
+local WEEKINTERVAL = 7 * 24 * 60 * 60
+local DAYINTERVAL = 24 * 60 * 60
 
 function RoleObject:ctor(account_id,username,send_request,publisher)
     self.__account_id = tonumber(account_id)
@@ -278,21 +280,24 @@ function RoleObject:serialize_role_attr()
     return self:dump_role_attr()
 end
 
+function RoleObject:refresh_sign_in(timestamp)
+    local sign_deadline = self.__role_attrs.sign_deadline or 0
+    if timestamp >= sign_deadline then
+        self.__role_attrs.sign_deadline = WEEKINTERVAL + timestamp
+        self.__role_attrs.continue_times = 0
+    end
+end
+
 function RoleObject:check_can_sign(timestamp)
     local sign_timestamp = self.__role_attrs.sign_timestamp or 0
-    local interval_timestamp = utils.get_interval_timestamp(timestamp) - (24 * 60 * 60)
+    local interval_timestamp = utils.get_interval_timestamp(timestamp) - DAYINTERVAL
     return interval_timestamp > sign_timestamp
 end
 
 function RoleObject:get_continue_times(timestamp)
+    self:refresh_sign_in(timestamp)
     local continue_times = self.__role_attrs.continue_times or 0
-    local sign_timestamp = self.__role_attrs.sign_timestamp or 0
-    local interval_timestamp = utils.get_interval_timestamp(sign_timestamp)
-    local current = utils.get_interval_timestamp(timestamp)
-    if timestamp - interval_timestamp > (24 * 60 *60) then
-        self.__role_attrs.continue_times = 0
-    end
-    return self.__role_attrs.continue_times
+    return continue_times
 end
 
 function RoleObject:set_continue_times(times)
@@ -328,6 +333,24 @@ function RoleObject:add_friendly(friendly,source)
     self:set_friendly(cur_friendly + friendly)
     source = source or SOURCE_CODE.no_source
     self:add_user_record("%s 增加好友值 %d",source_msg(source),friendly)
+end
+
+function RoleObject:statistics_consume_cash(cash)
+    local consume_cash = self.__role_attrs.consume_cash or 0
+    self.__role_attrs.consume_cash = consume_cash + cash
+end
+
+function RoleObject:get_consume_cash()
+    return self.__role_attrs.consume_cash or 0
+end
+
+function RoleObject:set_return_consume_finish()
+    self.__role_attrs.return_consume = 1
+end
+
+function RoleObject:check_can_return_consume()
+    if self.__level < 10 then return false end
+    return self.__role_attrs.return_consume ~= 1
 end
 
 function RoleObject:get_kettle_timestamp()

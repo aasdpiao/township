@@ -121,3 +121,12 @@ set_avatar_index 110{
 		result 0 : integer
 	}
 }
+
+return_consume_cash 111{
+	request {
+		cash_count 0 : integer
+	}
+	response {
+		result 0 : integer
+	}
+}

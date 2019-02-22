@@ -96,6 +96,9 @@ function RoleBase:consume_cash(money,consume)
     consume = consume or CONSUME_CODE.no_consume
     self:add_user_record("%s 消耗钞票 %d",consume_msg(consume),money)
     self:get_daily_ruler():use_cash(money)
+    if self.__level < 10 then
+        self:statistics_consume_cash(money)
+    end
 end
 
 function RoleBase:add_cash(money,source)
