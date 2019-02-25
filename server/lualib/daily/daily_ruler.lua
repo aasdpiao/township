@@ -1,6 +1,7 @@
 local class = require "class"
 local utils = require "utils"
 local packer = require "db.packer"
+local cjson = require "cjson"
 
 local DailyManager = require "daily.daily_manager"
 local DailyDispatcher = require "daily.daily_dispatcher"
@@ -27,6 +28,8 @@ function DailyRuler:ctor(role_object)
     self.__reward_objects = {}
 
     self.__task_map = {}
+
+    self.__sign_rewards = {}
 end
 
 function DailyRuler:init()
@@ -46,6 +49,7 @@ function DailyRuler:load_daily_data(daily_data)
     local timestamp = daily_data.timestamp or 0
     local task_objects = daily_data.task_objects or {}
     local reward_objects = daily_data.reward_objects or {}
+    local sign_rewards = daily_data.sign_rewards or "{}"
     for i,v in ipairs(task_objects) do
         local task_object = TaskObject.new(self.__role_object)
         task_object:load_task_object(v)
@@ -56,7 +60,8 @@ function DailyRuler:load_daily_data(daily_data)
         reward_object:load_reward_object(v)
         self.__reward_objects[i] = reward_object
     end
-    self.__timestamp = timestamp 
+    self.__timestamp = timestamp
+    self.__sign_rewards = cjson.decode(sign_rewards)
 end
 
 function DailyRuler:serialize_daily_data()
@@ -69,7 +74,12 @@ function DailyRuler:dump_daily_data()
     daily_data.timestamp = self.__timestamp
     daily_data.task_objects = self:dump_task_objects()
     daily_data.reward_objects = self:dump_reward_objects()
+    daily_data.sign_rewards = self:dump_sign_rewards()
     return daily_data
+end
+
+function DailyRuler:dump_sign_rewards()
+    return cjson.encode(self.__sign_rewards)
 end
 
 function DailyRuler:dump_task_objects()
@@ -86,6 +96,14 @@ function DailyRuler:dump_reward_objects()
         reward_objects[i] = v:dump_reward_object()
     end
     return reward_objects
+end
+
+function DailyRuler:set_sign_rewards(sign_rewards)
+    self.__sign_rewards = sign_rewards
+end
+
+function DailyRuler:get_sign_rewards()
+    return self.__sign_rewards
 end
 
 function DailyRuler:check_can_receive(reward_index)

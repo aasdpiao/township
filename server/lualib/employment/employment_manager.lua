@@ -139,8 +139,6 @@ function EmploymentManager:gen_worker_object(employ_index,worker_id)
     local level = (state - 1) * 5 + utils.get_random_int(1,5)
     worker_object:set_worker_level(level)
     worker_object:set_worker_profession(profession)
-    -- local skills = self:get_worker_skills(profession)
-    -- worker_object:set_worker_skills(skills)
     local worker_index = self:gen_worker_index(profession)
     worker_object:set_worker_index(worker_index)
     return worker_object

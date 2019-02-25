@@ -104,39 +104,42 @@ end
 
 function RoleDispatcher.dispatcher_sign_in(role_object,msg_data)
     local timestamp = msg_data.timestamp
-    local continue_times = msg_data.continue_times
+    local sync_day_times = msg_data.continue_times
     local result = 0
     if not role_object:check_can_sign(timestamp) then
-        LOG_ERROR("timestamp:%s continue_times:%d error:%s",get_epoch_time(timestamp),continue_times,errmsg(GAME_ERROR.cant_sign_in))
+        LOG_ERROR("timestamp:%s sync_day_times:%d error:%s",get_epoch_time(timestamp),sync_day_times,errmsg(GAME_ERROR.cant_sign_in))
         result = GAME_ERROR.cant_sign_in
         return {result = result} 
     end
-    local sign_in_times = role_object:get_continue_times(timestamp)
-    if continue_times ~= sign_in_times then
-        LOG_ERROR("timestamp:%s continue_times:%d sign_in_times:%d error:%s",get_epoch_time(timestamp),continue_times, sign_in_times, errmsg(GAME_ERROR.number_not_match))
+    local day_times = role_object:get_day_times(timestamp)
+    if sync_day_times ~= day_times then
+        LOG_ERROR("timestamp:%s continue_times:%d sign_in_times:%d error:%s",get_epoch_time(timestamp),day_times, sync_day_times, errmsg(GAME_ERROR.number_not_match))
         return {result = GAME_ERROR.number_not_match} 
     end
-    local index = continue_times + 1
-    role_object:set_continue_times(index)
+    local continue_times = role_object:get_continue_times(timestamp)
+    continue_times = continue_times + 1
+    day_times = day_times + 1
+    role_object:set_day_times(day_times)
+    role_object:set_continue_times(continue_times)
     role_object:set_sign_timestamp(timestamp)
     local max_continue_times = role_object:get_max_continue_login()
-    if index > max_continue_times then
-        role_object:set_max_continue_login(index)
-        role_object:get_achievement_ruler():continue_login(index)
+    if continue_times > max_continue_times then
+        role_object:set_max_continue_login(continue_times)
+        role_object:get_achievement_ruler():continue_login(continue_times)
     end
-    if index < 5 then
-        local item_index = 7001
-        local item_count = role_object:get_role_manager():get_sign_gold(index)
+    if day_times < 7 then
+        local sign_rewards = role_object:get_daily_ruler():get_sign_rewards()
+        local rewards = sign_rewards[day_times]
+        if not rewards then
+            LOG_ERROR("day_times:%d err:%s",day_times,errmsg(GAME_ERROR.reward_not_exist))
+            return {result = GAME_ERROR.number_not_match} 
+        end
+        local item_index = rewards.item.item_index 
+        local item_count = rewards.item.item_count
         role_object:add_item(item_index,item_count,SOURCE_CODE.sign_in)
         return {result = 0,item_objects = {{item_index = item_index,item_count = item_count}}}
     else
-        local item_objects = role_object:get_role_manager():gen_sign_rewards()
-        for i,item_object in ipairs(item_objects) do
-            local item_index = item_object.item_index
-            local item_count = item_object.item_count
-            role_object:add_item(item_index,item_count,SOURCE_CODE.sign_in)
-        end
-        return {result = 0,item_objects = item_objects}
+        
     end
 end
 

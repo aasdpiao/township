@@ -220,12 +220,15 @@ end
 3004	紫宝石 amethyst
 7001	金币
 7002	钞票
+7003	好友值
 ]]
 function RoleBase:add_item(item_index,item_count,source)
     if item_index == 7001 then
         self:add_gold(item_count,source)
     elseif item_index == 7002 then
         self:add_cash(item_count,source)
+    elseif item_index == 7003 then
+        self:add_friendly(item_count,source)
     elseif item_index == 3001 then
         self:add_topaz(item_count,source)
     elseif item_index == 3002 then
@@ -255,6 +258,7 @@ end
 3004	紫宝石 amethyst
 7001	金币
 7002	钞票
+7003	好友值
 ]]
 function RoleBase:consume_item(item_index,item_count,consume)
     item_count = item_count or 1
@@ -262,6 +266,8 @@ function RoleBase:consume_item(item_index,item_count,consume)
         self:consume_gold(item_count,consume)
     elseif item_index == 7002 then
         self:consume_cash(item_count,consume)
+    elseif item_index == 7003 then
+        self:consume_friendly(item_count,consume)
     elseif item_index == 3001 then
         self:consume_topaz(item_count,consume)
     elseif item_index == 3002 then

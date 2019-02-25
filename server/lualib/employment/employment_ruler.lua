@@ -140,7 +140,7 @@ function EmploymentRuler:gen_free_worker(employ_index,timestamp)
         self.__free_times = self.__free_times + 1
         self.__free_timestamp = timestamp
         return self:gen_worker_object(employ_index)
-    else
+    elseif employ_index == 2001 then
         self.__cash_timestamp = timestamp
         return self:gen_worker_object(employ_index)
     end

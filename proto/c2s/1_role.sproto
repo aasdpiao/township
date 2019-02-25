@@ -130,3 +130,10 @@ return_consume_cash 111{
 		result 0 : integer
 	}
 }
+
+unlock_seven_task 112{
+	response {
+		
+		result 0 : integer
+	}
+}
