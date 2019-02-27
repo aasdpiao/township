@@ -5,6 +5,7 @@ local TaskEntry = require "daily.task_entry"
 local RewardEntry = require "daily.reward_entry"
 local TaskObject = require "daily.task_object"
 local RewardObject = require "daily.reward_object"
+local SevenEntry = require "daily.seven_entry"
 
 local DailyManager = class()
 
@@ -20,9 +21,10 @@ end
 function DailyManager:init()
     self:load_daily_config()
     self:load_reward_config()
+    self:load_seven_config()
 end
 
-function DailyManager:load_daily_config(  )
+function DailyManager:load_daily_config()
     local daily_config = datacenter.get("daily_config")
     for k,v in pairs(daily_config) do
         local task_index = v.task_index
@@ -36,7 +38,7 @@ function DailyManager:get_task_entry(task_index)
     return self.__task_entrys[task_index]
 end
 
-function DailyManager:load_reward_config(  )
+function DailyManager:load_reward_config()
     local daily_reward_config = datacenter.get("daily_reward_config")
     for k,v in pairs(daily_reward_config) do
         local reward_index = v.reward_index
@@ -52,6 +54,25 @@ end
 
 function DailyManager:get_reward_entry(reward_index)
     return self.__reward_entrys[reward_index]
+end
+
+
+function DailyManager:load_seven_config()
+    local seven_config = datacenter.get("seven_config")
+    for i,v in pairs(seven_config) do
+        local seven_entry = SevenEntry.new()
+        seven_entry:load_seven_entry(v)
+        local task_index = seven_entry:get_task_index()
+        self.__task_entrys[task_index] = seven_entry
+    end
+end
+
+function DailyManager:get_seven_tasks()
+    return self.__task_entrys
+end
+
+function DailyManager:get_seven_entry(task_index)
+    return self.__seven_entrys[task_index]
 end
 
 function DailyManager:generate_task_objects()

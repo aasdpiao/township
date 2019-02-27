@@ -106,7 +106,7 @@ function RoleManager:gen_day_times_reward()
     local select = utils.get_random_list_in_weight(total_weight,value_weight_list,count)
     local gem_list = {{3001,10},{3002,10},{3003,10},{3004,10}}
     local gem_index = utils.get_random_value_in_weight(40,gem_list)
-    local worker_object = self.__role_object:get_employ_ruler():gen_worker_object(3001)
+    local worker_object = self.__role_object:get_employment_ruler():gen_worker_object(3001)
     local day_times_reward = {}
     day_times_reward[1] = {item = {item_index=7001,item_count=200}}
     day_times_reward[2] = {item = {item_index=select[1],item_count=1}}
@@ -114,8 +114,9 @@ function RoleManager:gen_day_times_reward()
     day_times_reward[4] = {item = {item_index=select[2],item_count=2}}
     day_times_reward[5] = {item = {item_index=7002,item_count=10}}
     day_times_reward[6] = {item = {item_index=select[3],item_count=3}}
-    day_times_reward[7] = {item = {item_index=gem_index,item_count=1},
-                        additional = {lock = {item_index = 7002,item_count = 20}, unlock = worker_object:dump_worker_object()}}
+    day_times_reward[7] = {item = {item_index=gem_index,item_count=1}}
+    day_times_reward[8] = {lock = {item_index = 7002,item_count = 20},
+                            unlock = worker_object:dump_worker_object()}
     return day_times_reward
 end
 

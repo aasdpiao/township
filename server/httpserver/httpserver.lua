@@ -67,6 +67,14 @@ function httpserver.employment(params)
     return skynet.call(agent_object:get_agent(),"lua","employment")
 end
 
+function httpserver.items(params)
+	local account_id = params.account_id or 0
+	account_id = tonumber(account_id)
+	local agent_object = agent_manager:get_agent_object(account_id)
+	if not agent_object then return end
+    return skynet.call(agent_object:get_agent(),"lua","items")
+end
+
 function httpserver.send_mail(params)
 	local account_id = params.account_id or 0
 	account_id = tonumber(account_id)

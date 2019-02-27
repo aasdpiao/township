@@ -142,6 +142,10 @@ function CMD.employment()
 	return user:get_http_employment()
 end
 
+function CMD.items()
+	return user:get_http_items()
+end
+
 function CMD.power_cmd(cmd,cmd_args)
 	local func = admin_power[cmd]
     local result = 0

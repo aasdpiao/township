@@ -360,4 +360,5 @@
 	task_objects 1 : *task_object
 	reward_objects 2 : *reward_object
 	sign_rewards 3 : string
+	seven_tasks 4 : *task_object
 }

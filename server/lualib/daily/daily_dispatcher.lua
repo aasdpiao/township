@@ -4,6 +4,7 @@ local print_r = require "print_r"
 local skynet = require "skynet"
 
 local DailyDispatcher = class()
+local UNLOCKLEVEL = 3
 
 function DailyDispatcher:ctor(role_object)
     self.__role_object = role_object

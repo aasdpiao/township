@@ -281,13 +281,17 @@ function RoleObject:serialize_role_attr()
 end
 
 function RoleObject:refresh_sign_in(timestamp)
-    local sign_deadline = self.__role_attrs.sign_deadline or 0
+    local sign_deadline = self:get_sign_deadline()
     if timestamp >= sign_deadline then
         self.__role_attrs.sign_deadline = WEEKINTERVAL + timestamp
         self.__role_attrs.day_times = 0
         local sign_rewards = self.__role_manager:gen_day_times_reward()
         self.__daily_ruler:set_sign_rewards(sign_rewards)
     end
+end
+
+function RoleObject:get_sign_deadline()
+    return self.__role_attrs.sign_deadline or 0
 end
 
 function RoleObject:check_can_sign(timestamp)
@@ -613,6 +617,10 @@ end
 
 function RoleObject:get_http_employment()
     return self.__employment_ruler:dump_employment_data()
+end
+
+function RoleObject:get_http_items()
+    return self.__item_ruler:dump_item_data()
 end
 
 function RoleObject:send_mail(mail_data)

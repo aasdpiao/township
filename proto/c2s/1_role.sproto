@@ -131,9 +131,14 @@ return_consume_cash 111{
 	}
 }
 
-unlock_seven_task 112{
+request_sign_in 112{
+	request {
+		timestamp 0 : integer
+	}
 	response {
-		
 		result 0 : integer
+		sign_rewards 1 : string
+		day_times 2 : integer
+		sign_deadline 3 : integer
 	}
 }

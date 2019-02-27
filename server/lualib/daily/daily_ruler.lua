@@ -7,7 +7,9 @@ local DailyManager = require "daily.daily_manager"
 local DailyDispatcher = require "daily.daily_dispatcher"
 local RewardObject = require "daily.reward_object"
 local TaskObject = require "daily.task_object"
+local SevenTask = require "daily.seven_task"
 local task_const = require "daily.task_const"
+local seven_const = require "daily.seven_const"
 
 local REWARDMAP = {}
 REWARDMAP[1] = {1,2,3}
@@ -30,6 +32,8 @@ function DailyRuler:ctor(role_object)
     self.__task_map = {}
 
     self.__sign_rewards = {}
+    self.__seven_tasks = {}
+    self.__type_tasks = {}
 end
 
 function DailyRuler:init()
@@ -38,6 +42,8 @@ function DailyRuler:init()
     
     self.__daily_dispatcher = DailyDispatcher.new(self.__role_object)
     self.__daily_dispatcher:init()
+
+    self:unlock_seven_tasks()
 end
 
 function DailyRuler:get_daily_manager()
@@ -50,6 +56,7 @@ function DailyRuler:load_daily_data(daily_data)
     local task_objects = daily_data.task_objects or {}
     local reward_objects = daily_data.reward_objects or {}
     local sign_rewards = daily_data.sign_rewards or "{}"
+    local seven_tasks = daily_data.seven_tasks or {}
     for i,v in ipairs(task_objects) do
         local task_object = TaskObject.new(self.__role_object)
         task_object:load_task_object(v)
@@ -59,6 +66,11 @@ function DailyRuler:load_daily_data(daily_data)
         local reward_object = RewardObject.new(self.__role_object)
         reward_object:load_reward_object(v)
         self.__reward_objects[i] = reward_object
+    end
+    for i,v in ipairs(seven_tasks) do
+        local task_index = v.task_index
+        local seven_task = self:get_seven_task(task_index)
+        seven_task:load_task_object(v)
     end
     self.__timestamp = timestamp
     self.__sign_rewards = cjson.decode(sign_rewards)
@@ -75,6 +87,7 @@ function DailyRuler:dump_daily_data()
     daily_data.task_objects = self:dump_task_objects()
     daily_data.reward_objects = self:dump_reward_objects()
     daily_data.sign_rewards = self:dump_sign_rewards()
+    daily_data.seven_tasks = self:dump_seven_tasks()
     return daily_data
 end
 
@@ -98,12 +111,38 @@ function DailyRuler:dump_reward_objects()
     return reward_objects
 end
 
+function DailyRuler:dump_seven_tasks()
+    local seven_tasks = {}
+    for k,v in pairs(self.__seven_tasks) do
+        table.insert(seven_tasks,v:dump_seven_task())
+    end
+    return seven_tasks
+end
+
 function DailyRuler:set_sign_rewards(sign_rewards)
     self.__sign_rewards = sign_rewards
 end
 
 function DailyRuler:get_sign_rewards()
     return self.__sign_rewards
+end
+
+function DailyRuler:unlock_seven_tasks()
+    local seven_tasks = self.__daily_manager:get_seven_tasks()
+    for _,seven_entry in pairs(seven_tasks) do
+        local task_type = seven_entry:get_task_type()
+        local task_index = seven_entry:get_task_index()
+        if not self.__type_tasks[task_type] then
+            self.__type_tasks[task_type] = {}
+        end
+        local seven_task = SevenTask.new(self.__role_object,seven_entry)
+        table.insert(self.__type_tasks[task_type],seven_task)
+        self.__seven_tasks[task_index] = seven_task
+    end
+end
+
+function DailyRuler:get_seven_task(task_index)
+    return self.__seven_tasks[task_index]
 end
 
 function DailyRuler:check_can_receive(reward_index)
@@ -259,4 +298,64 @@ function DailyRuler:help_pedestrian()
     self:finish_daily_task(task_const.help_pedestrian)
 end
 
+--seven_task
+function DailyRuler:finish_seven_task(task_type,count)
+    local seven_tasks = self.__type_tasks[task_type]
+    for i,v in ipairs(seven_tasks) do
+        v:finish_seven_task(count)
+        if v:check_can_finish() then
+            local task_index = v:get_task_index()
+            local times = v:get_times()
+            self.__role_object:send_request("seven_finish",{task_index=task_index,times=times})
+        end
+    end
+end
+
+function DailyRuler:seven_harvest_crop(count)
+    self:finish_seven_task(seven_const.harvest_crop,count)
+end
+
+function DailyRuler:seven_harvest_factory(count)
+    self:finish_seven_task(seven_const.harvest_factory,count)
+end
+
+function DailyRuler:seven_levelup(count)
+    self:finish_seven_task(seven_const.levelup,count)
+end
+
+function DailyRuler:seven_population(count)
+    self:finish_seven_task(seven_const.population,count)
+end
+
+function DailyRuler:seven_helicopter_order(count)
+    self:finish_seven_task(seven_const.helicopter_order,count)
+end
+
+function DailyRuler:seven_trains_count(count)
+    self:finish_seven_task(seven_const.trains_count,count)
+end
+
+function DailyRuler:seven_friends(count)
+    self:finish_seven_task(seven_const.friends,count)
+end
+
+function DailyRuler:seven_help_trains(count)
+    self:finish_seven_task(seven_const.help_trains,count)
+end
+
+function DailyRuler:seven_help_water(count)
+    self:finish_seven_task(seven_const.help_water,count)
+end
+
+function DailyRuler:seven_expand_count(count)
+    self:finish_seven_task(seven_const.expand_count,count)
+end
+
+function DailyRuler:seven_open_undevelop(count)
+    self:finish_seven_task(seven_const.open_undevelop,count)
+end
+
+function DailyRuler:seven_decoration_count(count)
+    self:finish_seven_task(seven_const.decoration_count,count)
+end
 return DailyRuler

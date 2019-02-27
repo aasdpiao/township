@@ -35,6 +35,7 @@ data[4123] = { item_index = 4123,  item_name = "巧克力沙冰",  item_icon = "
 data[4124] = { item_index = 4124,  item_name = "鲜榨西瓜汁",  item_icon = "TB_156_xiguazhi",  item_type = 4,  sale_price = 136,  cash_price = 26,  unlock_level = 73,  produce_exp = 58,  desc = "饮料厂生产",  friendly = 58}
 data[4125] = { item_index = 4125,  item_name = "冰茶",  item_icon = "TB_157_bingcha",  item_type = 4,  sale_price = 262,  cash_price = 42,  unlock_level = 75,  produce_exp = 112,  desc = "饮料厂生产",  friendly = 112}
 data[4126] = { item_index = 4126,  item_name = "热带饮品",  item_icon = "TB_158_redaiyinpin",  item_type = 4,  sale_price = 540,  cash_price = 67,  unlock_level = 78,  produce_exp = 231,  desc = "饮料厂生产",  friendly = 231}
+data[7003] = { item_index = 7003,  item_name = "爱心值",  item_icon = "Frindly",  item_type = 7,  sale_price = 0,  cash_price = 0,  unlock_level = 1,  produce_exp = 0,  desc = "",  friendly = 0}
 data[3001] = { item_index = 3001,  item_name = "黄宝石",  item_icon = "TB_170_huangbaoshi",  item_type = 3,  sale_price = 0,  cash_price = 10,  unlock_level = 17,  produce_exp = 0,  desc = "飞机运输",  friendly = 0}
 data[3002] = { item_index = 3002,  item_name = "蓝宝石",  item_icon = "TB_171_lvbaoshi",  item_type = 3,  sale_price = 0,  cash_price = 20,  unlock_level = 17,  produce_exp = 0,  desc = "飞机运输",  friendly = 0}
 data[3003] = { item_index = 3003,  item_name = "红宝石",  item_icon = "TB_172_hongbaoshi",  item_type = 3,  sale_price = 0,  cash_price = 30,  unlock_level = 17,  produce_exp = 0,  desc = "飞机运输",  friendly = 0}

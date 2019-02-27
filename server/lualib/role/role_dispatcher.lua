@@ -6,6 +6,8 @@ local CMD = require "role.admin_power"
 
 local RoleDispatcher = class()
 
+local UNLOCKLEVEL = 10
+
 function RoleDispatcher:ctor(role_object)
     self.__role_object = role_object
 end
@@ -30,12 +32,24 @@ function RoleDispatcher:init()
     self:register_c2s_callback("set_town_name",self.dispatcher_set_town_name)
     self:register_c2s_callback("set_avatar_index",self.dispatcher_set_avatar_index)
     self:register_c2s_callback("return_consume_cash",self.dispatcher_return_consume_cash)
+    self:register_c2s_callback("request_sign_in",self.dispatcher_request_sign_in)
 
     self:register_s2c_callback("send_mail",self.dispatcher_send_mail)
 end
 
 function RoleDispatcher.dispatcher_send_mail(role_object,args,msg_data)
     syslog.debug("dispatcher_send_mail",msg_data.result)
+end
+
+function RoleDispatcher.dispatcher_request_sign_in(role_object,msg_data)
+    local timestamp = msg_data.timestamp
+    role_object:refresh_sign_in(timestamp)
+    local result = {}
+    result.result = 0
+    result.sign_rewards = role_object:get_daily_ruler():get_sign_rewards()
+    result.day_times = role_object:get_day_times()
+    result.sign_deadline = role_object:get_sign_deadline()
+    return result
 end
 
 function RoleDispatcher.dispatcher_return_consume_cash(role_object,msg_data)
@@ -127,19 +141,28 @@ function RoleDispatcher.dispatcher_sign_in(role_object,msg_data)
         role_object:set_max_continue_login(continue_times)
         role_object:get_achievement_ruler():continue_login(continue_times)
     end
-    if day_times < 7 then
-        local sign_rewards = role_object:get_daily_ruler():get_sign_rewards()
-        local rewards = sign_rewards[day_times]
-        if not rewards then
-            LOG_ERROR("day_times:%d err:%s",day_times,errmsg(GAME_ERROR.reward_not_exist))
-            return {result = GAME_ERROR.number_not_match} 
-        end
+    local sign_rewards = role_object:get_daily_ruler():get_sign_rewards()
+    local rewards = sign_rewards[day_times]
+    if not rewards then
+        LOG_ERROR("day_times:%d err:%s",day_times,errmsg(GAME_ERROR.reward_not_exist))
+        return {result = GAME_ERROR.number_not_match} 
+    end
+    if day_times <= 7 then
         local item_index = rewards.item.item_index 
         local item_count = rewards.item.item_count
         role_object:add_item(item_index,item_count,SOURCE_CODE.sign_in)
         return {result = 0,item_objects = {{item_index = item_index,item_count = item_count}}}
     else
-        
+        if role_object:get_level() >= UNLOCKLEVEL then
+            local worker_object = rewards.unlock
+            role_object:get_employment_ruler():restore_worker_object(worker_object)
+            return {result = 0}
+        else 
+            local item_index = rewards.lock.item_index
+            local item_count = rewards.lock.item_count
+            role_object:add_item(item_index,item_count,SOURCE_CODE.sign_in)
+            return {result = 0,item_objects = {{item_index = item_index,item_count = item_count}}}
+        end
     end
 end
 

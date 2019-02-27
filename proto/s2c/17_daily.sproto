@@ -1,7 +1,17 @@
 task_finish 1701{
 	request {
-                task_index 0 : integer
-                times 1 : integer
+		task_index 0 : integer
+		times 1 : integer
+	}
+	response {
+		result 0 : integer
+	}
+}
+
+seven_finish 1702{
+	request {
+		task_index 0 : integer
+		times 1 : integer
 	}
 	response {
 		result 0 : integer

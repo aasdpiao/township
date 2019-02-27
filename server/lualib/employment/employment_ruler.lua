@@ -64,6 +64,13 @@ function EmploymentRuler:load_employment_data(employment_data)
     end
 end
 
+function EmploymentRuler:restore_worker_object(worker_data)
+    local worker_id = worker_data.worker_id
+    local worker_object = WorkerObject.new(self.__role_object,worker_id)
+    worker_object:load_worker_object(worker_data)
+    self:add_worker_object(worker_object)
+end
+
 function EmploymentRuler:dump_employment_data()
     local employment_data = {}
     employment_data.worker_seed = self.__worker_seed
