@@ -56,7 +56,7 @@ data[4085] = { item_index = 4085,  item_name = "墨西哥卷饼",  item_icon = "
 data[7001] = { item_index = 7001,  item_name = "金币",  item_icon = "Coin",  item_type = 7,  sale_price = 0,  cash_price = 0,  unlock_level = 1,  produce_exp = 0,  desc = "",  friendly = 0}
 data[4087] = { item_index = 4087,  item_name = "墨西哥玉米卷",  item_icon = "TB_119_yumijuan",  item_type = 4,  sale_price = 109,  cash_price = 49,  unlock_level = 49,  produce_exp = 47,  desc = "墨西哥餐厅生产",  friendly = 47}
 data[4086] = { item_index = 4086,  item_name = "墨西哥玉米片",  item_icon = "TB_118_mxgyumipian",  item_type = 4,  sale_price = 112,  cash_price = 47,  unlock_level = 46,  produce_exp = 48,  desc = "墨西哥餐厅生产",  friendly = 48}
-data[7002] = { item_index = 7002,  item_name = "钞票",  item_icon = "Cash",  item_type = 7,  sale_price = 0,  cash_price = 0,  unlock_level = 1,  produce_exp = 0,  desc = "",  friendly = 0}
+data[7002] = { item_index = 7002,  item_name = "钻石",  item_icon = "Cash",  item_type = 7,  sale_price = 0,  cash_price = 0,  unlock_level = 1,  produce_exp = 0,  desc = "",  friendly = 0}
 data[5007] = { item_index = 5007,  item_name = "铲子",  item_icon = "TB_57_ChanZi",  item_type = 5,  sale_price = 150,  cash_price = 12,  unlock_level = 0,  produce_exp = 0,  desc = "火车运输",  friendly = 0}
 data[6001] = { item_index = 6001,  item_name = "可可树",  item_icon = "TB_160_kekeshu",  item_type = 6,  sale_price = 34,  cash_price = 6,  unlock_level = 29,  produce_exp = 8,  desc = "码头运输",  friendly = 8}
 data[6002] = { item_index = 6002,  item_name = "橡胶树",  item_icon = "TB_159_xiangjiaoshu",  item_type = 6,  sale_price = 48,  cash_price = 8,  unlock_level = 29,  produce_exp = 11,  desc = "码头运输",  friendly = 11}

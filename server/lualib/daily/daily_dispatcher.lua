@@ -22,12 +22,25 @@ function DailyDispatcher:init()
     self:register_c2s_callback("request_daily",self.dispatcher_request_daily)
     self:register_c2s_callback("receive_daily",self.dispatcher_receive_daily)
     self:register_c2s_callback("finish_task",self.dispatcher_finish_task)
+    self:register_c2s_callback("finish_seven_task",self.dispatcher_finish_seven_task)
 
     self:register_s2c_callback("task_finish",self.dispatcher_task_finish)
+    self:register_s2c_callback("seven_finish",self.dispatcher_seven_finish)
+    self:register_s2c_callback("unlock_seven",self.dispatcher_unlock_seven)
+end
+
+function DailyDispatcher.dispatcher_unlock_seven(role_object,args,msg_data)
+end
+
+function DailyDispatcher.dispatcher_seven_finish(role_object,args,msg_data)
 end
 
 function DailyDispatcher.dispatcher_task_finish(role_object,args,msg_data)
     
+end
+
+function DailyDispatcher.dispatcher_finish_seven_task(role_object,msg_data)
+
 end
 
 function DailyDispatcher.dispatcher_finish_task(role_object,msg_data)

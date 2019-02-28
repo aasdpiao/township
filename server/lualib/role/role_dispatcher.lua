@@ -85,7 +85,7 @@ function RoleDispatcher.dispatcher_add_item_capacity(role_object,msg_data)
     local item_objects = msg_data.item_objects
     if not role_object:get_item_ruler():check_can_add_slot(expand_count) then
         LOG_ERROR("expand_count:%d err:%s",expand_count,errmsg(GAME_ERROR.cant_add_slot))
-            return {result = GAME_ERROR.cant_add_slot}
+        return {result = GAME_ERROR.cant_add_slot}
     end
     local items = {}
     for i,v in ipairs(item_objects) do
@@ -106,6 +106,7 @@ function RoleDispatcher.dispatcher_add_item_capacity(role_object,msg_data)
         role_object:consume_item(k,v,CONSUME_CODE.add_slot)
     end
     role_object:get_item_ruler():set_expand_count(expand_count)
+    role_object:get_daily_ruler():seven_expand_count(expand_count)
     return {result = 0}
 end
 

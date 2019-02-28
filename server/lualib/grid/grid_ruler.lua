@@ -291,6 +291,7 @@ function GridRuler:creat_grid_object(build_object)
         local gold = unlock_entry:get_gold()
         self.__role_object:get_achievement_ruler():decoration_money(gold)
         self.__role_object:get_daily_ruler():build_decorations()
+        self.__role_object:get_daily_ruler():seven_decoration_count()
     elseif grid_type == 1 then
         self.__role_object:get_achievement_ruler():build_farmland()
     end
@@ -361,6 +362,8 @@ function GridRuler:finish_build(build_id,timestamp,item_objects)
         self.__role_object:get_achievement_ruler():build_organization()
     elseif grid_type == 4 then  --people
         self.__role_object:get_achievement_ruler():build_house()
+        local people = self.__role_object:get_people_ruler():get_people()
+        self.__role_object:get_daily_ruler():seven_population(people)
     elseif grid_type == 2 then  --factory
         self.__role_object:get_achievement_ruler():finish_build_factory()
     end
@@ -461,6 +464,7 @@ function GridRuler:open_undevelop_object(timestamp,grid_id)
     local undevelop_object = UndevelopObject.new(self.__role_object,undevelop_index,timestamp,grid_id,grid_const.building)
     self.__building_undevelops[grid_id] = undevelop_object
     self.__undevelop_count = self.__undevelop_count + 1
+    self.__role_object:get_daily_ruler():seven_open_undevelop(self.__undevelop_count)
     return 0
 end
 

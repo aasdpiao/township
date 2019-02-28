@@ -36,6 +36,11 @@ function SevenTask:finish_seven_task(count)
     self.__times = self.__times + count
 end
 
+function SevenTask:finish_seven_task_count(count)
+    if self.__times >= count then return end
+    self.__times = count
+end
+
 function SevenTask:check_can_finish()
     if self.__status == 1 then return false end
     local total = self.__seven_entry:get_task_times()

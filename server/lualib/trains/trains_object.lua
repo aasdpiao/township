@@ -123,6 +123,7 @@ function TrainsObject:flush_trains_status(timestamp)
         self.__role_object:get_achievement_ruler():finish_trains_order()
         self.__role_object:get_achievement_ruler():finish_trains_record()
         self.__role_object:get_daily_ruler():finish_trains()
+        self.__role_object:get_daily_ruler():seven_trains_count()
         self.__status = trains_status.waitback
         local terminal_entry = self.__role_object:get_trains_ruler():get_terminal_entry(self.__terminal_index)
         assert(terminal_entry)

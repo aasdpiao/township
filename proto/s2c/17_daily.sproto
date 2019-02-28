@@ -17,3 +17,13 @@ seven_finish 1702{
 		result 0 : integer
 	}
 }
+
+unlock_seven 1703{
+	request {
+		seven_deadline 0 : integer
+		task_objects 1 : *task_object
+	}
+	response {
+		result 0 : integer
+	}
+}

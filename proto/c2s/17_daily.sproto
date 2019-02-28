@@ -27,3 +27,14 @@ finish_task 1703{
                 result 0 : integer
 	}
 }
+
+finish_seven 1704{
+        request {
+                timestamp 0 : integer
+                task_index 1 : integer
+	}
+	response {
+                result 0 : integer
+	}
+}
+

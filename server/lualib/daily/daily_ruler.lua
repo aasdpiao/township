@@ -34,6 +34,7 @@ function DailyRuler:ctor(role_object)
     self.__sign_rewards = {}
     self.__seven_tasks = {}
     self.__type_tasks = {}
+    self.__seven_deadline = 0
 end
 
 function DailyRuler:init()
@@ -300,9 +301,22 @@ end
 
 --seven_task
 function DailyRuler:finish_seven_task(task_type,count)
+    count = count or 1
     local seven_tasks = self.__type_tasks[task_type]
     for i,v in ipairs(seven_tasks) do
         v:finish_seven_task(count)
+        if v:check_can_finish() then
+            local task_index = v:get_task_index()
+            local times = v:get_times()
+            self.__role_object:send_request("seven_finish",{task_index=task_index,times=times})
+        end
+    end
+end
+
+function DailyRuler:finish_seven_task_count(task_type,count)
+    local seven_tasks = self.__type_tasks[task_type]
+    for i,v in ipairs(seven_tasks) do
+        v:finish_seven_task_count(count)
         if v:check_can_finish() then
             local task_index = v:get_task_index()
             local times = v:get_times()
@@ -320,11 +334,11 @@ function DailyRuler:seven_harvest_factory(count)
 end
 
 function DailyRuler:seven_levelup(count)
-    self:finish_seven_task(seven_const.levelup,count)
+    self:finish_seven_task_count(seven_const.levelup,count)
 end
 
 function DailyRuler:seven_population(count)
-    self:finish_seven_task(seven_const.population,count)
+    self:finish_seven_task_count(seven_const.population,count)
 end
 
 function DailyRuler:seven_helicopter_order(count)
@@ -336,7 +350,7 @@ function DailyRuler:seven_trains_count(count)
 end
 
 function DailyRuler:seven_friends(count)
-    self:finish_seven_task(seven_const.friends,count)
+    self:finish_seven_task_count(seven_const.friends,count)
 end
 
 function DailyRuler:seven_help_trains(count)
@@ -348,14 +362,15 @@ function DailyRuler:seven_help_water(count)
 end
 
 function DailyRuler:seven_expand_count(count)
-    self:finish_seven_task(seven_const.expand_count,count)
+    self:finish_seven_task_count(seven_const.expand_count,count)
 end
 
 function DailyRuler:seven_open_undevelop(count)
-    self:finish_seven_task(seven_const.open_undevelop,count)
+    self:finish_seven_task_count(seven_const.open_undevelop,count)
 end
 
 function DailyRuler:seven_decoration_count(count)
     self:finish_seven_task(seven_const.decoration_count,count)
 end
+
 return DailyRuler

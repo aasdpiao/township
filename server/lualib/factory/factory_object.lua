@@ -410,6 +410,7 @@ function FactoryObject:harvest_product_object(timestamp,product_index,slot_index
     self.__role_object:get_achievement_ruler():factory_product(item_count)
     self.__role_object:get_achievement_ruler():finish_product_record(item_count)
     self.__role_object:get_daily_ruler():factory_storage(item_count)
+    self.__role_object:get_daily_ruler():seven_harvest_factory(item_count)
     self.__storage_quene[slot_index] = nil
     self:refresh_factory_object(timestamp)
     return 0

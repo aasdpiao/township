@@ -226,6 +226,7 @@ function PlantRuler:harvest_products(build_id,timestamp)
     self.__role_object:get_achievement_ruler():harvest_farmland(item_count)
     self.__role_object:get_achievement_ruler():limit_harvest_farmland(timestamp,1)
     self.__role_object:get_daily_ruler():plant_harvest()
+    self.__role_object:get_daily_ruler():seven_harvest_crop()
     self.__role_object:publish("plant","harvest",self.__role_object:get_account_id(),build_id)
     return 0
 end

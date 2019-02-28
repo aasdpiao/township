@@ -96,47 +96,47 @@ function EmploymentDispatcher.dispatcher_worker_upgrade(role_object,msg_data)
 
     if not topaz == state_topaz then
         LOG_ERROR("topaz:%d state_topaz:%d err:%s",topaz,state_topaz,errmsg(GAME_ERROR.number_not_match))
-        return GAME_ERROR.number_not_match
+        return {result = GAME_ERROR.number_not_match}
     end
     if not emerald == state_emerald then
         LOG_ERROR("emerald:%d state_emerald:%d err:%s",emerald,state_emerald,errmsg(GAME_ERROR.number_not_match))
-        return GAME_ERROR.number_not_match
+        return {result = GAME_ERROR.number_not_match}
     end
     if not ruby == state_ruby then
         LOG_ERROR("ruby:%d state_ruby:%d err:%s",ruby,state_ruby,errmsg(GAME_ERROR.number_not_match))
-        return GAME_ERROR.number_not_match
+        return {result = GAME_ERROR.number_not_match}
     end
     if not amethyst == state_amethyst then
         LOG_ERROR("amethyst:%d state_amethyst:%d err:%s",amethyst,state_amethyst,errmsg(GAME_ERROR.number_not_match))
-        return GAME_ERROR.number_not_match
+        return {result = GAME_ERROR.number_not_match}
     end
 
     if not role_object:check_enough_topaz(topaz) then
-        LOG_ERROR("topaz:%d err:%s",topaz,errmsg(GAME_ERROR.cash_not_enough))
-        return GAME_ERROR.topaz_not_enough
+        LOG_ERROR("topaz:%d err:%s",topaz,errmsg(GAME_ERROR.topaz_not_enough))
+        return {result = GAME_ERROR.topaz_not_enough}
     end
     if not role_object:check_enough_emerald(emerald) then
-        LOG_ERROR("emerald:%d err:%s",emerald,errmsg(GAME_ERROR.cash_not_enough))
-        return GAME_ERROR.emerald_not_enough
+        LOG_ERROR("emerald:%d err:%s",emerald,errmsg(GAME_ERROR.emerald_not_enough))
+        return {result = GAME_ERROR.emerald_not_enough}
     end
     if not role_object:check_enough_ruby(ruby) then
-        LOG_ERROR("ruby:%d err:%s",ruby,errmsg(GAME_ERROR.cash_not_enough))
-        return GAME_ERROR.ruby_not_enough
+        LOG_ERROR("ruby:%d err:%s",ruby,errmsg(GAME_ERROR.ruby_not_enough))
+        return {result = GAME_ERROR.ruby_not_enough}
     end
     if not role_object:check_enough_amethyst(amethyst) then
-        LOG_ERROR("amethyst:%d err:%s",amethyst,errmsg(GAME_ERROR.cash_not_enough))
-        return GAME_ERROR.amethyst_not_enough
+        LOG_ERROR("amethyst:%d err:%s",amethyst,errmsg(GAME_ERROR.amethyst_not_enough))
+        return {result = GAME_ERROR.amethyst_not_enough}
     end
     if not worker_object:check_can_upgrade() then
         LOG_ERROR("err:%s",errmsg(GAME_ERROR.cant_upgrade))
-        return GAME_ERROR.cant_upgrade
+        return {result = GAME_ERROR.cant_upgrade}
     end
     role_object:consume_topaz(topaz,CONSUME_CODE.worker_upgrade)
     role_object:consume_emerald(emerald,CONSUME_CODE.worker_upgrade)
     role_object:consume_ruby(ruby,CONSUME_CODE.worker_upgrade)
     role_object:consume_amethyst(amethyst,CONSUME_CODE.worker_upgrade)
     worker_object:upgrade_worker()
-    return {reulst = 0}
+    return {result = 0}
 end
 
 function EmploymentDispatcher.dispatcher_free_employment(role_object,msg_data)
@@ -165,7 +165,7 @@ function EmploymentDispatcher.dispatcher_add_upper_count(role_object,msg_data)
         LOG_ERROR("slot_index:%d err:%s",slot_index,errmsg(GAME_ERROR.cant_add_slot))
         return {result = GAME_ERROR.cant_add_slot} 
     end
-    local cash = employment_ruler:get_add_upper_cash()
+    local cash = employment_ruler:get_add_upper_cash(slot_index)
     if cash ~= cash_count then
         LOG_ERROR("cash:%d cash_count:%d err:%s",cash,cash_count,errmsg(GAME_ERROR.number_not_match))
         return {result = GAME_ERROR.number_not_match} 

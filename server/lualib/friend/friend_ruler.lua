@@ -79,6 +79,8 @@ end
 
 function FriendRuler:add_friend_object(account_id,friend_object)
     self.__friend_objects[account_id] = friend_object
+    local friends_count = self:get_friend_count()
+    self.__role_object:get_daily_ruler():seven_friends(friends_count)
 end
 
 function FriendRuler:add_recommend_object(account_id,friend_object)
@@ -308,6 +310,14 @@ function FriendRuler:del_verify(account_id)
     if result ~= 0 then return result end
     self:del_verify_friend(account_id)
     return 0
+end
+
+function FriendRuler:get_friend_count()
+    local count = 0
+    for k,v in pairs(self.__friend_objects) do
+        count = count + 1
+    end
+    return count
 end
 
 function FriendRuler:accept_invite(account_id)

@@ -273,6 +273,7 @@ function HelicopterRuler:finish_helicopter_order(order_index,item_objects,gold_c
     self.__role_object:get_achievement_ruler():limit_helicopter_order(timestamp,1)
     self.__role_object:get_achievement_ruler():finish_helicopter_record()
     self.__role_object:get_daily_ruler():finish_helicopter()
+    self.__role_object:get_daily_ruler():seven_helicopter_order()
     local order_object = self.__helicopter_manager:generate_order_object()
     local person_index = self:generate_person_index()
     order_object:set_person_index(person_index)
