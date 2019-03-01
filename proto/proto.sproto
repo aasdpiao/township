@@ -361,4 +361,5 @@
 	reward_objects 2 : *reward_object
 	sign_rewards 3 : string
 	seven_tasks 4 : *task_object
+	seven_deadline 5 : integer
 }

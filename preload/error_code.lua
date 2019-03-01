@@ -119,6 +119,7 @@ GAME_ERROR = {
 	verify_exist                = add{code = 0x3015, desc = "不在验证列表"},
 	thumb_up_exist              = add{code = 0x3016, desc = "已点赞"},
 	event_not_exist             = add{code = 0x3017, desc = "事件不存在"},
+	task_not_exist              = add{code = 0x3018, desc = "任务不存在"},
 
 	operate_not_unlock 			= add{code = 0x4001, desc = "操作未解鎖"},
 	number_not_match 			= add{code = 0x4002, desc = "数据不匹配"},

@@ -19,8 +19,28 @@ function SevenEntry:load_seven_entry(seven_entry)
     end
 end
 
+function SevenEntry:get_task_index()
+    return self.__task_index
+end
+
+function SevenEntry:get_task_type()
+    return self.__task_type
+end
+
 function SevenEntry:get_task_times()
     return self.__total
+end
+
+function SevenEntry:get_day_times()
+    return self.__day_times
+end
+
+function SevenEntry:get_rewards()
+    return self.__rewards
+end
+
+function function_name(  )
+    -- body
 end
 
 return SevenEntry

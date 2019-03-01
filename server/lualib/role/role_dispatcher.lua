@@ -3,6 +3,7 @@ local class = require "class"
 local print_r = require "print_r"
 local skynet = require "skynet"
 local CMD = require "role.admin_power"
+local cjson = require "cjson"
 
 local RoleDispatcher = class()
 
@@ -44,11 +45,14 @@ end
 function RoleDispatcher.dispatcher_request_sign_in(role_object,msg_data)
     local timestamp = msg_data.timestamp
     role_object:refresh_sign_in(timestamp)
+    local sign_rewards = role_object:get_daily_ruler():get_sign_rewards()
     local result = {}
     result.result = 0
-    result.sign_rewards = role_object:get_daily_ruler():get_sign_rewards()
-    result.day_times = role_object:get_day_times()
+    result.sign_rewards = cjson.encode(sign_rewards)
+    result.day_times = role_object:get_day_times(timestamp)
     result.sign_deadline = role_object:get_sign_deadline()
+    result.seven_deadline = role_object:get_daily_ruler():get_seven_deadline()
+    result.seven_tasks = role_object:get_daily_ruler():dump_seven_tasks()
     return result
 end
 

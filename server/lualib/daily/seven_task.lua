@@ -28,15 +28,19 @@ function SevenTask:get_task_index()
     return self.__task_index
 end
 
+function SevenTask:get_task_type()
+    return self.__task_type
+end
+
 function SevenTask:get_times()
     return self.__times
 end
 
-function SevenTask:finish_seven_task(count)
+function SevenTask:finish_seven(count)
     self.__times = self.__times + count
 end
 
-function SevenTask:finish_seven_task_count(count)
+function SevenTask:finish_seven_count(count)
     if self.__times >= count then return end
     self.__times = count
 end
@@ -45,6 +49,17 @@ function SevenTask:check_can_finish()
     if self.__status == 1 then return false end
     local total = self.__seven_entry:get_task_times()
     return self.__times >= total
+end
+
+function SevenTask:get_day_times()
+    return self.__seven_entry:get_day_times()
+end
+
+function SevenTask:finish_seven_task()
+    local rewards = self.__seven_entry:get_rewards()
+    for k,v in pairs(rewards) do
+        self.__role_object:add_item(k,v,SOURCE_CODE.seven)
+    end
 end
 
 return SevenTask

@@ -196,7 +196,7 @@ end
 function RoleBase:do_levelup_after()
     self:pay_levelup_reward()
     self.__event_ruler:do_levelup_after()
-    self.__daily_ruler:seven_levelup(self.__level)
+    self.__daily_ruler:do_levelup_after()
 end
 
 function RoleBase:get_role_entry()

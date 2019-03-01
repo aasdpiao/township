@@ -40,7 +40,11 @@ function DailyDispatcher.dispatcher_task_finish(role_object,args,msg_data)
 end
 
 function DailyDispatcher.dispatcher_finish_seven_task(role_object,msg_data)
-
+    local timestamp = msg_data.timestamp
+    local task_index = msg_data.task_index
+    local daily_ruler = role_object:get_daily_ruler()
+    local result = daily_ruler:finish_seven(task_index,timestamp)
+    return {result = result}
 end
 
 function DailyDispatcher.dispatcher_finish_task(role_object,msg_data)

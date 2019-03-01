@@ -140,5 +140,7 @@ request_sign_in 112{
 		sign_rewards 1 : string
 		day_times 2 : integer
 		sign_deadline 3 : integer
+		seven_deadline 4 : integer
+		seven_tasks 5 : *task_object
 	}
 }

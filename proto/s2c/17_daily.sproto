@@ -21,7 +21,7 @@ seven_finish 1702{
 unlock_seven 1703{
 	request {
 		seven_deadline 0 : integer
-		task_objects 1 : *task_object
+		seven_tasks 1 : *task_object
 	}
 	response {
 		result 0 : integer

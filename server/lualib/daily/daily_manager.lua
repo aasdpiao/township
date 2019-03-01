@@ -16,6 +16,8 @@ function DailyManager:ctor(role_object)
 
     self.__total_weight = {0,0}
     self.__value_weight_list = {{},{}}
+
+    self.__seven_entrys = {}
 end
 
 function DailyManager:init()
@@ -63,12 +65,12 @@ function DailyManager:load_seven_config()
         local seven_entry = SevenEntry.new()
         seven_entry:load_seven_entry(v)
         local task_index = seven_entry:get_task_index()
-        self.__task_entrys[task_index] = seven_entry
+        self.__seven_entrys[task_index] = seven_entry
     end
 end
 
 function DailyManager:get_seven_tasks()
-    return self.__task_entrys
+    return self.__seven_entrys
 end
 
 function DailyManager:get_seven_entry(task_index)

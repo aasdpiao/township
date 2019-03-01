@@ -22,6 +22,10 @@ REWARDMAP[7] = {1,2,3,4,5,6,7,8,9}
 
 local DailyRuler = class()
 
+local UNLOCKLEVEL = 3
+local WEEKTIME = 7 * 24 * 60 * 60
+local DAYTIME = 24 * 60 * 60
+
 function DailyRuler:ctor(role_object)
     self.__role_object = role_object
     
@@ -51,6 +55,21 @@ function DailyRuler:get_daily_manager()
     return self.__daily_manager
 end
 
+function DailyRuler:get_seven_deadline()
+    return self.__seven_deadline
+end
+
+function DailyRuler:do_levelup_after()
+    local level = self.__role_object:get_level()
+    self:seven_levelup(level)
+    if self.__seven_deadline == 0 and self:check_seven_unlock() then
+        local current_time = self.__role_object:get_time_ruler():get_current_time()
+        self.__seven_deadline = current_time + WEEKTIME
+        local seven_tasks = self:dump_seven_tasks()
+        self.__role_object:send_request("unlock_seven",{seven_deadline=self.__seven_deadline,seven_tasks = seven_tasks})
+    end
+end
+
 function DailyRuler:load_daily_data(daily_data)
     if not daily_data then return end
     local timestamp = daily_data.timestamp or 0
@@ -58,6 +77,7 @@ function DailyRuler:load_daily_data(daily_data)
     local reward_objects = daily_data.reward_objects or {}
     local sign_rewards = daily_data.sign_rewards or "{}"
     local seven_tasks = daily_data.seven_tasks or {}
+    local seven_deadline = daily_data.seven_deadline or 0
     for i,v in ipairs(task_objects) do
         local task_object = TaskObject.new(self.__role_object)
         task_object:load_task_object(v)
@@ -75,6 +95,7 @@ function DailyRuler:load_daily_data(daily_data)
     end
     self.__timestamp = timestamp
     self.__sign_rewards = cjson.decode(sign_rewards)
+    self.__seven_deadline = seven_deadline
 end
 
 function DailyRuler:serialize_daily_data()
@@ -85,6 +106,7 @@ end
 function DailyRuler:dump_daily_data()
     local daily_data = {}
     daily_data.timestamp = self.__timestamp
+    daily_data.seven_deadline = self.__seven_deadline
     daily_data.task_objects = self:dump_task_objects()
     daily_data.reward_objects = self:dump_reward_objects()
     daily_data.sign_rewards = self:dump_sign_rewards()
@@ -300,12 +322,17 @@ function DailyRuler:help_pedestrian()
 end
 
 --seven_task
+function DailyRuler:check_seven_unlock()
+    local level = self.__role_object:get_level()
+    return level >= UNLOCKLEVEL 
+end
+
 function DailyRuler:finish_seven_task(task_type,count)
     count = count or 1
     local seven_tasks = self.__type_tasks[task_type]
     for i,v in ipairs(seven_tasks) do
-        v:finish_seven_task(count)
-        if v:check_can_finish() then
+        v:finish_seven(count)
+        if v:check_can_finish() and self:check_seven_unlock() then
             local task_index = v:get_task_index()
             local times = v:get_times()
             self.__role_object:send_request("seven_finish",{task_index=task_index,times=times})
@@ -316,8 +343,8 @@ end
 function DailyRuler:finish_seven_task_count(task_type,count)
     local seven_tasks = self.__type_tasks[task_type]
     for i,v in ipairs(seven_tasks) do
-        v:finish_seven_task_count(count)
-        if v:check_can_finish() then
+        v:finish_seven_count(count)
+        if v:check_can_finish() and self:check_seven_unlock() then
             local task_index = v:get_task_index()
             local times = v:get_times()
             self.__role_object:send_request("seven_finish",{task_index=task_index,times=times})
@@ -371,6 +398,31 @@ end
 
 function DailyRuler:seven_decoration_count(count)
     self:finish_seven_task(seven_const.decoration_count,count)
+end
+
+function DailyRuler:check_seven_deadline(task_object,timestamp)
+    local day_times = task_object:get_day_times()
+    local exits_time = (7 - day_times) * DAYTIME
+    local deadline = self.__seven_deadline - exits_time
+    return timestamp <= deadline
+end
+
+function DailyRuler:finish_seven(task_index,timestamp)
+    local seven_task = self:get_seven_task(task_index)
+    if not seven_task then
+        LOG_ERROR("task_index:%d,err:%s",task_index,errmsg(GAME_ERROR.task_not_exist))
+        return GAME_ERROR.task_not_exits
+    end
+    if not self:check_seven_deadline(seven_task,timestamp) then
+        LOG_ERROR("task_index:%d,err:%s",task_index,errmsg(GAME_ERROR.cant_reward))
+        return GAME_ERROR.cant_reward
+    end
+    if not seven_task:check_can_finish() then
+        LOG_ERROR("task_index:%d,err:%s",task_index,errmsg(GAME_ERROR.cant_finish))
+        return GAME_ERROR.cant_finish
+    end
+    seven_task:finish_seven_task()
+    return 0
 end
 
 return DailyRuler
