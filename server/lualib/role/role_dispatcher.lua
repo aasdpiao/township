@@ -125,7 +125,7 @@ function RoleDispatcher.dispatcher_sign_in(role_object,msg_data)
     local timestamp = msg_data.timestamp
     local sync_day_times = msg_data.continue_times
     local result = 0
-    if not role_object:check_can_sign(timestamp) then
+    if not role_object:check_can_sign(sync_day_times,timestamp) then
         LOG_ERROR("timestamp:%s sync_day_times:%d error:%s",get_epoch_time(timestamp),sync_day_times,errmsg(GAME_ERROR.cant_sign_in))
         result = GAME_ERROR.cant_sign_in
         return {result = result} 
@@ -152,23 +152,13 @@ function RoleDispatcher.dispatcher_sign_in(role_object,msg_data)
         LOG_ERROR("day_times:%d err:%s",day_times,errmsg(GAME_ERROR.reward_not_exist))
         return {result = GAME_ERROR.number_not_match} 
     end
-    if day_times <= 7 then
-        local item_index = rewards.item.item_index 
-        local item_count = rewards.item.item_count
-        role_object:add_item(item_index,item_count,SOURCE_CODE.sign_in)
-        return {result = 0,item_objects = {{item_index = item_index,item_count = item_count}}}
-    else
-        if role_object:get_level() >= UNLOCKLEVEL then
-            local worker_object = rewards.unlock
-            role_object:get_employment_ruler():restore_worker_object(worker_object)
-            return {result = 0}
-        else 
-            local item_index = rewards.lock.item_index
-            local item_count = rewards.lock.item_count
-            role_object:add_item(item_index,item_count,SOURCE_CODE.sign_in)
-            return {result = 0,item_objects = {{item_index = item_index,item_count = item_count}}}
-        end
+    if day_times == 8 and role_object:get_level() > UNLOCKLEVEL then
+        rewards = sign_rewards[9]         
     end
+    local item_index = rewards[1]
+    local item_count = rewards[2]
+    role_object:add_item(item_index,item_count,SOURCE_CODE.sign_in)
+    return {result = 0,item_objects = {{item_index = item_index,item_count = item_count}}}
 end
 
 --版本检查

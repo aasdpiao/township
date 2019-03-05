@@ -1,6 +1,7 @@
 local class = require "class"
 local datacenter = require "skynet.datacenter"
 local EventEntry = require "event.event_entry"
+local TaskEntry = require "event.task_entry"
 local utils = require "utils"
 
 local EventManager = class()
@@ -9,9 +10,29 @@ function EventManager:ctor(role_object)
     self.__role_object = role_object
 
     self.__event_entrys = {}
+    self.__task_entrys = {}
 end
 
 function EventManager:init()
+    self:load_event_config()
+    self:load_task_config()
+end
+
+function EventManager:load_task_config()
+    local main_task = datacenter.get("main_task")
+    for k,v in pairs(main_task) do
+        local task_entry = TaskEntry.new()
+        task_entry:load_task_entry(v)
+        local task_index = task_entry:get_task_index()
+        self.__task_entrys[task_index] = task_entry
+    end
+end
+
+function EventManager:get_task_entry(task_index)
+    return self.__task_entrys[task_index]
+end
+
+function EventManager:load_event_config()
     local passerby_order_config = datacenter.get("passerby_order_config")
     for k,v in pairs(passerby_order_config) do
         local order_index = v.order_index

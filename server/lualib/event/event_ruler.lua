@@ -17,6 +17,8 @@ function EventRuler:ctor(role_object)
     self.__event_objects = {}
     self.__event_seed = 0
     self.__timestamp = 0
+
+    self.__task_objects = {}
 end
 
 function EventRuler:init()

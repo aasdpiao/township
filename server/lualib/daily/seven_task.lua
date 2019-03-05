@@ -60,6 +60,7 @@ function SevenTask:finish_seven_task()
     for k,v in pairs(rewards) do
         self.__role_object:add_item(k,v,SOURCE_CODE.seven)
     end
+    self.__status = 1
 end
 
 return SevenTask

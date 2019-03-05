@@ -39,6 +39,7 @@ local passerby_order_config = require "config.passerby_order_config"
 local daily_config = require "config.daily_config"
 local daily_reward_config = require "config.daily_reward_config"
 local seven_config = require "config.seven_config"
+local main_task = require "config.main_task"
 
 local build_data = require "init_data.build_data"
 local floor_data = require "init_data.floor_data"
@@ -85,6 +86,7 @@ skynet.start(function()
 	datacenter.set("daily_config", daily_config)
 	datacenter.set("daily_reward_config", daily_reward_config)
 	datacenter.set("seven_config", seven_config)
+	datacenter.set("main_task", main_task)
 
 	datacenter.set("build_data", build_data)
 	datacenter.set("floor_data", floor_data)

@@ -22,7 +22,7 @@ function DailyDispatcher:init()
     self:register_c2s_callback("request_daily",self.dispatcher_request_daily)
     self:register_c2s_callback("receive_daily",self.dispatcher_receive_daily)
     self:register_c2s_callback("finish_task",self.dispatcher_finish_task)
-    self:register_c2s_callback("finish_seven_task",self.dispatcher_finish_seven_task)
+    self:register_c2s_callback("finish_seven",self.dispatcher_finish_seven)
 
     self:register_s2c_callback("task_finish",self.dispatcher_task_finish)
     self:register_s2c_callback("seven_finish",self.dispatcher_seven_finish)
@@ -39,7 +39,7 @@ function DailyDispatcher.dispatcher_task_finish(role_object,args,msg_data)
     
 end
 
-function DailyDispatcher.dispatcher_finish_seven_task(role_object,msg_data)
+function DailyDispatcher.dispatcher_finish_seven(role_object,msg_data)
     local timestamp = msg_data.timestamp
     local task_index = msg_data.task_index
     local daily_ruler = role_object:get_daily_ruler()

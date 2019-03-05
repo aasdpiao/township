@@ -45,7 +45,7 @@ function server.logout(username)
 	syslog.debugf("username :%s is logout",username)
 	local u = user_online[username]
 	user_online[username] = nil
-	if u.fd then
+	if u and u.fd then
 		gateserver.closeclient(u.fd)
 		connection[u.fd] = nil
 	end

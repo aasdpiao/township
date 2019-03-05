@@ -6,7 +6,6 @@ local cjsonencode = cjson.encode
 local cjosndecode = cjson.decode
 cjson.encode_sparse_array(true, 1, 1)
 
-
 local packer = {}
 
 -- function packer.pack (v)

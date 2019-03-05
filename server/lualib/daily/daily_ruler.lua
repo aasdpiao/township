@@ -1,7 +1,7 @@
 local class = require "class"
 local utils = require "utils"
 local packer = require "db.packer"
-local cjson = require "cjson"
+local syslog = require "syslog"
 
 local DailyManager = require "daily.daily_manager"
 local DailyDispatcher = require "daily.daily_dispatcher"
@@ -75,9 +75,9 @@ function DailyRuler:load_daily_data(daily_data)
     local timestamp = daily_data.timestamp or 0
     local task_objects = daily_data.task_objects or {}
     local reward_objects = daily_data.reward_objects or {}
-    local sign_rewards = daily_data.sign_rewards or "{}"
     local seven_tasks = daily_data.seven_tasks or {}
     local seven_deadline = daily_data.seven_deadline or 0
+    local sign_rewards = daily_data.sign_rewards
     for i,v in ipairs(task_objects) do
         local task_object = TaskObject.new(self.__role_object)
         task_object:load_task_object(v)
@@ -93,8 +93,8 @@ function DailyRuler:load_daily_data(daily_data)
         local seven_task = self:get_seven_task(task_index)
         seven_task:load_task_object(v)
     end
+    self:load_sign_rewards(sign_rewards)
     self.__timestamp = timestamp
-    self.__sign_rewards = cjson.decode(sign_rewards)
     self.__seven_deadline = seven_deadline
 end
 
@@ -115,7 +115,13 @@ function DailyRuler:dump_daily_data()
 end
 
 function DailyRuler:dump_sign_rewards()
-    return cjson.encode(self.__sign_rewards)
+    local sign_rewards = packer.encode(self.__sign_rewards)
+    return sign_rewards
+end
+
+function DailyRuler:load_sign_rewards(sign_rewards)
+    if not sign_rewards then return end
+    self.__sign_rewards = packer.decode(sign_rewards)
 end
 
 function DailyRuler:dump_task_objects()

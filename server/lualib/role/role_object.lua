@@ -294,7 +294,8 @@ function RoleObject:get_sign_deadline()
     return self.__role_attrs.sign_deadline or 0
 end
 
-function RoleObject:check_can_sign(timestamp)
+function RoleObject:check_can_sign(day_times,timestamp)
+    if day_times == 7 then return true end
     local sign_timestamp = self.__role_attrs.sign_timestamp or 0
     local interval_timestamp = utils.get_interval_timestamp(timestamp) - DAYINTERVAL
     return interval_timestamp > sign_timestamp
