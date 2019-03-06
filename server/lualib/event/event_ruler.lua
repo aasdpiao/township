@@ -251,7 +251,18 @@ function EventRuler:cancel_event(timestamp,event_id)
 end
 
 function EventRuler:finish_main_task(task_index)
-
+    if self.__task_index ~= task_index then
+        LOG_ERROR("task_index:%d, cur_index:%d err:%s",task_index,self.__task_index,errmsg(GAME_ERROR.number_not_match))
+        return GAME_ERROR.number_not_match
+    end
+    local task_object = self:get_task_object(task_index)
+    if not task_object:check_task_finish() then
+        LOG_ERROR("task_index:%d err:%s",task_index,errmsg(GAME_ERROR.cant_finish))
+        return GAME_ERROR.cant_finish
+    end
+    task_object:finish_main_task()
+    self.__task_index = self.__task_index + 1
+    return 0
 end
 
 function EventRuler:finsh_main_task_times(task_index,times)

@@ -50,4 +50,14 @@ function TaskObject:check_task_finish()
     return self.__times >= times
 end
 
+function TaskObject:finish_main_task()
+    local exp = self.__task_entry:get_exp()
+    local rewards = self.__task_entry:get_rewards()
+    self.__role_object:add_exp(exp,SOURCE_CODE.task)
+    for item_index,item_count in pairs(rewards) do
+        self.__role_object:add_item(item_index,item_count,SOURCE_CODE.task)
+    end
+    self.__status = 1
+end
+
 return TaskObject

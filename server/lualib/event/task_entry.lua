@@ -35,4 +35,12 @@ function TaskEntry:get_task_times()
 	return self.__times
 end
 
+function TaskEntry:get_exp()
+	return self.__exp
+end
+
+function TaskEntry:get_rewards()
+	return self.__rewards
+end
+
 return TaskEntry
