@@ -214,6 +214,7 @@ function CMD.get_player(uid)
 	if player then return cjson.decode(player) end
 	player = load_player(uid)
 	db:hset("player",uid,cjson.encode(player))
+	
 	return player
 end
 

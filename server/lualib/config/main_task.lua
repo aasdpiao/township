@@ -4,270 +4,263 @@
 
 local data = {}
 
-data[1024] = { index = 1024,  type = 1,  total = 3,  items = {},  items_count = {},  exp = 30,  title = "建造农田"}
-data[1025] = { index = 1025,  type = 7,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "扩建地"}
-data[1026] = { index = 1026,  type = 5,  total = 3,  items = {},  items_count = {},  exp = 200,  title = "完成直升飞机订单"}
-data[1027] = { index = 1027,  type = 6,  total = 2,  items = {},  items_count = {},  exp = 150,  title = "完成火车订单"}
-data[1028] = { index = 1028,  type = 8,  total = 1,  items = {},  items_count = {},  exp = 20,  title = "帮助行人"}
-data[1029] = { index = 1029,  type = 4,  total = 3,  items = {},  items_count = {},  exp = 30,  title = "生产收获鸡蛋"}
-data[1030] = { index = 1030,  type = 2,  total = 3,  items = {},  items_count = {},  exp = 30,  title = "生产收获牛饲料"}
-data[1031] = { index = 1031,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "建造消防站"}
-data[1032] = { index = 1032,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 30,  title = "建造平顶小屋"}
-data[1033] = { index = 1033,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 30,  title = "建造木屋"}
-data[1034] = { index = 1034,  type = 7,  total = 2,  items = {},  items_count = {},  exp = 80,  title = "扩建地"}
-data[1035] = { index = 1035,  type = 2,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产糖"}
-data[1036] = { index = 1036,  type = 8,  total = 3,  items = {},  items_count = {},  exp = 60,  title = "帮助行人"}
-data[1037] = { index = 1037,  type = 2,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产曲奇"}
-data[1038] = { index = 1038,  type = 2,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产馕"}
-data[1039] = { index = 1039,  type = 2,  total = 3,  items = {},  items_count = {},  exp = 50,  title = "生产收获鸡饲料"}
-data[1040] = { index = 1040,  type = 9,  total = 5,  items = {},  items_count = {},  exp = 50,  title = "出售仓库物品"}
-data[1041] = { index = 1041,  type = 10,  total = 5,  items = {},  items_count = {},  exp = 50,  title = "邀请添加好友"}
-data[1042] = { index = 1042,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造纺织厂"}
-data[1043] = { index = 1043,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 80,  title = "建造邮政局"}
-data[1044] = { index = 1044,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 40,  title = "建造石头小屋"}
-data[1045] = { index = 1045,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 40,  title = "建造工作室住宅"}
-data[1046] = { index = 1046,  type = 11,  total = 1,  items = {},  items_count = {},  exp = 20,  title = "拜访好友"}
-data[1047] = { index = 1047,  type = 12,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "给好友点赞"}
-data[1048] = { index = 1048,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 50,  title = "建造露台"}
-data[1049] = { index = 1049,  type = 13,  total = 1,  items = {},  items_count = {},  exp = 50,  title = "帮助好友火车订单"}
-data[1050] = { index = 1050,  type = 14,  total = 5,  items = {},  items_count = {},  exp = 100,  title = "帮助好友浇水"}
-data[1051] = { index = 1051,  type = 15,  total = 10,  items = {},  items_count = {},  exp = 50,  title = "修建新的道路"}
-data[1052] = { index = 1052,  type = 7,  total = 2,  items = {},  items_count = {},  exp = 100,  title = "扩建地"}
-data[1053] = { index = 1053,  type = 16,  total = 1,  items = {},  items_count = {},  exp = 50,  title = "跟换头像"}
-data[1054] = { index = 1054,  type = 17,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "升级仓库"}
-data[1055] = { index = 1055,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造牧羊场"}
-data[1056] = { index = 1056,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造自助洗衣店"}
-data[1057] = { index = 1057,  type = 2,  total = 3,  items = {},  items_count = {},  exp = 60,  title = "生产羊毛"}
-data[1058] = { index = 1058,  type = 2,  total = 6,  items = {},  items_count = {},  exp = 60,  title = "生产羊饲料"}
-data[1059] = { index = 1059,  type = 2,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产毛织品"}
-data[1060] = { index = 1060,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造电影院"}
-data[1061] = { index = 1061,  type = 2,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产黄油"}
-data[1062] = { index = 1062,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造裁缝厂"}
-data[1063] = { index = 1063,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造音乐咖啡店"}
-data[1065] = { index = 1065,  type = 2,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产衬衫"}
-data[1066] = { index = 1066,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造美发沙龙"}
-data[1067] = { index = 1067,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "零食厂"}
-data[1068] = { index = 1068,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造披萨店"}
-data[1069] = { index = 1069,  type = 2,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产毛衣"}
-data[1070] = { index = 1070,  type = 2,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产袷袢"}
-data[1071] = { index = 1071,  type = 2,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产维吾尔族服"}
-data[1072] = { index = 1072,  type = 2,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产爆米花"}
-data[1073] = { index = 1073,  type = 2,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产小菜"}
-data[1074] = { index = 1074,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "养牛场"}
-data[1075] = { index = 1075,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造婚礼大厅"}
-data[1077] = { index = 1077,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "快餐店"}
-data[1078] = { index = 1078,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造乐谱店"}
-data[1079] = { index = 1079,  type = 2,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产奶昔"}
-data[1080] = { index = 1080,  type = 2,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产芝士汉堡"}
-data[1081] = { index = 1081,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造保龄球"}
-data[1082] = { index = 1082,  type = 2,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产糖浆"}
-data[1083] = { index = 1083,  type = 2,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产玉米片"}
-data[1084] = { index = 1084,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造造纸厂"}
-data[1085] = { index = 1085,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造玩具店"}
-data[1087] = { index = 1087,  type = 2,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产纸"}
-data[1088] = { index = 1088,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造饲料厂"}
-data[1089] = { index = 1089,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造相片中心"}
-data[1090] = { index = 1090,  type = 2,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产格兰诺拉麦片"}
-data[1091] = { index = 1091,  type = 2,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产三明治"}
-data[1092] = { index = 1092,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造冰淇淋厂"}
-data[1093] = { index = 1093,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造乘坐火箭"}
-data[1094] = { index = 1094,  type = 2,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产冰淇淋"}
-data[1095] = { index = 1095,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造展望台"}
-data[1096] = { index = 1096,  type = 2,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产酸奶疙瘩"}
-data[1097] = { index = 1097,  type = 2,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产冰棒"}
-data[1098] = { index = 1098,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造养牛场"}
-data[1099] = { index = 1099,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造信息库"}
-data[1101] = { index = 1101,  type = 2,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产披萨"}
-data[1102] = { index = 1102,  type = 2,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产薯片"}
-data[1103] = { index = 1103,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造大学选手团"}
-data[1104] = { index = 1104,  type = 2,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产纸巾"}
-data[1105] = { index = 1105,  type = 2,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产冻酸奶"}
-data[1106] = { index = 1106,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造养鸡场"}
-data[1107] = { index = 1107,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造糕点厂"}
-data[1108] = { index = 1108,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造戏院"}
-data[1109] = { index = 1109,  type = 2,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产焦糖"}
-data[1110] = { index = 1110,  type = 2,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产巴哈利"}
-data[1111] = { index = 1111,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造艺术馆"}
-data[1113] = { index = 1113,  type = 2,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产紫雪糕"}
-data[1114] = { index = 1114,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造杂技团"}
-data[1115] = { index = 1115,  type = 2,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产马铃薯面包"}
-data[1116] = { index = 1116,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造果酱厂"}
-data[1117] = { index = 1117,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造停车库"}
-data[1118] = { index = 1118,  type = 2,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产古里奇"}
-data[1119] = { index = 1119,  type = 2,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产草莓酱"}
-data[1120] = { index = 1120,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造汽油加油站"}
-data[1121] = { index = 1121,  type = 2,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产炸薯条"}
-data[1122] = { index = 1122,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造橡胶厂"}
-data[1123] = { index = 1123,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造的士车行"}
-data[1125] = { index = 1125,  type = 2,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产新疆桃果酱"}
-data[1127] = { index = 1127,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造汽车4S店"}
-data[1128] = { index = 1128,  type = 2,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产墙纸"}
-data[1129] = { index = 1129,  type = 2,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产酸饺子"}
-data[1130] = { index = 1130,  type = 2,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产西瓜酱"}
-data[1131] = { index = 1131,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造养羊场"}
-data[1132] = { index = 1132,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造写字楼"}
-data[1134] = { index = 1134,  type = 2,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产丝织品"}
-data[1135] = { index = 1135,  type = 2,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产新疆花帽"}
-data[1136] = { index = 1136,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造宾馆"}
-data[1137] = { index = 1137,  type = 2,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产李子酱"}
-data[1138] = { index = 1138,  type = 2,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产塑胶"}
-data[1139] = { index = 1139,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造电视台"}
-data[1140] = { index = 1140,  type = 2,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产裙装"}
-data[1141] = { index = 1141,  type = 2,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产图什"}
-data[1142] = { index = 1142,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造塑胶厂"}
-data[1143] = { index = 1143,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造电视塔"}
-data[1144] = { index = 1144,  type = 2,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产塑料瓶"}
-data[1145] = { index = 1145,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造蜂房"}
-data[1146] = { index = 1146,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造摩天轮"}
-data[1149] = { index = 1149,  type = 2,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产蜜蜂饲料"}
-data[1150] = { index = 1150,  type = 2,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产玩具"}
-data[1151] = { index = 1151,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造游乐场过山车"}
-data[1152] = { index = 1152,  type = 2,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产套装"}
-data[1153] = { index = 1153,  type = 2,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产切糕"}
-data[1154] = { index = 1154,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造体育场"}
-data[1155] = { index = 1155,  type = 2,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产胶水"}
-data[1156] = { index = 1156,  type = 2,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产球"}
-data[1157] = { index = 1157,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造宠物店"}
-data[1158] = { index = 1158,  type = 2,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产蜂蜜焦糖"}
-data[1159] = { index = 1159,  type = 2,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产葡萄果酱"}
-data[1160] = { index = 1160,  type = 2,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产充气艇"}
-data[1161] = { index = 1161,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造养鸡场"}
-data[1162] = { index = 1162,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造糖果厂"}
-data[1163] = { index = 1163,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造天气站"}
-data[1164] = { index = 1164,  type = 2,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产糖豆"}
-data[1165] = { index = 1165,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造高空跳伞学校"}
-data[1166] = { index = 1166,  type = 2,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产太妃糖"}
-data[1167] = { index = 1167,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造漫画书店"}
-data[1168] = { index = 1168,  type = 2,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产香蕉面包"}
-data[1169] = { index = 1169,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造养猪场"}
-data[1170] = { index = 1170,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造海防哨兵"}
-data[1171] = { index = 1171,  type = 2,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产培根"}
-data[1172] = { index = 1172,  type = 2,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产猪饲料"}
-data[1173] = { index = 1173,  type = 2,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产棒糖"}
-data[1174] = { index = 1174,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造墨西哥餐厅"}
-data[1175] = { index = 1175,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造自选商场"}
-data[1177] = { index = 1177,  type = 2,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产浇糖培根"}
-data[1178] = { index = 1178,  type = 2,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产辣酱"}
-data[1179] = { index = 1179,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造周围有玻璃的坐舱"}
-data[1180] = { index = 1180,  type = 2,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产酸橙派"}
-data[1181] = { index = 1181,  type = 2,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产墨西哥卷饼"}
-data[1182] = { index = 1182,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造水上乐园"}
-data[1183] = { index = 1183,  type = 2,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产巧克力"}
-data[1184] = { index = 1184,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造汽车展览会"}
-data[1185] = { index = 1185,  type = 2,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产炸土豆"}
-data[1186] = { index = 1186,  type = 2,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产马卡龙"}
-data[1187] = { index = 1187,  type = 2,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产墨西哥玉米片"}
-data[1188] = { index = 1188,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造家具工厂"}
-data[1189] = { index = 1189,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造水力发电厂"}
-data[1190] = { index = 1190,  type = 2,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产新疆桃酸奶"}
-data[1191] = { index = 1191,  type = 2,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产桌子"}
-data[1192] = { index = 1192,  type = 2,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产椅子"}
-data[1193] = { index = 1193,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造时装商店"}
-data[1194] = { index = 1194,  type = 2,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产棒棒糖"}
-data[1195] = { index = 1195,  type = 2,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产躺椅"}
-data[1196] = { index = 1196,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造电影制片厂"}
-data[1197] = { index = 1197,  type = 2,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产墨西哥玉米卷"}
-data[1198] = { index = 1198,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造蜂房"}
-data[1199] = { index = 1199,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造鞋厂"}
-data[1200] = { index = 1200,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造市法院"}
-data[None] = { index = 0,  type = 2,  total = 1,  items = {},  items_count = {},  exp = 10,  title = "生产奶酪"}
-data[1202] = { index = 1202,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造卡丁车比赛"}
-data[1203] = { index = 1203,  type = 2,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产菠萝沙冰"}
-data[1204] = { index = 1204,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造健身中心"}
-data[1205] = { index = 1205,  type = 2,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产书籍"}
-data[1206] = { index = 1206,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造首饰店"}
-data[1207] = { index = 1207,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造游乐胜地"}
-data[1208] = { index = 1208,  type = 2,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产鱼汉堡"}
-data[1209] = { index = 1209,  type = 2,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产草莓干"}
-data[1210] = { index = 1210,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造养猪场"}
-data[1211] = { index = 1211,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造高尔夫球场"}
-data[1212] = { index = 1212,  type = 2,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产床"}
-data[1213] = { index = 1213,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造风琴管的音乐厅"}
-data[1214] = { index = 1214,  type = 2,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产海鲜披萨"}
-data[1215] = { index = 1215,  type = 2,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产运动鞋"}
-data[1216] = { index = 1216,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造亚洲餐厅"}
-data[1217] = { index = 1217,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造甜甜圈店"}
-data[1218] = { index = 1218,  type = 2,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产蜂蜜姜饼"}
-data[1219] = { index = 1219,  type = 2,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产寿司卷"}
-data[1220] = { index = 1220,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造赛道"}
-data[1221] = { index = 1221,  type = 2,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产墨西哥辣椒培根卷"}
-data[1222] = { index = 1222,  type = 2,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产葡萄干"}
-data[1223] = { index = 1223,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造攀岩墙"}
-data[1224] = { index = 1224,  type = 2,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产靴子"}
-data[1225] = { index = 1225,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造烧烤店"}
-data[1226] = { index = 1226,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造汽车修理车店"}
-data[1227] = { index = 1227,  type = 2,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产乳蛋饼"}
-data[1228] = { index = 1228,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造天文管"}
-data[1229] = { index = 1229,  type = 2,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产高跟鞋"}
-data[1230] = { index = 1230,  type = 2,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产烤龙虾"}
-data[1231] = { index = 1231,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造香水厂"}
-data[1232] = { index = 1232,  type = 2,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产生产红玫瑰"}
-data[1233] = { index = 1233,  type = 2,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产生产玫瑰果酱"}
-data[1234] = { index = 1234,  type = 2,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产蜂蜜棉花糖"}
-data[1235] = { index = 1235,  type = 2,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产香薰蜡烛"}
-data[1236] = { index = 1236,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造花店"}
-data[1237] = { index = 1237,  type = 2,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产米花糖"}
-data[1238] = { index = 1238,  type = 2,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产椰奶汤"}
-data[1239] = { index = 1239,  type = 2,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产李子干"}
-data[1240] = { index = 1240,  type = 2,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产熏肉蛋"}
-data[1241] = { index = 1241,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造赛马场"}
-data[1242] = { index = 1242,  type = 2,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产米线"}
-data[1243] = { index = 1243,  type = 2,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产香水"}
-data[1244] = { index = 1244,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造饮料厂"}
-data[1245] = { index = 1245,  type = 2,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产西班牙凉菜"}
-data[1246] = { index = 1246,  type = 2,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产维他命鸡尾酒"}
-data[1247] = { index = 1247,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造音乐现场"}
-data[1248] = { index = 1248,  type = 2,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产玫瑰冰冻果子酱"}
-data[1249] = { index = 1249,  type = 2,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产炸鱼"}
-data[1250] = { index = 1250,  type = 2,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产玉米浓汤"}
-data[1251] = { index = 1251,  type = 2,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产空气清新剂"}
-data[1252] = { index = 1252,  type = 2,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产葡萄气泡饮料"}
-data[1253] = { index = 1253,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造洗车场"}
-data[1254] = { index = 1254,  type = 2,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产落地灯"}
-data[1255] = { index = 1255,  type = 2,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产香皂"}
-data[1256] = { index = 1256,  type = 2,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产炸鱼薯条"}
-data[1201] = { index = 1201,  type = 2,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产人字拖"}
-data[1258] = { index = 1258,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造海豚馆"}
-data[1259] = { index = 1259,  type = 2,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产海鲜沙拉"}
-data[1260] = { index = 1260,  type = 2,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产煲仔饭"}
-data[1261] = { index = 1261,  type = 2,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产巧克力沙冰"}
-data[1262] = { index = 1262,  type = 2,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产果冻水果片"}
-data[1263] = { index = 1263,  type = 2,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产玫瑰精油"}
-data[1264] = { index = 1264,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造灯塔"}
-data[1265] = { index = 1265,  type = 2,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产洗涤剂"}
-data[1266] = { index = 1266,  type = 2,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产摩勒酱"}
-data[1267] = { index = 1267,  type = 2,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产鲜榨西瓜汁"}
-data[1268] = { index = 1268,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造摩天大厦"}
-data[1269] = { index = 1269,  type = 2,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "蜂蜜华夫饼"}
-data[1270] = { index = 1270,  type = 2,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产冰茶"}
-data[1271] = { index = 1271,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造自行车出租行"}
-data[1272] = { index = 1272,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造幼儿园"}
-data[1273] = { index = 1273,  type = 2,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产热带饮品"}
-data[1274] = { index = 1274,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造犬类中心"}
-data[1275] = { index = 1275,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造银行"}
-data[1257] = { index = 1257,  type = 2,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产香蕉干"}
-data[1001] = { index = 1001,  type = 3,  total = 6,  items = {7001,7002},  items_count = {10,10},  exp = 5,  title = "种植玉米"}
-data[1002] = { index = 1002,  type = 5,  total = 1,  items = {7001,7002},  items_count = {10,10},  exp = 30,  title = "完成直升飞机订单"}
-data[1003] = { index = 1003,  type = 2,  total = 1,  items = {},  items_count = {},  exp = 5,  title = "生产面包"}
-data[1004] = { index = 1004,  type = 4,  total = 3,  items = {},  items_count = {},  exp = 10,  title = "生产牛奶"}
-data[1005] = { index = 1005,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 20,  title = "建造饲料厂"}
-data[1006] = { index = 1006,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 10,  title = "建造杂货铺"}
-data[1007] = { index = 1007,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 20,  title = "建造乳品厂"}
-data[1008] = { index = 1008,  type = 1,  total = 2,  items = {},  items_count = {},  exp = 20,  title = "建造农舍"}
-data[1009] = { index = 1009,  type = 3,  total = 6,  items = {},  items_count = {},  exp = 10,  title = "种植胡萝卜"}
-data[1010] = { index = 1010,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 20,  title = "建造专科学院"}
-data[1011] = { index = 1011,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 10,  title = "建造农舍"}
-data[1012] = { index = 1012,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 10,  title = "建造平顶小屋"}
-data[1013] = { index = 1013,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 30,  title = "建造鸡窝"}
-data[1014] = { index = 1014,  type = 7,  total = 1,  items = {},  items_count = {},  exp = 30,  title = "扩建地"}
-data[1015] = { index = 1015,  type = 5,  total = 2,  items = {},  items_count = {},  exp = 100,  title = "完成直升飞机订单"}
-data[1016] = { index = 1016,  type = 6,  total = 1,  items = {},  items_count = {},  exp = 50,  title = "完成火车订单"}
-data[1017] = { index = 1017,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 20,  title = "建造医院病室"}
-data[1018] = { index = 1018,  type = 2,  total = 1,  items = {},  items_count = {},  exp = 10,  title = "生产奶油"}
-data[1019] = { index = 1019,  type = 3,  total = 9,  items = {},  items_count = {},  exp = 30,  title = "种植甜菜"}
-data[1020] = { index = 1020,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 50,  title = "建造制糖厂"}
-data[1021] = { index = 1021,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 40,  title = "建造派出所"}
-data[1022] = { index = 1022,  type = 1,  total = 2,  items = {},  items_count = {},  exp = 40,  title = "建造平顶小屋"}
-data[1023] = { index = 1023,  type = 1,  total = 1,  items = {},  items_count = {},  exp = 20,  title = "建造木屋"}
+data[1024] = { index = 1024,  type = 1,  relate_index = 4003,  total = 1,  items = {},  items_count = {},  exp = 20,  title = "建造木屋"}
+data[1025] = { index = 1025,  type = 1,  relate_index = 1001,  total = 3,  items = {},  items_count = {},  exp = 30,  title = "建造农田"}
+data[1026] = { index = 1026,  type = 7,  relate_index = 0,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "扩建地"}
+data[1027] = { index = 1027,  type = 5,  relate_index = 0,  total = 3,  items = {},  items_count = {},  exp = 200,  title = "完成直升飞机订单"}
+data[1028] = { index = 1028,  type = 6,  relate_index = 0,  total = 2,  items = {},  items_count = {},  exp = 150,  title = "完成火车订单"}
+data[1029] = { index = 1029,  type = 8,  relate_index = 0,  total = 1,  items = {},  items_count = {},  exp = 20,  title = "帮助行人"}
+data[1030] = { index = 1030,  type = 4,  relate_index = 2002,  total = 3,  items = {},  items_count = {},  exp = 30,  title = "生产收获鸡蛋"}
+data[1031] = { index = 1031,  type = 2,  relate_index = 4001,  total = 3,  items = {},  items_count = {},  exp = 30,  title = "生产收获牛饲料"}
+data[1032] = { index = 1032,  type = 1,  relate_index = 3005,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "建造消防站"}
+data[1033] = { index = 1033,  type = 1,  relate_index = 4002,  total = 1,  items = {},  items_count = {},  exp = 30,  title = "建造平顶小屋"}
+data[1034] = { index = 1034,  type = 1,  relate_index = 4003,  total = 1,  items = {},  items_count = {},  exp = 30,  title = "建造木屋"}
+data[1035] = { index = 1035,  type = 7,  relate_index = 0,  total = 2,  items = {},  items_count = {},  exp = 80,  title = "扩建地"}
+data[1036] = { index = 1036,  type = 2,  relate_index = 4018,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产糖"}
+data[1037] = { index = 1037,  type = 8,  relate_index = 0,  total = 3,  items = {},  items_count = {},  exp = 60,  title = "帮助行人"}
+data[1038] = { index = 1038,  type = 2,  relate_index = 4007,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产曲奇"}
+data[1039] = { index = 1039,  type = 2,  relate_index = 4008,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产馕"}
+data[1040] = { index = 1040,  type = 2,  relate_index = 4002,  total = 3,  items = {},  items_count = {},  exp = 50,  title = "生产收获鸡饲料"}
+data[1041] = { index = 1041,  type = 9,  relate_index = 0,  total = 5,  items = {},  items_count = {},  exp = 50,  title = "出售仓库物品"}
+data[1042] = { index = 1042,  type = 10,  relate_index = 0,  total = 5,  items = {},  items_count = {},  exp = 50,  title = "邀请添加好友"}
+data[1043] = { index = 1043,  type = 1,  relate_index = 2005,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造纺织厂"}
+data[1044] = { index = 1044,  type = 1,  relate_index = 3006,  total = 1,  items = {},  items_count = {},  exp = 80,  title = "建造邮政局"}
+data[1045] = { index = 1045,  type = 1,  relate_index = 4004,  total = 1,  items = {},  items_count = {},  exp = 40,  title = "建造石头小屋"}
+data[1046] = { index = 1046,  type = 1,  relate_index = 4005,  total = 1,  items = {},  items_count = {},  exp = 40,  title = "建造工作室住宅"}
+data[1047] = { index = 1047,  type = 11,  relate_index = 0,  total = 1,  items = {},  items_count = {},  exp = 20,  title = "拜访好友"}
+data[1048] = { index = 1048,  type = 12,  relate_index = 0,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "给好友点赞"}
+data[1049] = { index = 1049,  type = 1,  relate_index = 8005,  total = 1,  items = {},  items_count = {},  exp = 50,  title = "建造露台"}
+data[1050] = { index = 1050,  type = 13,  relate_index = 0,  total = 1,  items = {},  items_count = {},  exp = 50,  title = "帮助好友火车订单"}
+data[1051] = { index = 1051,  type = 14,  relate_index = 0,  total = 5,  items = {},  items_count = {},  exp = 100,  title = "帮助好友浇水"}
+data[1052] = { index = 1052,  type = 15,  relate_index = 0,  total = 10,  items = {},  items_count = {},  exp = 50,  title = "修建新的道路"}
+data[1053] = { index = 1053,  type = 7,  relate_index = 0,  total = 2,  items = {},  items_count = {},  exp = 100,  title = "扩建地"}
+data[1054] = { index = 1054,  type = 16,  relate_index = 0,  total = 1,  items = {},  items_count = {},  exp = 50,  title = "跟换头像"}
+data[1055] = { index = 1055,  type = 17,  relate_index = 0,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "升级仓库"}
+data[1056] = { index = 1056,  type = 1,  relate_index = 6003,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造牧羊场"}
+data[1057] = { index = 1057,  type = 1,  relate_index = 3007,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造自助洗衣店"}
+data[1059] = { index = 1059,  type = 2,  relate_index = 4003,  total = 6,  items = {},  items_count = {},  exp = 60,  title = "生产羊饲料"}
+data[1060] = { index = 1060,  type = 2,  relate_index = 4023,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产毛织品"}
+data[1061] = { index = 1061,  type = 1,  relate_index = 3008,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造电影院"}
+data[1062] = { index = 1062,  type = 2,  relate_index = 4015,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产黄油"}
+data[1063] = { index = 1063,  type = 1,  relate_index = 2006,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造裁缝厂"}
+data[1064] = { index = 1064,  type = 1,  relate_index = 3009,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造音乐咖啡店"}
+data[1065] = { index = 1065,  type = 2,  relate_index = 4025,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产衬衫"}
+data[1066] = { index = 1066,  type = 1,  relate_index = 3010,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造美发沙龙"}
+data[1067] = { index = 1067,  type = 1,  relate_index = 2007,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "零食厂"}
+data[1068] = { index = 1068,  type = 1,  relate_index = 3011,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造披萨店"}
+data[1069] = { index = 1069,  type = 2,  relate_index = 4026,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产毛衣"}
+data[1070] = { index = 1070,  type = 2,  relate_index = 4027,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产袷袢"}
+data[1071] = { index = 1071,  type = 2,  relate_index = 4031,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产维吾尔族服"}
+data[1072] = { index = 1072,  type = 2,  relate_index = 4032,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产爆米花"}
+data[1073] = { index = 1073,  type = 2,  relate_index = 4036,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产小菜"}
+data[1075] = { index = 1075,  type = 1,  relate_index = 3012,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造婚礼大厅"}
+data[1076] = { index = 1076,  type = 1,  relate_index = 2008,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "快餐店"}
+data[1077] = { index = 1077,  type = 1,  relate_index = 3013,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造乐谱店"}
+data[1078] = { index = 1078,  type = 2,  relate_index = 4039,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产奶昔"}
+data[1079] = { index = 1079,  type = 2,  relate_index = 4040,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产芝士汉堡"}
+data[1080] = { index = 1080,  type = 1,  relate_index = 3014,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造保龄球"}
+data[1081] = { index = 1081,  type = 2,  relate_index = 4019,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产糖浆"}
+data[1082] = { index = 1082,  type = 2,  relate_index = 4033,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产玉米片"}
+data[1083] = { index = 1083,  type = 1,  relate_index = 2009,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造造纸厂"}
+data[1084] = { index = 1084,  type = 1,  relate_index = 3015,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造玩具店"}
+data[1085] = { index = 1085,  type = 2,  relate_index = 4046,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产纸"}
+data[1086] = { index = 1086,  type = 1,  relate_index = 2001,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造饲料厂"}
+data[1087] = { index = 1087,  type = 1,  relate_index = 3016,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造相片中心"}
+data[1088] = { index = 1088,  type = 2,  relate_index = 4034,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产格兰诺拉麦片"}
+data[1089] = { index = 1089,  type = 2,  relate_index = 4041,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产三明治"}
+data[1090] = { index = 1090,  type = 1,  relate_index = 2010,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造冰淇淋厂"}
+data[1091] = { index = 1091,  type = 1,  relate_index = 3017,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造乘坐火箭"}
+data[1092] = { index = 1092,  type = 2,  relate_index = 4050,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产冰淇淋"}
+data[1093] = { index = 1093,  type = 1,  relate_index = 3018,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造展望台"}
+data[1094] = { index = 1094,  type = 2,  relate_index = 4016,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产酸奶疙瘩"}
+data[1095] = { index = 1095,  type = 2,  relate_index = 4051,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产冰棒"}
+data[1097] = { index = 1097,  type = 1,  relate_index = 3019,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造信息库"}
+data[1098] = { index = 1098,  type = 2,  relate_index = 4009,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产披萨"}
+data[1099] = { index = 1099,  type = 2,  relate_index = 4035,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产薯片"}
+data[1100] = { index = 1100,  type = 1,  relate_index = 3020,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造大学选手团"}
+data[1101] = { index = 1101,  type = 2,  relate_index = 4047,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产纸巾"}
+data[1102] = { index = 1102,  type = 2,  relate_index = 4052,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产冻酸奶"}
+data[1104] = { index = 1104,  type = 1,  relate_index = 2011,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造糕点厂"}
+data[1105] = { index = 1105,  type = 1,  relate_index = 3021,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造戏院"}
+data[1106] = { index = 1106,  type = 2,  relate_index = 4020,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产焦糖"}
+data[1107] = { index = 1107,  type = 2,  relate_index = 4056,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产巴哈利"}
+data[1108] = { index = 1108,  type = 1,  relate_index = 3022,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造艺术馆"}
+data[1109] = { index = 1109,  type = 2,  relate_index = 4053,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产紫雪糕"}
+data[1110] = { index = 1110,  type = 1,  relate_index = 3023,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造杂技团"}
+data[1111] = { index = 1111,  type = 2,  relate_index = 4010,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产马铃薯面包"}
+data[1112] = { index = 1112,  type = 1,  relate_index = 2012,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造果酱厂"}
+data[1113] = { index = 1113,  type = 1,  relate_index = 3024,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造停车库"}
+data[1114] = { index = 1114,  type = 2,  relate_index = 4057,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产古里奇"}
+data[1115] = { index = 1115,  type = 2,  relate_index = 4064,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产草莓酱"}
+data[1116] = { index = 1116,  type = 1,  relate_index = 3025,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造汽油加油站"}
+data[1117] = { index = 1117,  type = 2,  relate_index = 4042,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产炸薯条"}
+data[1118] = { index = 1118,  type = 1,  relate_index = 2013,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造橡胶厂"}
+data[1119] = { index = 1119,  type = 1,  relate_index = 3026,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造的士车行"}
+data[1120] = { index = 1120,  type = 2,  relate_index = 4065,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产新疆桃果酱"}
+data[1121] = { index = 1121,  type = 1,  relate_index = 3027,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造汽车4S店"}
+data[1122] = { index = 1122,  type = 2,  relate_index = 4048,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产墙纸"}
+data[1123] = { index = 1123,  type = 2,  relate_index = 4058,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产酸饺子"}
+data[1124] = { index = 1124,  type = 2,  relate_index = 4066,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产西瓜酱"}
+data[1125] = { index = 1125,  type = 1,  relate_index = 6003,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造养羊场"}
+data[1126] = { index = 1126,  type = 1,  relate_index = 3028,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造写字楼"}
+data[1127] = { index = 1127,  type = 2,  relate_index = 4024,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产丝织品"}
+data[1128] = { index = 1128,  type = 2,  relate_index = 4028,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产新疆花帽"}
+data[1129] = { index = 1129,  type = 1,  relate_index = 3029,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造宾馆"}
+data[1130] = { index = 1130,  type = 2,  relate_index = 4068,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产李子酱"}
+data[1131] = { index = 1131,  type = 2,  relate_index = 4071,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产塑胶"}
+data[1132] = { index = 1132,  type = 1,  relate_index = 3030,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造电视台"}
+data[1133] = { index = 1133,  type = 2,  relate_index = 4029,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产裙装"}
+data[1134] = { index = 1134,  type = 2,  relate_index = 4059,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产图什"}
+data[1135] = { index = 1135,  type = 1,  relate_index = 2014,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造塑胶厂"}
+data[1136] = { index = 1136,  type = 1,  relate_index = 3031,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造电视塔"}
+data[1137] = { index = 1137,  type = 2,  relate_index = 4073,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产塑料瓶"}
+data[1138] = { index = 1138,  type = 1,  relate_index = 6004,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造蜂房"}
+data[1139] = { index = 1139,  type = 1,  relate_index = 3032,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造摩天轮"}
+data[1140] = { index = 1140,  type = 2,  relate_index = 4004,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产蜜蜂饲料"}
+data[1141] = { index = 1141,  type = 2,  relate_index = 4074,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产玩具"}
+data[1142] = { index = 1142,  type = 1,  relate_index = 3033,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造游乐场过山车"}
+data[1143] = { index = 1143,  type = 2,  relate_index = 4030,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产套装"}
+data[1144] = { index = 1144,  type = 2,  relate_index = 4060,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产切糕"}
+data[1145] = { index = 1145,  type = 1,  relate_index = 3034,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造体育场"}
+data[1146] = { index = 1146,  type = 2,  relate_index = 4072,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产胶水"}
+data[1147] = { index = 1147,  type = 2,  relate_index = 4075,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产球"}
+data[1148] = { index = 1148,  type = 1,  relate_index = 3035,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造宠物店"}
+data[1149] = { index = 1149,  type = 2,  relate_index = 4021,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产蜂蜜焦糖"}
+data[1150] = { index = 1150,  type = 2,  relate_index = 4067,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产葡萄果酱"}
+data[1151] = { index = 1151,  type = 2,  relate_index = 4076,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产充气艇"}
+data[1153] = { index = 1153,  type = 1,  relate_index = 2015,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造糖果厂"}
+data[1154] = { index = 1154,  type = 1,  relate_index = 3036,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造天气站"}
+data[1155] = { index = 1155,  type = 2,  relate_index = 4077,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产糖豆"}
+data[1156] = { index = 1156,  type = 1,  relate_index = 3037,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造高空跳伞学校"}
+data[1157] = { index = 1157,  type = 2,  relate_index = 4078,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产太妃糖"}
+data[1158] = { index = 1158,  type = 1,  relate_index = 3038,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造漫画书店"}
+data[1159] = { index = 1159,  type = 2,  relate_index = 4011,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产香蕉面包"}
+data[1160] = { index = 1160,  type = 1,  relate_index = 6005,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造养猪场"}
+data[1161] = { index = 1161,  type = 1,  relate_index = 3039,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造海防哨兵"}
+data[1163] = { index = 1163,  type = 2,  relate_index = 4005,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产猪饲料"}
+data[1164] = { index = 1164,  type = 2,  relate_index = 4079,  total = 2,  items = {},  items_count = {},  exp = 60,  title = "生产棒糖"}
+data[1165] = { index = 1165,  type = 1,  relate_index = 2016,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造墨西哥餐厅"}
+data[1166] = { index = 1166,  type = 1,  relate_index = 3040,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造自选商场"}
+data[1167] = { index = 1167,  type = 2,  relate_index = 4037,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产浇糖培根"}
+data[1168] = { index = 1168,  type = 2,  relate_index = 4084,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产辣酱"}
+data[1169] = { index = 1169,  type = 1,  relate_index = 3041,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造周围有玻璃的坐舱"}
+data[1170] = { index = 1170,  type = 2,  relate_index = 4062,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产酸橙派"}
+data[1171] = { index = 1171,  type = 2,  relate_index = 4085,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产墨西哥卷饼"}
+data[1172] = { index = 1172,  type = 1,  relate_index = 3042,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造水上乐园"}
+data[1173] = { index = 1173,  type = 2,  relate_index = 4080,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产巧克力"}
+data[1174] = { index = 1174,  type = 1,  relate_index = 3043,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造汽车展览会"}
+data[1175] = { index = 1175,  type = 2,  relate_index = 4043,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产炸土豆"}
+data[1176] = { index = 1176,  type = 2,  relate_index = 4063,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产马卡龙"}
+data[1177] = { index = 1177,  type = 2,  relate_index = 4086,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产墨西哥玉米片"}
+data[1178] = { index = 1178,  type = 1,  relate_index = 2017,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造家具工厂"}
+data[1179] = { index = 1179,  type = 1,  relate_index = 3044,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造水力发电厂"}
+data[1180] = { index = 1180,  type = 2,  relate_index = 4017,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产新疆桃酸奶"}
+data[1181] = { index = 1181,  type = 2,  relate_index = 4092,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产桌子"}
+data[1182] = { index = 1182,  type = 2,  relate_index = 4093,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产椅子"}
+data[1183] = { index = 1183,  type = 1,  relate_index = 3045,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造时装商店"}
+data[1184] = { index = 1184,  type = 2,  relate_index = 4081,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产棒棒糖"}
+data[1185] = { index = 1185,  type = 2,  relate_index = 4094,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产躺椅"}
+data[1186] = { index = 1186,  type = 1,  relate_index = 3046,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造电影制片厂"}
+data[1187] = { index = 1187,  type = 2,  relate_index = 4087,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产墨西哥玉米卷"}
+data[1188] = { index = 1188,  type = 1,  relate_index = 6004,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造蜂房"}
+data[1189] = { index = 1189,  type = 1,  relate_index = 2018,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造鞋厂"}
+data[1190] = { index = 1190,  type = 1,  relate_index = 3047,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造市法院"}
+data[1191] = { index = 1191,  type = 2,  relate_index = 4097,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产人字拖"}
+data[1192] = { index = 1192,  type = 1,  relate_index = 3048,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造卡丁车比赛"}
+data[1193] = { index = 1193,  type = 2,  relate_index = 4054,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产菠萝沙冰"}
+data[1194] = { index = 1194,  type = 1,  relate_index = 3049,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造健身中心"}
+data[1195] = { index = 1195,  type = 2,  relate_index = 4049,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产书籍"}
+data[1196] = { index = 1196,  type = 1,  relate_index = 2019,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造首饰店"}
+data[1197] = { index = 1197,  type = 1,  relate_index = 3050,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造游乐胜地"}
+data[1198] = { index = 1198,  type = 2,  relate_index = 4044,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产鱼汉堡"}
+data[1199] = { index = 1199,  type = 2,  relate_index = 4101,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产草莓干"}
+data[1200] = { index = 1200,  type = 1,  relate_index = 6005,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造养猪场"}
+data[1201] = { index = 1201,  type = 1,  relate_index = 3051,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造高尔夫球场"}
+data[1202] = { index = 1202,  type = 2,  relate_index = 4095,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产床"}
+data[1203] = { index = 1203,  type = 1,  relate_index = 3052,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造风琴管的音乐厅"}
+data[1204] = { index = 1204,  type = 2,  relate_index = 4012,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产海鲜披萨"}
+data[1205] = { index = 1205,  type = 2,  relate_index = 4098,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产运动鞋"}
+data[1206] = { index = 1206,  type = 1,  relate_index = 2020,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造亚洲餐厅"}
+data[1207] = { index = 1207,  type = 1,  relate_index = 3053,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造甜甜圈店"}
+data[1208] = { index = 1208,  type = 2,  relate_index = 4061,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产蜂蜜姜饼"}
+data[1209] = { index = 1209,  type = 2,  relate_index = 4105,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产寿司卷"}
+data[1210] = { index = 1210,  type = 1,  relate_index = 3054,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造赛道"}
+data[1211] = { index = 1211,  type = 2,  relate_index = 4088,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产墨西哥辣椒培根卷"}
+data[1212] = { index = 1212,  type = 2,  relate_index = 4102,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产葡萄干"}
+data[1213] = { index = 1213,  type = 1,  relate_index = 3055,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造攀岩墙"}
+data[1214] = { index = 1214,  type = 2,  relate_index = 4099,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产靴子"}
+data[1215] = { index = 1215,  type = 1,  relate_index = 2021,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造烧烤店"}
+data[1216] = { index = 1216,  type = 1,  relate_index = 3056,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造汽车修理车店"}
+data[1217] = { index = 1217,  type = 2,  relate_index = 4109,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产乳蛋饼"}
+data[1218] = { index = 1218,  type = 1,  relate_index = 3057,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造天文管"}
+data[1219] = { index = 1219,  type = 2,  relate_index = 4100,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产高跟鞋"}
+data[1220] = { index = 1220,  type = 2,  relate_index = 4110,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产烤龙虾"}
+data[1221] = { index = 1221,  type = 1,  relate_index = 2022,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造香水厂"}
+data[1222] = { index = 1222,  type = 2,  relate_index = 4069,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产生产红玫瑰"}
+data[1223] = { index = 1223,  type = 2,  relate_index = 4082,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产生产玫瑰果酱"}
+data[1225] = { index = 1225,  type = 2,  relate_index = 4115,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产香薰蜡烛"}
+data[1226] = { index = 1226,  type = 1,  relate_index = 3058,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造花店"}
+data[1227] = { index = 1227,  type = 2,  relate_index = 4038,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产米花糖"}
+data[1228] = { index = 1228,  type = 2,  relate_index = 4106,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产椰奶汤"}
+data[1229] = { index = 1229,  type = 2,  relate_index = 4103,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产李子干"}
+data[1230] = { index = 1230,  type = 2,  relate_index = 4111,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产熏肉蛋"}
+data[1231] = { index = 1231,  type = 1,  relate_index = 3059,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造赛马场"}
+data[1232] = { index = 1232,  type = 2,  relate_index = 4107,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产米线"}
+data[1233] = { index = 1233,  type = 2,  relate_index = 4116,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产香水"}
+data[1234] = { index = 1234,  type = 1,  relate_index = 2023,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造饮料厂"}
+data[1235] = { index = 1235,  type = 2,  relate_index = 4089,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产西班牙凉菜"}
+data[1236] = { index = 1236,  type = 2,  relate_index = 4121,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产维他命鸡尾酒"}
+data[1237] = { index = 1237,  type = 1,  relate_index = 3060,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造音乐现场"}
+data[1238] = { index = 1238,  type = 2,  relate_index = 4055,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产玫瑰冰冻果子酱"}
+data[1239] = { index = 1239,  type = 2,  relate_index = 4112,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产炸鱼"}
+data[1240] = { index = 1240,  type = 2,  relate_index = 4090,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产玉米浓汤"}
+data[1241] = { index = 1241,  type = 2,  relate_index = 4117,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产空气清新剂"}
+data[1242] = { index = 1242,  type = 2,  relate_index = 4122,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产葡萄气泡饮料"}
+data[1243] = { index = 1243,  type = 1,  relate_index = 3061,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造洗车场"}
+data[1244] = { index = 1244,  type = 2,  relate_index = 4096,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产落地灯"}
+data[1245] = { index = 1245,  type = 2,  relate_index = 4118,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产香皂"}
+data[1246] = { index = 1246,  type = 2,  relate_index = 4045,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产炸鱼薯条"}
+data[1247] = { index = 1247,  type = 2,  relate_index = 4104,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产香蕉干"}
+data[1248] = { index = 1248,  type = 1,  relate_index = 3062,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造海豚馆"}
+data[1249] = { index = 1249,  type = 2,  relate_index = 4108,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产海鲜沙拉"}
+data[1250] = { index = 1250,  type = 2,  relate_index = 4113,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产煲仔饭"}
+data[1251] = { index = 1251,  type = 2,  relate_index = 4123,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产巧克力沙冰"}
+data[1252] = { index = 1252,  type = 2,  relate_index = 4083,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产果冻水果片"}
+data[1253] = { index = 1253,  type = 2,  relate_index = 4119,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产玫瑰精油"}
+data[1254] = { index = 1254,  type = 1,  relate_index = 3063,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造灯塔"}
+data[1255] = { index = 1255,  type = 2,  relate_index = 4120,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产洗涤剂"}
+data[1256] = { index = 1256,  type = 2,  relate_index = 4091,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产摩勒酱"}
+data[1257] = { index = 1257,  type = 2,  relate_index = 4124,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产鲜榨西瓜汁"}
+data[1258] = { index = 1258,  type = 1,  relate_index = 3064,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造摩天大厦"}
+data[1259] = { index = 1259,  type = 2,  relate_index = 4114,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "蜂蜜华夫饼"}
+data[1260] = { index = 1260,  type = 2,  relate_index = 4125,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产冰茶"}
+data[1261] = { index = 1261,  type = 1,  relate_index = 3065,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造自行车出租行"}
+data[1262] = { index = 1262,  type = 1,  relate_index = 3066,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造幼儿园"}
+data[1263] = { index = 1263,  type = 2,  relate_index = 4126,  total = 1,  items = {},  items_count = {},  exp = 60,  title = "生产热带饮品"}
+data[1264] = { index = 1264,  type = 1,  relate_index = 3067,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造犬类中心"}
+data[1265] = { index = 1265,  type = 1,  relate_index = 3068,  total = 1,  items = {},  items_count = {},  exp = 100,  title = "建造银行"}
+data[1001] = { index = 1001,  type = 3,  relate_index = 1002,  total = 6,  items = {},  items_count = {},  exp = 5,  title = "种植玉米"}
+data[1002] = { index = 1002,  type = 5,  relate_index = 0,  total = 1,  items = {},  items_count = {},  exp = 30,  title = "完成直升飞机订单"}
+data[1003] = { index = 1003,  type = 2,  relate_index = 4006,  total = 1,  items = {},  items_count = {},  exp = 5,  title = "生产面包"}
+data[1004] = { index = 1004,  type = 4,  relate_index = 2001,  total = 3,  items = {},  items_count = {},  exp = 10,  title = "生产牛奶"}
+data[1005] = { index = 1005,  type = 1,  relate_index = 2001,  total = 1,  items = {},  items_count = {},  exp = 20,  title = "建造饲料厂"}
+data[1006] = { index = 1006,  type = 1,  relate_index = 3001,  total = 1,  items = {},  items_count = {},  exp = 10,  title = "建造杂货铺"}
+data[1007] = { index = 1007,  type = 1,  relate_index = 2003,  total = 1,  items = {},  items_count = {},  exp = 20,  title = "建造乳品厂"}
+data[1008] = { index = 1008,  type = 1,  relate_index = 4001,  total = 2,  items = {},  items_count = {},  exp = 20,  title = "建造农舍"}
+data[1009] = { index = 1009,  type = 3,  relate_index = 1003,  total = 6,  items = {},  items_count = {},  exp = 10,  title = "种植胡萝卜"}
+data[1010] = { index = 1010,  type = 1,  relate_index = 3002,  total = 1,  items = {},  items_count = {},  exp = 20,  title = "建造专科学院"}
+data[1011] = { index = 1011,  type = 1,  relate_index = 4001,  total = 1,  items = {},  items_count = {},  exp = 10,  title = "建造农舍"}
+data[1012] = { index = 1012,  type = 1,  relate_index = 4002,  total = 1,  items = {},  items_count = {},  exp = 10,  title = "建造平顶小屋"}
+data[1013] = { index = 1013,  type = 1,  relate_index = 6002,  total = 1,  items = {},  items_count = {},  exp = 30,  title = "建造鸡窝"}
+data[1014] = { index = 1014,  type = 7,  relate_index = 0,  total = 1,  items = {},  items_count = {},  exp = 30,  title = "扩建地"}
+data[1015] = { index = 1015,  type = 5,  relate_index = 0,  total = 2,  items = {},  items_count = {},  exp = 100,  title = "完成直升飞机订单"}
+data[1016] = { index = 1016,  type = 6,  relate_index = 0,  total = 1,  items = {},  items_count = {},  exp = 50,  title = "完成火车订单"}
+data[1017] = { index = 1017,  type = 1,  relate_index = 3003,  total = 1,  items = {},  items_count = {},  exp = 20,  title = "建造医院病室"}
+data[1018] = { index = 1018,  type = 2,  relate_index = 4013,  total = 1,  items = {},  items_count = {},  exp = 10,  title = "生产奶油"}
+data[1019] = { index = 1019,  type = 2,  relate_index = 4014,  total = 1,  items = {},  items_count = {},  exp = 10,  title = "生产奶酪"}
+data[1020] = { index = 1020,  type = 3,  relate_index = 1004,  total = 9,  items = {},  items_count = {},  exp = 30,  title = "种植甜菜"}
+data[1021] = { index = 1021,  type = 1,  relate_index = 2004,  total = 1,  items = {},  items_count = {},  exp = 50,  title = "建造制糖厂"}
+data[1022] = { index = 1022,  type = 1,  relate_index = 3004,  total = 1,  items = {},  items_count = {},  exp = 40,  title = "建造派出所"}
+data[1023] = { index = 1023,  type = 1,  relate_index = 4002,  total = 2,  items = {},  items_count = {},  exp = 40,  title = "建造平顶小屋"}
 
 return data

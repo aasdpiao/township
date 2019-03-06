@@ -262,6 +262,7 @@ function FriendRuler:invite_friend(account_id)
     if result ~= 0 then return result end
     self.__recommend_objects[account_id] = nil
     self.__request_friends[account_id] = friend_object
+    self.__role_object:get_event_ruler():main_task_invite()
     return 0
 end
 

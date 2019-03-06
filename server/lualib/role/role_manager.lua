@@ -108,15 +108,15 @@ function RoleManager:gen_day_times_reward()
     local gem_index = utils.get_random_value_in_weight(40,gem_list)
     local worker_object = self.__role_object:get_employment_ruler():gen_worker_object(3001)
     local day_times_reward = {}
-    day_times_reward[1] = {7001,200}
-    day_times_reward[2] = {select[1],1}
-    day_times_reward[3] = {7003,10}
-    day_times_reward[4] = {select[2],2}
-    day_times_reward[5] = {7002,10}
-    day_times_reward[6] = {select[3],3}
-    day_times_reward[7] = {gem_index,1}
-    day_times_reward[8] = {7002,20}
-    day_times_reward[9] = {8001,1}
+    day_times_reward[1] = {item_index = 7001,item_count = 200}
+    day_times_reward[2] = {item_index = select[1],item_count = 1}
+    day_times_reward[3] = {item_index = 7003,item_count = 10}
+    day_times_reward[4] = {item_index = select[2],item_count = 2}
+    day_times_reward[5] = {item_index = 7002,item_count = 10}
+    day_times_reward[6] = {item_index = select[3],item_count = 3}
+    day_times_reward[7] = {item_index = gem_index,item_count = 1}
+    day_times_reward[8] = {item_index = 7002,item_count = 20}
+    day_times_reward[9] = {item_index = 8001,item_count = 1}
     return day_times_reward
 end
 

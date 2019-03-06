@@ -38,6 +38,7 @@ function PlantDispatcher.dispatcher_watering(role_object,msg_data)
         role_object:add_friendly(friendly,SOURCE_CODE.help)
         role_object:get_daily_ruler():help_plant()
         role_object:get_daily_ruler():seven_help_water()
+        role_object:get_event_ruler():main_task_help_water()
     end
     return {result = result}
 end

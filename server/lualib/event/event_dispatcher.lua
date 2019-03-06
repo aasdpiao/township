@@ -17,6 +17,14 @@ function EventDispatcher:init()
     self:register_c2s_callback("request_event",self.dispatcher_request_event)
     self:register_c2s_callback("finish_event",self.dispatcher_finish_event)
     self:register_c2s_callback("cancel_event",self.dispatcher_cancel_event)
+    self:register_c2s_callback("finish_main_task",self.dispatcher_finish_main_task)
+end
+
+function EventDispatcher.dispatcher_finish_main_task(role_object,msg_data)
+    local task_index = msg_data.task_index
+    local event_ruler = role_object:get_event_ruler()
+    local result = event_ruler:finish_main_task(task_index)
+    return {result = result}
 end
 
 function EventDispatcher.dispatcher_request_event(role_object,msg_data)

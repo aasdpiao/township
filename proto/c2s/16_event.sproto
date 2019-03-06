@@ -30,3 +30,12 @@ cancel_event 1603{
 	    timestamp 1 : integer
 	}
 }
+
+finish_main_task 1604{
+	request {
+		task_index 0 : integer
+	}
+	response {
+		result 0 : integer
+	}
+}

@@ -7,3 +7,24 @@ event_update 1601{
 		result 0 : integer
 	}
 }
+
+
+unlock_main_task 1602{
+	request {
+		task_index 0 : integer
+		task_objects 0 : *task_object
+	}
+	response {
+		result 0 : integer
+	}
+}
+
+finish_main_task 1603{
+	request {
+		task_index 0 : integer
+	}
+	response {
+		result 0 : integer
+	}
+}
+

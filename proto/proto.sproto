@@ -359,7 +359,7 @@
 	timestamp 0 : integer
 	task_objects 1 : *task_object
 	reward_objects 2 : *reward_object
-	sign_rewards 3 : string
+	sign_rewards 3 : *item_object
 	seven_tasks 4 : *task_object
 	seven_deadline 5 : integer
 }

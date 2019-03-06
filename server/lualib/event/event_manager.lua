@@ -32,6 +32,10 @@ function EventManager:get_task_entry(task_index)
     return self.__task_entrys[task_index]
 end
 
+function EventManager:get_task_entrys()
+    return self.__task_entrys
+end
+
 function EventManager:load_event_config()
     local passerby_order_config = datacenter.get("passerby_order_config")
     for k,v in pairs(passerby_order_config) do

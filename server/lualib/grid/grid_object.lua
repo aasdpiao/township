@@ -92,6 +92,7 @@ function GridObject:building_grid()
         self.__status = grid_const.building
     else
         self.__status = grid_const.finish
+        self.__role_object:get_event_ruler():main_task_build(self:get_build_index())
     end
 end
 

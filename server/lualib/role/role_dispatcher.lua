@@ -45,10 +45,9 @@ end
 function RoleDispatcher.dispatcher_request_sign_in(role_object,msg_data)
     local timestamp = msg_data.timestamp
     role_object:refresh_sign_in(timestamp)
-    local sign_rewards = role_object:get_daily_ruler():get_sign_rewards()
     local result = {}
     result.result = 0
-    result.sign_rewards = cjson.encode(sign_rewards)
+    result.sign_rewards = role_object:get_daily_ruler():dump_sign_rewards()
     result.day_times = role_object:get_day_times(timestamp)
     result.sign_deadline = role_object:get_sign_deadline()
     result.seven_deadline = role_object:get_daily_ruler():get_seven_deadline()
@@ -81,6 +80,7 @@ end
 function RoleDispatcher.dispatcher_set_avatar_index(role_object,msg_data)
     local avatar_index = msg_data.avatar_index
     role_object:set_avatar_index(avatar_index)
+    role_object:get_event_ruler():main_task_head_icon()
     return {result = 0}
 end
 
@@ -111,6 +111,7 @@ function RoleDispatcher.dispatcher_add_item_capacity(role_object,msg_data)
     end
     role_object:get_item_ruler():set_expand_count(expand_count)
     role_object:get_daily_ruler():seven_expand_count(expand_count)
+    role_object:get_event_ruler():main_task_upgrade_store(expand_count)
     return {result = 0}
 end
 
@@ -146,17 +147,16 @@ function RoleDispatcher.dispatcher_sign_in(role_object,msg_data)
         role_object:set_max_continue_login(continue_times)
         role_object:get_achievement_ruler():continue_login(continue_times)
     end
-    local sign_rewards = role_object:get_daily_ruler():get_sign_rewards()
-    local rewards = sign_rewards[day_times]
+    local rewards = role_object:get_daily_ruler():get_sign_rewards(day_times)
     if not rewards then
         LOG_ERROR("day_times:%d err:%s",day_times,errmsg(GAME_ERROR.reward_not_exist))
         return {result = GAME_ERROR.number_not_match} 
     end
     if day_times == 8 and role_object:get_level() > UNLOCKLEVEL then
-        rewards = sign_rewards[9]         
+        rewards = role_object:get_daily_ruler():get_sign_rewards(day_times + 1)       
     end
-    local item_index = rewards[1]
-    local item_count = rewards[2]
+    local item_index = rewards.item_index
+    local item_count = rewards.item_count
     role_object:add_item(item_index,item_count,SOURCE_CODE.sign_in)
     return {result = 0,item_objects = {{item_index = item_index,item_count = item_count}}}
 end
@@ -297,6 +297,7 @@ function RoleDispatcher.dispatcher_sale_item(role_object,msg_data)
     local timestamp = skynet.call("timed","lua","query_current_time")
     role_object:get_achievement_ruler():limit_sale_barn(timestamp,gold)
     role_object:get_daily_ruler():sale_item(item_count)
+    role_object:get_event_ruler():main_task_sale(item_count)
     return {result = 0}
 end
 

@@ -404,6 +404,7 @@ end
 function GridRuler:create_road_object(element_index,grid_id)
     self.__road_objects[grid_id] = element_index
     self.__role_object:get_achievement_ruler():create_road(1)
+    self.__role_object:get_event_ruler():main_task_build_road()
     return 0
 end
 
@@ -465,6 +466,7 @@ function GridRuler:open_undevelop_object(timestamp,grid_id)
     self.__building_undevelops[grid_id] = undevelop_object
     self.__undevelop_count = self.__undevelop_count + 1
     self.__role_object:get_daily_ruler():seven_open_undevelop(self.__undevelop_count)
+    self.__role_object:get_event_ruler():open_undevelop_object(self.__undevelop_count)
     return 0
 end
 

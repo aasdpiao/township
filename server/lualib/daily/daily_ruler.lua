@@ -72,12 +72,13 @@ end
 
 function DailyRuler:load_daily_data(daily_data)
     if not daily_data then return end
-    local timestamp = daily_data.timestamp or 0
-    local task_objects = daily_data.task_objects or {}
-    local reward_objects = daily_data.reward_objects or {}
-    local seven_tasks = daily_data.seven_tasks or {}
-    local seven_deadline = daily_data.seven_deadline or 0
-    local sign_rewards = daily_data.sign_rewards
+    local code = packer.decode(daily_data) or {}
+    local timestamp = code.timestamp or 0
+    local task_objects = code.task_objects or {}
+    local reward_objects = code.reward_objects or {}
+    local seven_tasks = code.seven_tasks or {}
+    local seven_deadline = code.seven_deadline or 0
+    local sign_rewards = code.sign_rewards or {}
     for i,v in ipairs(task_objects) do
         local task_object = TaskObject.new(self.__role_object)
         task_object:load_task_object(v)
@@ -91,11 +92,11 @@ function DailyRuler:load_daily_data(daily_data)
     for i,v in ipairs(seven_tasks) do
         local task_index = v.task_index
         local seven_task = self:get_seven_task(task_index)
-        seven_task:load_task_object(v)
+        seven_task:load_seven_task(v)
     end
-    self:load_sign_rewards(sign_rewards)
     self.__timestamp = timestamp
     self.__seven_deadline = seven_deadline
+    self:load_sign_rewards(sign_rewards)
 end
 
 function DailyRuler:serialize_daily_data()
@@ -115,13 +116,12 @@ function DailyRuler:dump_daily_data()
 end
 
 function DailyRuler:dump_sign_rewards()
-    local sign_rewards = packer.encode(self.__sign_rewards)
-    return sign_rewards
+    return self.__sign_rewards
 end
 
 function DailyRuler:load_sign_rewards(sign_rewards)
     if not sign_rewards then return end
-    self.__sign_rewards = packer.decode(sign_rewards)
+    self.__sign_rewards = sign_rewards
 end
 
 function DailyRuler:dump_task_objects()
@@ -152,8 +152,8 @@ function DailyRuler:set_sign_rewards(sign_rewards)
     self.__sign_rewards = sign_rewards
 end
 
-function DailyRuler:get_sign_rewards()
-    return self.__sign_rewards
+function DailyRuler:get_sign_rewards(day_times)
+    return self.__sign_rewards[day_times]
 end
 
 function DailyRuler:unlock_seven_tasks()
@@ -407,10 +407,11 @@ function DailyRuler:seven_decoration_count(count)
 end
 
 function DailyRuler:check_seven_deadline(task_object,timestamp)
+    if self.__seven_deadline < timestamp then return false end
     local day_times = task_object:get_day_times()
-    local exits_time = (7 - day_times) * DAYTIME
+    local exits_time = (8 - day_times) * DAYTIME
     local deadline = self.__seven_deadline - exits_time
-    return timestamp <= deadline
+    return timestamp >= deadline
 end
 
 function DailyRuler:finish_seven(task_index,timestamp)

@@ -129,6 +129,7 @@ function AnimalObject:harvest_breed()
 	elseif item_index == 2005 then
 		self.__role_object:get_achievement_ruler():harvest_bacon(item_count)
 	end
+	self.__role_object:get_daily_ruler():main_task_feed(item_index)
 	return 0
 end
 

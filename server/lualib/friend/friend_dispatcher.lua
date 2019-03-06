@@ -44,6 +44,7 @@ function FriendDispatcher.dispatcher_thumb_up_friend(role_object,msg_data)
     end
     friend_ruler:add_thumb_up_account_id(account_id)
     local thumb_up = skynet.call("redisd","lua","thumb_up",account_id)
+    role_object:get_event_ruler():main_task_thumb_up()
     return {result = 0,thumb_up = thumb_up}
 end
 
@@ -121,6 +122,7 @@ function FriendDispatcher.dispatcher_access_manor(role_object,msg_data)
     end
     local player,subscribe_channel = role_object:get_cache_ruler():access_manor(account_id)
     role_object:subscribe(account_id,subscribe_channel)
+    role_object:get_event_ruler():main_task_access()
     return player
 end
 

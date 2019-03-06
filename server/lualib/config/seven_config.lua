@@ -19,8 +19,8 @@ data[1035] = { index = 1035,  daytimes = 6,  type = 10,  total = 15,  items = {5
 data[1036] = { index = 1036,  daytimes = 7,  type = 11,  total = 2,  items = {5007},  items_count = {1},  exp = 0,  title = "扩建未开放区域"}
 data[1037] = { index = 1037,  daytimes = 7,  type = 11,  total = 6,  items = {5008},  items_count = {1},  exp = 0,  title = "扩建未开放区域"}
 data[1038] = { index = 1038,  daytimes = 7,  type = 11,  total = 10,  items = {5009},  items_count = {1},  exp = 0,  title = "扩建未开放区域"}
-data[1039] = { index = 1039,  daytimes = 7,  type = 11,  total = 14,  items = {5007,5008,5009},  items_count = {2},  exp = 0,  title = "扩建未开放区域"}
-data[1040] = { index = 1040,  daytimes = 7,  type = 11,  total = 18,  items = {5007,5008,5009},  items_count = {3},  exp = 0,  title = "扩建未开放区域"}
+data[1039] = { index = 1039,  daytimes = 7,  type = 11,  total = 14,  items = {5007,5008,5009},  items_count = {2,2,2},  exp = 0,  title = "扩建未开放区域"}
+data[1040] = { index = 1040,  daytimes = 7,  type = 11,  total = 18,  items = {5007,5008,5009},  items_count = {3,3,3},  exp = 0,  title = "扩建未开放区域"}
 data[1041] = { index = 1041,  daytimes = 7,  type = 12,  total = 2,  items = {7001},  items_count = {200},  exp = 0,  title = "建造装饰物"}
 data[1042] = { index = 1042,  daytimes = 7,  type = 12,  total = 5,  items = {7001},  items_count = {500},  exp = 0,  title = "建造装饰物"}
 data[1043] = { index = 1043,  daytimes = 7,  type = 12,  total = 10,  items = {7002},  items_count = {10},  exp = 0,  title = "建造装饰物"}

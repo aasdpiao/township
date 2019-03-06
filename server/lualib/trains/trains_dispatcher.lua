@@ -119,6 +119,7 @@ function TrainDispatcher.dispatcher_finish_order_help(role_object,msg_data)
         role_object:add_friendly(friendly,SOURCE_CODE.help)
         role_object:get_daily_ruler():help_trains()
         role_object:get_daily_ruler():seven_help_trains()
+        role_object:get_event_ruler():main_task_help_trains()
     end
     return {result = result}
 end
