@@ -23,17 +23,17 @@ function EventDispatcher:init()
     self:register_c2s_callback("cancel_event",self.dispatcher_cancel_event)
     self:register_c2s_callback("finish_main_task",self.dispatcher_finish_main_task)
 
-    self:register_s2c_callback("event_update",self.dispatcher_event_update)
-    self:register_s2c_callback("unlock_main_task",self.dispatcher_unlock_main_task)
-    self:register_s2c_callback("finish_main_task",self.dispatcher_finish_main_task)
+    self:register_s2c_callback("event_update",self.dispatcher_s2c_event_update)
+    self:register_s2c_callback("unlock_main_task",self.dispatcher_s2c_unlock_main_task)
+    self:register_s2c_callback("finish_main_task",self.dispatcher_s2c_finish_main_task)
 
 end
 
-function EventDispatcher.dispatcher_event_update(role_object,args,msg_data)
+function EventDispatcher.dispatcher_s2c_event_update(role_object,args,msg_data)
 end
-function EventDispatcher.dispatcher_unlock_main_task(role_object,args,msg_data)
+function EventDispatcher.dispatcher_s2c_unlock_main_task(role_object,args,msg_data)
 end
-function EventDispatcher.dispatcher_finish_main_task(role_object,args,msg_data)
+function EventDispatcher.dispatcher_s2c_finish_main_task(role_object,args,msg_data)
 end
 
 function EventDispatcher.dispatcher_finish_main_task(role_object,msg_data)

@@ -5,6 +5,8 @@ request_daily 1701{
 	response {
                 task_objects 0 : *task_object
                 reward_objects 1 : *reward_object
+                task_index 2 : integer
+                main_tasks 3 : *task_object
 	}
 }
 

@@ -370,6 +370,7 @@ function GridRuler:finish_build(build_id,timestamp,item_objects)
     local unlock_entry = self:get_unlock_entry(build_id)
     assert(unlock_entry,"unlock_entry is nil "..build_id)
     local build_exp = unlock_entry:get_product_exp()
+    self.__role_object:get_event_ruler():main_task_build(build_index)
     self.__role_object:add_exp(build_exp,SOURCE_CODE.finish)
     self.__role_object:add_cash(cash,SOURCE_CODE.finish)
     return 0
@@ -466,7 +467,7 @@ function GridRuler:open_undevelop_object(timestamp,grid_id)
     self.__building_undevelops[grid_id] = undevelop_object
     self.__undevelop_count = self.__undevelop_count + 1
     self.__role_object:get_daily_ruler():seven_open_undevelop(self.__undevelop_count)
-    self.__role_object:get_event_ruler():open_undevelop_object(self.__undevelop_count)
+    self.__role_object:get_event_ruler():main_task_undevelop(self.__undevelop_count)
     return 0
 end
 

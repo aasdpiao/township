@@ -79,6 +79,7 @@ function EventRuler:load_event_data(event_data)
     self.__timestamp = code.timestamp or 0
     local evnet_objects = code.evnet_objects or {}
     local task_objects = code.task_objects or {}
+    self.__task_index = code.task_index or 1001
     self:load_event_objects(evnet_objects)
     self:load_task_objects(task_objects)
 end
@@ -265,11 +266,12 @@ function EventRuler:finish_main_task(task_index)
     return 0
 end
 
-function EventRuler:finsh_main_task_times(task_index,times)
+function EventRuler:finish_main_task_times(task_index,times)
     times = times or 1
     local task_object = self:get_task_object(task_index)
     if not task_object then return end
     task_object:finish_task_times(times)
+    if self.__task_index ~= task_index then return end
     if task_object:check_task_finish() then
         self.__role_object:send_request("finish_main_task",{task_index=task_index})
     end
@@ -280,6 +282,10 @@ function EventRuler:refresh_main_task_times(task_index,times)
     local task_object = self:get_task_object(task_index)
     if not task_object then return end
     task_object:refresh_task_times(times)
+    if self.__task_index ~= task_index then return end
+    if task_object:check_task_finish() then
+        self.__role_object:send_request("finish_main_task",{task_index=task_index})
+    end
 end
 
 function EventRuler:main_task_build(build_index)
@@ -287,7 +293,8 @@ function EventRuler:main_task_build(build_index)
     for i,v in ipairs(task_objects) do
         local relate_index = v:get_relate_index()
         if relate_index == build_index then
-            v:finsh_main_task_times()
+            local task_index = v:get_task_index()
+            self:finish_main_task_times(task_index)
         end
     end
 end
@@ -297,7 +304,8 @@ function EventRuler:main_task_factory(item_index,item_count)
     for i,v in ipairs(task_objects) do
         local relate_index = v:get_relate_index()
         if relate_index == item_index then
-            v:finsh_main_task_times(item_count)
+            local task_index = v:get_task_index()
+            self:finish_main_task_times(task_index,item_count)
         end
     end
 end
@@ -307,7 +315,8 @@ function EventRuler:main_task_plant(item_index)
     for i,v in ipairs(task_objects) do
         local relate_index = v:get_relate_index()
         if relate_index == item_index then
-            v:finsh_main_task_times()
+            local task_index = v:get_task_index()
+            self:finish_main_task_times(task_index)
         end
     end
 end
@@ -317,7 +326,8 @@ function EventRuler:main_task_feed(item_index)
     for i,v in ipairs(task_objects) do
         local relate_index = v:get_relate_index()
         if relate_index == item_index then
-            v:finsh_main_task_times()
+            local task_index = v:get_task_index()
+            self:finish_main_task_times(task_index)
         end
     end
 end 
@@ -325,92 +335,109 @@ end
 function EventRuler:main_task_helicopter()
     local task_objects = self:get_type_task_objects(task_const.helicopter)
     for i,v in ipairs(task_objects) do
-        v:finsh_main_task_times()
+        local task_index = v:get_task_index()
+        self:finish_main_task_times(task_index)
     end
 end
 
 function EventRuler:main_task_trains()
     local task_objects = self:get_type_task_objects(task_const.trains)
     for i,v in ipairs(task_objects) do
-        v:finsh_main_task_times()
+        local task_index = v:get_task_index()
+        self:finish_main_task_times(task_index)
     end
 end
 
 function EventRuler:main_task_undevelop(times)
     local task_objects = self:get_type_task_objects(task_const.undevelop)
     for i,v in ipairs(task_objects) do
-        v:refresh_task_times(times)
+        local task_index = v:get_task_index()
+        self:refresh_main_task_times(task_index,times)
     end
 end
 
 function EventRuler:main_task_event()
     local task_objects = self:get_type_task_objects(task_const.event)
     for i,v in ipairs(task_objects) do
-        v:finsh_main_task_times()
+        local task_index = v:get_task_index()
+        self:finish_main_task_times(task_index)
     end
 end
 
 function EventRuler:main_task_sale(times)
     local task_objects = self:get_type_task_objects(task_const.sale)
     for i,v in ipairs(task_objects) do
-        v:finsh_main_task_times(times)
+        local task_index = v:get_task_index()
+        self:finish_main_task_times(task_index,times)    
     end
 end
 
 function EventRuler:main_task_invite()
     local task_objects = self:get_type_task_objects(task_const.invite)
     for i,v in ipairs(task_objects) do
-        v:finsh_main_task_times()
+        local task_index = v:get_task_index()
+        self:finish_main_task_times(task_index)
     end
 end
 
 function EventRuler:main_task_access()
     local task_objects = self:get_type_task_objects(task_const.access)
     for i,v in ipairs(task_objects) do
-        v:finsh_main_task_times()
+        local task_index = v:get_task_index()
+        self:finish_main_task_times(task_index)    
     end
 end
 
 function EventRuler:main_task_thumb_up()
     local task_objects = self:get_type_task_objects(task_const.thumb_up)
     for i,v in ipairs(task_objects) do
-        v:finsh_main_task_times()
+        local task_index = v:get_task_index()
+        self:finish_main_task_times(task_index) 
     end
 end
 
 function EventRuler:main_task_help_trains()
     local task_objects = self:get_type_task_objects(task_const.help_trains)
     for i,v in ipairs(task_objects) do
-        v:finsh_main_task_times()
+        local task_index = v:get_task_index()
+        self:finish_main_task_times(task_index) 
     end
 end
 
 function EventRuler:main_task_help_water()
     local task_objects = self:get_type_task_objects(task_const.help_water)
     for i,v in ipairs(task_objects) do
-        v:finsh_main_task_times()
+        local task_index = v:get_task_index()
+        self:finish_main_task_times(task_index) 
     end
 end
 
 function EventRuler:main_task_build_road()
     local task_objects = self:get_type_task_objects(task_const.build_road)
     for i,v in ipairs(task_objects) do
-        v:finsh_main_task_times()
+        local task_index = v:get_task_index()
+        self:finish_main_task_times(task_index)
     end
 end
 
 function EventRuler:main_task_head_icon()
     local task_objects = self:get_type_task_objects(task_const.head_icon)
     for i,v in ipairs(task_objects) do
-        v:finsh_main_task_times()
+        local task_index = v:get_task_index()
+        self:finish_main_task_times(task_index)
     end
 end
 
 function EventRuler:main_task_upgrade_store(times)
     local task_objects = self:get_type_task_objects(task_const.upgrade_store)
     for i,v in ipairs(task_objects) do
-        v:refresh_task_times(times)
+        local task_index = v:get_task_index()
+        self:refresh_main_task_times(task_index,times)
     end
+end
+
+function EventRuler:get_task_index()
+    return self.__task_index    
 end
 
 return EventRuler

@@ -71,7 +71,11 @@ function DailyDispatcher.dispatcher_request_daily(role_object,msg_data)
     daily_ruler:refresh_daily(timestamp)
     local task_objects = daily_ruler:dump_task_objects()
     local reward_objects = daily_ruler:dump_reward_objects()
-    return {task_objects=task_objects,reward_objects=reward_objects}
+    local event_ruler = role_object:get_event_ruler()
+    local task_index = event_ruler:get_task_index()
+    local main_tasks = event_ruler:dump_task_objects()
+    return {task_objects=task_objects,reward_objects=reward_objects,
+        task_index = task_index,main_tasks = main_tasks}
 end
 
 return DailyDispatcher

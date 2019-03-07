@@ -347,6 +347,8 @@
 	event_objects 0 : *event_object
 	timestamp 1 : integer
 	event_seed 2 : integer
+	task_index 3 : integer
+	task_objects 4 : *task_object
 }
 
 .task_object{

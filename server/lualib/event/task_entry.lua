@@ -7,7 +7,7 @@ end
 
 function TaskEntry:load_task_entry(task_config)
 	self.__task_index = task_config.index
-	self.__task_type = task_config.task_type
+	self.__task_type = task_config.type
 	self.__relate_index = task_config.relate_index
 	self.__times = task_config.total
 	self.__exp = task_config.exp

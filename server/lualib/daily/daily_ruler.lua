@@ -94,6 +94,7 @@ function DailyRuler:load_daily_data(daily_data)
         local seven_task = self:get_seven_task(task_index)
         seven_task:load_seven_task(v)
     end
+    self:refresh_task_objects()
     self.__timestamp = timestamp
     self.__seven_deadline = seven_deadline
     self:load_sign_rewards(sign_rewards)

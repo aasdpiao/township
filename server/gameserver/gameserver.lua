@@ -166,11 +166,11 @@ function server.start(conf)
 		local u = assert(connection[fd], "invalid fd")
 		local ok, result = pcall(conf.request_handler, u.username, msg, sz)
 		if not ok then
-			skynet.error("do_request error")
+			syslog.debug("do_request error")
 		elseif not result then
-			
+			syslog.debug("do_request not result")
 		elseif #result == 0 then
-
+			syslog.debug("do_request result = 0")
 		else
 			socketdriver.send(fd, netpack.pack(result))
 		end
